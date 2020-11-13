@@ -1,8 +1,14 @@
 $color-black: #333333 !default;
+$color-white: #ffffff !default;
 
-$color-light-gray: #e5e5e5 !default;
-$color-dark-gray: #777777 !default;
+$color-light-gray-1: #fafafa !default;
+$color-light-gray-2: #e5e5e5 !default;
 
-$color-green: #1e8187 !default;
+$color-dark-gray-1: #777777 !default;
 
-$color-gold: #bca556 !default;
+$color-green-1: #1e8187 !default;
+
+$color-gold-1: #bca556 !default;
+
+$primary-color: $color-green-1;
+$secondary-color: $color-gold-1;

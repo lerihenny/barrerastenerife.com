@@ -24,8 +24,45 @@ h5,
 h6 {
   color: inherit;
 }
+a {
+  text-decoration: none;
+  color: $primary-color;
+
+  // &:visited {
+  //   color: $visit;
+  // }
+  // &:hover {
+  //   color: $hover;
+  // }
+  // &:active {
+  //   color: $active;
+  // }
+}
 body {
-  background-color: $color-light-gray;
+  background-color: $color-light-gray-1;
   color: $color-black;
   text-align: left;
+
+  header {
+    background: $primary-color;
+    padding: 1em;
+
+    a {
+      color: $color-white;
+    }
+  }
+  footer {
+    background: $primary-color;
+    color: $color-white;
+    padding: 1rem;
+
+    a {
+      color: $color-white;
+    }
+  }
+  .main-container {
+    margin-top: 92px;
+    padding: 1em;
+    min-height: calc(100vh - 92px - 52px);
+  }
 }
