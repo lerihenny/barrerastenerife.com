@@ -6,16 +6,20 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import { Container } from "@material-ui/core"
 import CustomThemeProvider from "./theme/CustomThemeProvider"
+import "../assets/scss/custom-theme.scss"
+
 import Header from "./Header"
 import Footer from "./Footer"
-import "../assets/scss/custom-theme.scss"
-import { Container } from "@material-ui/core"
 
-const Layout = ({ children }) => {
+interface Props {
+  children: any
+}
+
+const Layout = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -33,10 +37,6 @@ const Layout = ({ children }) => {
       <Footer />
     </CustomThemeProvider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
