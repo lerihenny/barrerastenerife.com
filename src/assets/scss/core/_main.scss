@@ -60,10 +60,34 @@ body {
       color: $color-white;
     }
   }
+
   .main-container {
+    position: relative;
     margin-top: 92px;
-    padding: 1em;
+    padding-left: 0;
+    padding-right: 0;
     min-height: calc(100vh - 92px - 52px);
+
+    @media (max-width: 600px) {
+      margin-top: 84px;
+    }
+
+    .main-slider {
+      height: calc(100vh - 92px);
+    }
+    .main-search-form {
+      padding: 2em;
+      position: absolute;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      height: 100%;
+      width: 350px;
+      margin: 0 50px;
+
+      button {
+        margin-top: 1em;
+      }
+    }
   }
 }
 .mr-auto {
@@ -85,11 +109,11 @@ body {
     }
 
     &::before {
-      background: $color-gold-1;
+      background: $secondary-color;
     }
 
     &::before {
-      background: $color-gold-1;
+      background: $secondary-color;
     }
 
     &:before {

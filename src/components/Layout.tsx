@@ -33,7 +33,9 @@ const Layout = ({ children }: Props) => {
   return (
     <CustomThemeProvider>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Container className="main-container">{children}</Container>
+      <Container maxWidth={false} className="main-container">
+        {children}
+      </Container>
       <Footer />
     </CustomThemeProvider>
   )

@@ -19,9 +19,9 @@ interface Props {
 const Header = ({ siteTitle = "" }: Props) => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo/logo-white-3.png" }) {
+      placeholderImage: file(relativePath: { eq: "logo/logo-navbar.png" }) {
         childImageSharp {
-          fixed(height: 40) {
+          fixed(height: 55) {
             ...GatsbyImageSharpFixed
           }
         }
