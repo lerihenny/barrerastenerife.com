@@ -42,8 +42,29 @@ $color-white: #ffffff !default;
 
 $color-light-gray-1: #fafafa !default;
 $color-light-gray-2: #e5e5e5 !default;
+$color-light-gray-3: #cccccc !default;
 
 $color-dark-gray-1: #777777 !default;
 
-$primary-color: $color-primary-2;
-$secondary-color: $color-secondary-1-2;
+$primary-color: $color-primary-0;
+$secondary-color: $color-secondary-1-0;
+
+$primary-color-gradient-background: linear-gradient(
+  110deg,
+  $color-primary-4,
+  $color-primary-2,
+  $color-primary-4
+);
+
+$primary-color-gradient-background-2: linear-gradient(
+  110deg,
+  $color-primary-2,
+  $color-primary-4
+);
+
+$secondary-color-gradient-background: linear-gradient(
+  110deg,
+  $color-secondary-1-0,
+  $color-secondary-1-1,
+  $color-secondary-1-0
+);

@@ -19,8 +19,7 @@ const MainSlider = () => {
 
   const SearchForm = () => {
     return (
-      <div className="main-search-form">
-        Buscador
+      <div className="main-search-form MuiPaper-elevation3">
         <form>
           <TextField fullWidth size="small" label="Tipo" variant="filled" />
           <TextField fullWidth size="small" label="Contrato" variant="filled" />
@@ -39,15 +38,28 @@ const MainSlider = () => {
     )
   }
 
+  const PropertyData = () => {
+    return (
+      <div className="main-slider-property-data MuiPaper-elevation5">
+        <h2 className="property-data-price">€ 100.000</h2>
+        <h2 className="property-data-title">Casa bonita</h2>
+        <h3 className="property-data-address">
+          Los Abrigos - Granadilla de Abona
+        </h3>
+      </div>
+    )
+  }
+
   return (
-    <>
+    <section className="main-slider">
       <Img
         fluid={data.placeholderImage.childImageSharp.fluid}
         alt=""
-        className="main-slider"
+        className="img-responsive crop-center"
       />
       <SearchForm />
-    </>
+      <PropertyData />
+    </section>
   )
 }
 
