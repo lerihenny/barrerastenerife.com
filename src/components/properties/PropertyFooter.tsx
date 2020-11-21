@@ -4,7 +4,7 @@ import CropFreeIcon from "@material-ui/icons/CropFree"
 import HotelIcon from "@material-ui/icons/Hotel"
 import BathtubIcon from "@material-ui/icons/Bathtub"
 
-const PropertyFooter = () => {
+const PropertyFooter: React.FC = () => {
   return (
     <CardActions classes={{ root: "property-card-actions" }}>
       <Grid container spacing={2}>

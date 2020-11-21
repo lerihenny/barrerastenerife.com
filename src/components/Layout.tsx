@@ -19,7 +19,7 @@ interface Props {
   children: any
 }
 
-const Layout = ({ children }: Props) => {
+const Layout: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

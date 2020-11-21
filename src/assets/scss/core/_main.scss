@@ -53,6 +53,9 @@ a {
   justify-content: center;
   align-items: center;
 }
+.text-center {
+  text-align: center;
+}
 .mr-3 {
   margin-right: 0.3em;
 }
@@ -77,10 +80,20 @@ body {
   footer {
     background: $primary-color;
     color: $color-white;
-    padding: 1rem;
+    padding: 2rem;
 
     a {
       color: $color-white;
+    }
+    p {
+      margin: 0;
+      line-height: 1.5;
+
+      &.footer-title {
+        margin-bottom: 5px;
+        font-size: 1.3em;
+        text-transform: uppercase;
+      }
     }
   }
 

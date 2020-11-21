@@ -18,7 +18,7 @@ interface FluidObject extends FluidObjectOriginal {
   originalName: string
 }
 
-const Properties = ({ featured }: Props) => {
+const Properties: React.FC<Props> = ({ featured }) => {
   const title = featured ? "Propiedades Destacadas" : "Propiedades"
 
   const data = useStaticQuery(graphql`

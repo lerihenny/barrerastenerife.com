@@ -7,7 +7,7 @@ interface Props {
   address: string
 }
 
-const PropertyDescription = ({ price, title, address }: Props) => {
+const PropertyDescription: React.FC<Props> = ({ price, title, address }) => {
   return (
     <CardContent classes={{ root: "property-card-content" }}>
       <Chip

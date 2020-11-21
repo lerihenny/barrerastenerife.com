@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import { Button, TextField } from "@material-ui/core"
 import SearchIcon from "@material-ui/icons/Search"
 
-const MainSlider = () => {
+const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "property1.jpg" }) {

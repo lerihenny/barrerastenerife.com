@@ -16,7 +16,7 @@ interface Props {
   siteTitle: string
 }
 
-const Header = ({ siteTitle = "" }: Props) => {
+const Header: React.FC<Props> = ({ siteTitle = "" }) => {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "logo/logo-navbar.png" }) {

@@ -11,7 +11,7 @@ interface Props {
   address: string
 }
 
-const PropertyCard = ({ image, price, title, address }: Props) => {
+const PropertyCard: React.FC<Props> = ({ image, price, title, address }) => {
   return (
     <Card>
       <div className="property-card-media">
