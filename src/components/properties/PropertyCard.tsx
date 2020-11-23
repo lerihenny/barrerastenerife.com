@@ -5,19 +5,29 @@ import PropertyDescription from "./PropertyDescription"
 import PropertyFooter from "./PropertyFooter"
 
 interface Props {
-  image: FluidObject
-  price: string
-  title: string
-  address: string
+  property: {
+    image: FluidObject
+    price: string
+    title: string
+    address: string
+  }
 }
 
-const PropertyCard: React.FC<Props> = ({ image, price, title, address }) => {
+const PropertyCard: React.FC<Props> = ({ property }) => {
   return (
     <Card>
       <div className="property-card-media">
-        <Img fluid={image} alt="" className="img-responsive crop-center" />
+        <Img
+          fluid={property.image}
+          alt={property.title}
+          className="img-responsive crop-center"
+        />
       </div>
-      <PropertyDescription price={price} title={title} address={address} />
+      <PropertyDescription
+        price={property.price}
+        title={property.title}
+        address={property.address}
+      />
       <PropertyFooter />
     </Card>
   )

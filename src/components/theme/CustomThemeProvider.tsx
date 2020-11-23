@@ -6,7 +6,7 @@ import ThemeConfig from "./theme.json"
 
 const theme = createMuiTheme(ThemeConfig)
 
-const CustomThemeProvider = ({ children }: any) => {
+const CustomThemeProvider: React.FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

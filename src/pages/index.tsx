@@ -5,15 +5,12 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import MainSlider from "../components/MainSlider"
 import Properties from "../components/properties/Properties"
-import { Hidden } from "@material-ui/core"
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Hidden xsDown>
-        <MainSlider />
-      </Hidden>
+      <MainSlider />
       <Properties featured />
     </Layout>
   )
