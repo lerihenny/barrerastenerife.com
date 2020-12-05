@@ -43,12 +43,12 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
           <Hidden smDown>
             <List className="top-menu ml-auto">
               <ListItem>
-                <Link to="/" activeClassName="active">
+                <Link to="/properties/rent" activeClassName="active">
                   Alquiler
                 </Link>
               </ListItem>
               <ListItem>
-                <Link to="/" activeClassName="active">
+                <Link to="/properties/sale" activeClassName="active">
                   Venta
                 </Link>
               </ListItem>

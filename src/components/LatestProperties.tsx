@@ -1,17 +1,10 @@
-import { Grid, Container } from "@material-ui/core"
 import React from "react"
-import PropertyCard from "./PropertyCard"
-import { propertyImages } from "../../qraphql/queries"
+import { Link } from "gatsby"
+import { Grid } from "@material-ui/core"
+import Img from "gatsby-image"
+import { propertyImages } from "../qraphql/queries"
 
-interface Props {
-  featured?: boolean
-  title?: string
-}
-
-const Properties: React.FC<Props> = ({
-  featured = false,
-  title = "Propiedades",
-}) => {
+const LatestProperties = () => {
   const images = propertyImages()
 
   const findImage = (image: string) =>
@@ -51,28 +44,20 @@ const Properties: React.FC<Props> = ({
   ]
 
   return (
-    <Container>
-      <Grid container spacing={3} className="properties-container">
-        <Grid item xs={12}>
-          <h2 className="properties-container-title">
-            {featured ? "Propiedades Destacadas" : title}
-          </h2>
+    <Grid container spacing={2}>
+      {properties.map(property => (
+        <Grid key={`latest-properties-${property.id}`} item xs={5}>
+          <Link to={`/property`}>
+            <Img
+              fluid={property.image}
+              alt={property.title}
+              className="img-responsive crop-center"
+            />
+          </Link>
         </Grid>
-        {properties.map(property => (
-          <Grid
-            key={`property-${property.id}`}
-            item
-            xs={12}
-            sm={6}
-            md={6}
-            lg={3}
-          >
-            <PropertyCard property={property} />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+      ))}
+    </Grid>
   )
 }
 
-export default Properties
+export default LatestProperties

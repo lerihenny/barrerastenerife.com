@@ -1,37 +1,47 @@
-import React from "react"
-import { CardActions, Grid, Tooltip } from "@material-ui/core"
-import CropFreeIcon from "@material-ui/icons/CropFree"
-import HotelIcon from "@material-ui/icons/Hotel"
-import BathtubIcon from "@material-ui/icons/Bathtub"
+import React from "react";
+import { CardActions, Grid } from "@material-ui/core";
+import CropFreeIcon from "@material-ui/icons/CropFree";
+import HotelIcon from "@material-ui/icons/Hotel";
+import BathtubIcon from "@material-ui/icons/Bathtub";
+import FooterItem from "./PropertyFooterItem";
 
-const PropertyFooter: React.FC = () => {
+interface Props {
+  detail?: boolean;
+}
+
+const PropertyFooter: React.FC<Props> = ({ detail = false }) => {
   return (
-    <CardActions classes={{ root: "property-card-actions" }}>
+    <CardActions
+      classes={{ root: `property-card-actions${detail ? "--detail" : ""}` }}
+    >
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <Tooltip title="Área" placement="top">
-            <span className="flex-center">
-              <CropFreeIcon className="mr-3" /> 120m
-            </span>
-          </Tooltip>
+          <FooterItem
+            detail={detail}
+            title="Área"
+            value="120m"
+            component={CropFreeIcon}
+          />
         </Grid>
         <Grid item xs={4}>
-          <Tooltip title="Habitaciones" placement="top">
-            <span className="flex-center">
-              <HotelIcon className="mr-3" /> 2
-            </span>
-          </Tooltip>
+          <FooterItem
+            detail={detail}
+            title="Habitaciones"
+            value="2"
+            component={HotelIcon}
+          />
         </Grid>
         <Grid item xs={4}>
-          <Tooltip title="Baños" placement="top">
-            <span className="flex-center">
-              <BathtubIcon className="mr-3" /> 1
-            </span>
-          </Tooltip>
+          <FooterItem
+            detail={detail}
+            title="Baños"
+            value="1"
+            component={BathtubIcon}
+          />
         </Grid>
       </Grid>
     </CardActions>
-  )
-}
+  );
+};
 
-export default PropertyFooter
+export default PropertyFooter;

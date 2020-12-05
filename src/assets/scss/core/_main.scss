@@ -74,7 +74,7 @@ body {
 
     a {
       color: $color-white;
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
   }
 
@@ -146,10 +146,7 @@ body {
       }
     }
 
-    .main-slider-property-data {
-      position: absolute;
-      bottom: 2em;
-      right: 2em;
+    .property-data {
       color: white;
       background: $primary-color-gradient-background-2;
       padding: 1em 2em;
@@ -166,6 +163,16 @@ body {
         margin: 0;
         font-size: 3em;
       }
+
+      hr {
+        border-color: white;
+      }
+    }
+
+    .main-slider-property-data {
+      position: absolute;
+      bottom: 2em;
+      right: 2em;
     }
   }
 }
@@ -267,8 +274,14 @@ body {
     }
   }
   .property-card-actions {
-    padding: 15px;
+    padding: 16px;
     color: $color-dark-gray-1;
     border-top: 1px solid $color-light-gray-3;
+
+    &--detail {
+      padding: 16px;
+      color: inherit;
+      border-top: 0;
+    }
   }
 }

@@ -93,7 +93,7 @@ const MainSlider: React.FC = () => {
 
   const PropertyData = () => {
     return (
-      <div className="main-slider-property-data MuiPaper-elevation5">
+      <div className="main-slider-property-data property-data MuiPaper-elevation5">
         <h2 className="property-data-price">€ 100.000</h2>
         <hr />
         <h2 className="property-data-title">Casa bonita</h2>

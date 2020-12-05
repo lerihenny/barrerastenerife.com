@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import YouTubeIcon from "@material-ui/icons/YouTube"
+import LatestProperties from "./LatestProperties"
 
 const Footer: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -40,6 +41,7 @@ const Footer: React.FC = () => {
         </Grid>
         <Grid item xs={12} sm>
           <p className="footer-title">Propiedades Destacadas</p>
+          <LatestProperties />
         </Grid>
         <Grid item xs={12} sm>
           <p className="footer-title">Contacto</p>
