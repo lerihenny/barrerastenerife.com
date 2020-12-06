@@ -1,10 +1,10 @@
-import { CardContent, Chip, Typography } from "@material-ui/core"
-import React from "react"
+import { CardContent, Chip, Typography } from "@material-ui/core";
+import React from "react";
 
 interface Props {
-  price: string
-  title: string
-  address: string
+  price: string;
+  title: string;
+  address: string;
 }
 
 const PropertyDescription: React.FC<Props> = ({ price, title, address }) => {
@@ -22,7 +22,7 @@ const PropertyDescription: React.FC<Props> = ({ price, title, address }) => {
         {address}
       </Typography>
     </CardContent>
-  )
-}
+  );
+};
 
-export default PropertyDescription
+export default PropertyDescription;

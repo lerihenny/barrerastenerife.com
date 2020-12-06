@@ -1,17 +1,13 @@
-import React from "react"
-import Img, { FluidObject } from "gatsby-image"
-import { Link } from "gatsby"
-import { Card } from "@material-ui/core"
-import PropertyDescription from "./PropertyDescription"
-import PropertyFooter from "./PropertyFooter"
+import React from "react";
+import Img, { FluidObject } from "gatsby-image";
+import { Link } from "gatsby";
+import { Card } from "@material-ui/core";
+import PropertyDescription from "./PropertyDescription";
+import PropertyFooter from "./PropertyFooter";
+import { Property } from "../../models/Property";
 
 interface Props {
-  property: {
-    image: FluidObject
-    price: string
-    title: string
-    address: string
-  }
+  property: Property;
 }
 
 const PropertyCard: React.FC<Props> = ({ property }) => {
@@ -33,7 +29,7 @@ const PropertyCard: React.FC<Props> = ({ property }) => {
         <PropertyFooter />
       </Card>
     </Link>
-  )
-}
+  );
+};
 
-export default PropertyCard
+export default PropertyCard;

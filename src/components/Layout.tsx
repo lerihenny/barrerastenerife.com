@@ -5,18 +5,18 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
-import { Container } from "@material-ui/core"
-import CustomThemeProvider from "./theme/CustomThemeProvider"
-import "../assets/scss/custom-theme.scss"
+import { Container } from "@material-ui/core";
+import CustomThemeProvider from "./theme/CustomThemeProvider";
+import "../assets/scss/custom-theme.scss";
 
-import Header from "./Header"
-import Footer from "./Footer"
+import Header from "./Header";
+import Footer from "./Footer";
 
 interface Props {
-  children: any
+  children: any;
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
@@ -28,7 +28,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <CustomThemeProvider>
@@ -38,7 +38,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       </Container>
       <Footer />
     </CustomThemeProvider>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

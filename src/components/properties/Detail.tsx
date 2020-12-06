@@ -1,31 +1,31 @@
-import React from "react"
+import React from "react";
 import {
   Container,
   Grid,
   Card,
   CardHeader,
   CardContent,
-} from "@material-ui/core"
-import ImageGallery from "react-image-gallery"
-import PropertyFooter from "./PropertyFooter"
-import { propertyImages } from "../../qraphql/queries"
-import { imageSetBySize } from "../../utils"
+} from "@material-ui/core";
+import ImageGallery from "react-image-gallery";
+import PropertyFooter from "./PropertyFooter";
+import { propertyImages } from "../../qraphql/queries";
+import { imageSetBySize } from "../../utils";
 
 interface Images {
-  original: string
-  thumbnail?: string
+  original: string;
+  thumbnail?: string;
 }
 
-const Property = () => {
-  const images: Array<Images> = []
-  const srcImages = propertyImages()
+const Detail = () => {
+  const images: Array<Images> = [];
+  const srcImages = propertyImages();
 
   Object.values(srcImages).map(image =>
     images.push({
       original: image.childImageSharp.fluid.srcWebp,
       thumbnail: imageSetBySize(image.childImageSharp.fluid.srcSetWebp, "200w"),
     })
-  )
+  );
 
   return (
     <>
@@ -122,7 +122,7 @@ const Property = () => {
         </Grid>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Property
+export default Detail;

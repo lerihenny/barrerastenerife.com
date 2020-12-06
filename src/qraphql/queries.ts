@@ -1,11 +1,12 @@
-import { useStaticQuery, graphql } from "gatsby"
-import { FluidObject } from "gatsby-image"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { FluidObject } from "gatsby-image";
 
 export const propertyImages = () => {
   interface PropertyImages {
     childImageSharp: {
-      fluid: FluidObject
-    }
+      fluid: FluidObject;
+    };
   }
 
   const query: PropertyImages = useStaticQuery(graphql`
@@ -39,7 +40,7 @@ export const propertyImages = () => {
         }
       }
     }
-  `)
+  `);
 
-  return query
-}
+  return query;
+};
