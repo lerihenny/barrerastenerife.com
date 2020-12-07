@@ -254,6 +254,30 @@ body {
   }
 }
 
+.side-menu {
+  background: $primary-color-gradient-background-2;
+  height: 100%;
+
+  &--list {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    font-size: 1.1rem;
+    line-height: 3rem;
+
+    a {
+      border-bottom: 1px solid $color-light-gray-3;
+      color: $color-white;
+    }
+  }
+
+  &--logo {
+    padding: 15px;
+    // background-color: #1e8187;
+    // margin-bottom: 30px;
+  }
+}
+
 .properties-container {
   padding: 2em;
 

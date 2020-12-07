@@ -9,6 +9,8 @@ import {
   IconButton,
   List,
   ListItem,
+  ListItemText,
+  SwipeableDrawer,
   Toolbar,
 } from "@material-ui/core";
 import Menu from "@material-ui/icons/Menu";
@@ -18,9 +20,11 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ siteTitle = "" }) => {
-  const data = useStaticQuery(graphql`
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+
+  const logo = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo/logo-navbar.png" }) {
+      top: file(relativePath: { eq: "logo/logo-navbar.png" }) {
         childImageSharp {
           fixed(height: 70) {
             ...GatsbyImageSharpFixed
@@ -30,38 +34,61 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
     }
   `);
 
+  const linkList = [
+    { to: "/properties/rent", text: "Alquiler" },
+    { to: "/properties/sale", text: "Venta" },
+    { to: "/about", text: "Quienes Somos" },
+    { to: "/contact", text: "Contacto" },
+  ];
+
+  const toggleDrawer = (open: boolean) => (event: any) => {
+    setIsDrawerOpen(open);
+  };
+
+  const NavList = () => (
+    <div
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+      className="side-menu"
+    >
+      <div className="side-menu--logo">
+        <Link to="/">
+          <Img fixed={logo.top.childImageSharp.fixed} alt={siteTitle} />
+        </Link>
+      </div>
+      <List disablePadding className="side-menu--list">
+        {/* <ListItem button>
+          <ListItemIcon>
+            <MailIcon />
+          </ListItemIcon>
+          <ListItemText primary="Alquiler" />
+        </ListItem> */}
+        {linkList.map(link => (
+          <Link to={link.to} activeClassName="active">
+            <ListItem button>{link.text}</ListItem>
+          </Link>
+        ))}
+      </List>
+    </div>
+  );
+
   return (
     <AppBar position="fixed">
       <Container>
         <Toolbar disableGutters>
           <Link to="/">
-            <Img
-              fixed={data.placeholderImage.childImageSharp.fixed}
-              alt={siteTitle}
-            />
+            <Img fixed={logo.top.childImageSharp.fixed} alt={siteTitle} />
           </Link>
           <Hidden smDown>
             <List className="top-menu ml-auto">
-              <ListItem>
-                <Link to="/properties/rent" activeClassName="active">
-                  Alquiler
-                </Link>
-              </ListItem>
-              <ListItem>
-                <Link to="/properties/sale" activeClassName="active">
-                  Venta
-                </Link>
-              </ListItem>
-              <ListItem>
-                <Link to="/about" activeClassName="active">
-                  Quienes Somos
-                </Link>
-              </ListItem>
-              <ListItem>
-                <Link to="/contact" activeClassName="active">
-                  Contacto
-                </Link>
-              </ListItem>
+              {linkList.map(link => (
+                <ListItem>
+                  <Link to={link.to} activeClassName="active">
+                    {link.text}
+                  </Link>
+                </ListItem>
+              ))}
             </List>
           </Hidden>
           <Hidden mdUp>
@@ -69,9 +96,17 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
               color="inherit"
               aria-label="open drawer"
               className="ml-auto"
+              onClick={toggleDrawer(true)}
             >
               <Menu />
             </IconButton>
+            <SwipeableDrawer
+              open={isDrawerOpen}
+              onClose={toggleDrawer(false)}
+              onOpen={toggleDrawer(true)}
+            >
+              <NavList />
+            </SwipeableDrawer>
           </Hidden>
         </Toolbar>
       </Container>

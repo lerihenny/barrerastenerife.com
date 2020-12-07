@@ -19,7 +19,7 @@ const SearchForm: React.FC = () => {
       <Card className="full-search-form">
         <CardContent>
           <Grid container spacing={2}>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <FormControl fullWidth variant="filled">
                 <InputLabel id="search-type-label">Tipo</InputLabel>
                 <Select
@@ -39,7 +39,7 @@ const SearchForm: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <FormControl fullWidth variant="filled">
                 <InputLabel id="search-contract-label">Contrato</InputLabel>
                 <Select
@@ -59,7 +59,7 @@ const SearchForm: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <FormControl fullWidth variant="filled">
                 <InputLabel id="search-price-label">Precio</InputLabel>
                 <Select
@@ -84,7 +84,7 @@ const SearchForm: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <FormControl fullWidth variant="filled">
                 <InputLabel id="search-size-label">Tamaño</InputLabel>
                 <Select
@@ -107,7 +107,7 @@ const SearchForm: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <FormControl fullWidth variant="filled">
                 <InputLabel id="search-rooms-label">Habitaciones</InputLabel>
                 <Select
@@ -130,7 +130,7 @@ const SearchForm: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <FormControl fullWidth variant="filled">
                 <InputLabel id="search-baths-label">Baños</InputLabel>
                 <Select
