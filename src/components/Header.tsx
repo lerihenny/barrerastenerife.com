@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from "react";
+import { Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 import {
   AppBar,
   Container,
@@ -10,11 +10,11 @@ import {
   List,
   ListItem,
   Toolbar,
-} from "@material-ui/core"
-import Menu from "@material-ui/icons/Menu"
+} from "@material-ui/core";
+import Menu from "@material-ui/icons/Menu";
 
 interface Props {
-  siteTitle: string
+  siteTitle: string;
 }
 
 const Header: React.FC<Props> = ({ siteTitle = "" }) => {
@@ -28,7 +28,7 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <AppBar position="fixed">
@@ -53,12 +53,12 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
                 </Link>
               </ListItem>
               <ListItem>
-                <Link to="/" activeClassName="active">
+                <Link to="/about" activeClassName="active">
                   Quienes Somos
                 </Link>
               </ListItem>
               <ListItem>
-                <Link to="/" activeClassName="active">
+                <Link to="/contact" activeClassName="active">
                   Contacto
                 </Link>
               </ListItem>
@@ -76,7 +76,7 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
         </Toolbar>
       </Container>
     </AppBar>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
