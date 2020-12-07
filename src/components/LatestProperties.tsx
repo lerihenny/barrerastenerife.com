@@ -1,16 +1,16 @@
-import React from "react"
-import { Link } from "gatsby"
-import { Grid } from "@material-ui/core"
-import Img from "gatsby-image"
-import { propertyImages } from "../qraphql/queries"
+import React from "react";
+import { Link } from "gatsby";
+import { Grid } from "@material-ui/core";
+import Img from "gatsby-image";
+import { propertyImages } from "../qraphql/queries";
 
 const LatestProperties = () => {
-  const images = propertyImages()
+  const images = propertyImages();
 
   const findImage = (image: string) =>
     Object.values(images).find(srcImage =>
       srcImage.childImageSharp.fluid.src.endsWith(image)
-    ).childImageSharp.fluid
+    ).childImageSharp.fluid;
 
   const properties = [
     {
@@ -41,12 +41,12 @@ const LatestProperties = () => {
       address: "Los Abrigos - Granadilla de Abona",
       image: findImage("property4.jpg"),
     },
-  ]
+  ];
 
   return (
     <Grid container spacing={2}>
       {properties.map(property => (
-        <Grid key={`latest-properties-${property.id}`} item xs={5}>
+        <Grid key={`latest-properties-${property.id}`} item xs={3}>
           <Link to={`/property`}>
             <Img
               fluid={property.image}
@@ -57,7 +57,7 @@ const LatestProperties = () => {
         </Grid>
       ))}
     </Grid>
-  )
-}
+  );
+};
 
-export default LatestProperties
+export default LatestProperties;

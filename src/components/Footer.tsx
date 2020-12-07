@@ -1,11 +1,11 @@
-import React from "react"
-import { Grid } from "@material-ui/core"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import FacebookIcon from "@material-ui/icons/Facebook"
-import InstagramIcon from "@material-ui/icons/Instagram"
-import YouTubeIcon from "@material-ui/icons/YouTube"
-import LatestProperties from "./LatestProperties"
+import React from "react";
+import { Grid } from "@material-ui/core";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import LatestProperties from "./LatestProperties";
 
 const Footer: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -18,12 +18,12 @@ const Footer: React.FC = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <footer>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm>
+      <Grid container spacing={5}>
+        <Grid item xs={12} sm={3}>
           <Link to="/">
             <Img fixed={data.placeholderImage.childImageSharp.fixed} />
           </Link>
@@ -39,15 +39,16 @@ const Footer: React.FC = () => {
             </Link>
           </div>
         </Grid>
-        <Grid item xs={12} sm>
+        <Grid item xs={12} sm={6}>
           <p className="footer-title">Propiedades Destacadas</p>
           <LatestProperties />
         </Grid>
-        <Grid item xs={12} sm>
+        <Grid item xs={12} sm={3}>
           <p className="footer-title">Contacto</p>
-          <p>Av. Los Abrigos, 32</p>
-          <p>38618 Los Abrigos</p>
-          <p>Santa Cruz de Tenerife</p>
+          <p>Av. Los Abrigos, 32.</p>
+          <p>Los Abrigos.</p>
+          <p>Santa Cruz de Tenerife.</p>
+          <p>38618</p>
           <p>+34 822 29 81 28</p>
         </Grid>
         <Grid item xs={12} className="text-center">
@@ -55,7 +56,7 @@ const Footer: React.FC = () => {
         </Grid>
       </Grid>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

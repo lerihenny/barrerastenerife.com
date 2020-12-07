@@ -62,9 +62,21 @@ $primary-color-gradient-background-2: linear-gradient(
   $color-primary-4
 );
 
+$primary-color-gradient-background-3: linear-gradient(
+  to bottom,
+  $color-primary-2,
+  $color-primary-4
+);
+
 $secondary-color-gradient-background: linear-gradient(
   110deg,
   $color-secondary-1-0,
+  $color-secondary-1-1,
+  $color-secondary-1-0
+);
+
+$secondary-color-gradient-background-2: linear-gradient(
+  to bottom,
   $color-secondary-1-1,
   $color-secondary-1-0
 );
