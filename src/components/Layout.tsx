@@ -14,6 +14,7 @@ import "../assets/scss/custom-theme.scss";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import { RepositoryProvider } from "../context/repository";
 
 interface Props {
   children: any;
@@ -32,11 +33,13 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <CustomThemeProvider>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Container maxWidth={false} className="main-container">
-        {children}
-      </Container>
-      <Footer />
+      <RepositoryProvider>
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <Container maxWidth={false} className="main-container">
+          {children}
+        </Container>
+        <Footer />
+      </RepositoryProvider>
     </CustomThemeProvider>
   );
 };
