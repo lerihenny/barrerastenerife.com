@@ -64,8 +64,12 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
           </ListItemIcon>
           <ListItemText primary="Alquiler" />
         </ListItem> */}
-        {linkList.map(link => (
-          <Link to={link.to} activeClassName="active">
+        {linkList.map((link, index) => (
+          <Link
+            key={`${link.text.toLowerCase().replace(" ", "-")}-${index}`}
+            to={link.to}
+            activeClassName="active"
+          >
             <ListItem button>{link.text}</ListItem>
           </Link>
         ))}
@@ -82,8 +86,10 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
           </Link>
           <Hidden smDown>
             <List className="top-menu ml-auto">
-              {linkList.map(link => (
-                <ListItem>
+              {linkList.map((link, index) => (
+                <ListItem
+                  key={`${link.text.toLowerCase().replace(" ", "-")}-${index}`}
+                >
                   <Link to={link.to} activeClassName="active">
                     {link.text}
                   </Link>

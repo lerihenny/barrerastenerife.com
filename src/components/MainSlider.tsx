@@ -1,22 +1,16 @@
-import React, { useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import {
   Button,
   Container,
   TextField,
   Hidden,
-  Select,
-  FormControl,
   InputLabel,
   MenuItem,
-} from "@material-ui/core"
-import SearchIcon from "@material-ui/icons/Search"
-
-interface Form {
-  type: string
-  contract: string
-}
+} from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
+import Select from "./Select";
 
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -29,54 +23,33 @@ const MainSlider: React.FC = () => {
         }
       }
     }
-  `)
+  `);
 
   const SearchForm = () => {
-    const [state, setState] = useState<Form>({
-      type: "",
-      contract: "",
-    })
-
     return (
       <div className="main-search-form MuiPaper-elevation3">
         <form>
-          <FormControl fullWidth variant="filled">
-            <InputLabel id="search-type-label">Tipo</InputLabel>
-            <Select
-              labelId="search-type-label"
-              id="search-type"
-              label="Tipo"
-              name="type"
-              classes={{ root: "main-search-select" }}
-              // onChange={handleChange}
-              value=""
-            >
-              <MenuItem value={0}>
-                <em>Todos</em>
-              </MenuItem>
-              <MenuItem value={10}>Piso</MenuItem>
-              <MenuItem value={20}>Casa</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl fullWidth variant="filled">
-            <InputLabel id="search-contract-label">Contrato</InputLabel>
-            <Select
-              labelId="search-contract-label"
-              id="search-contract"
-              label="Contrato"
-              name="contract"
-              classes={{ root: "main-search-select" }}
-              // onChange={handleChange}
-              value=""
-            >
-              <MenuItem value={0}>
-                <em>Todos</em>
-              </MenuItem>
-              <MenuItem value={10}>Alquiler</MenuItem>
-              <MenuItem value={20}>Venta</MenuItem>
-            </Select>
-          </FormControl>
-          <TextField fullWidth size="small" label="Zona" variant="filled" />
+          <Select label="Tipo" items={["Todos", "Piso", "Casa"]} value={0} />
+          <Select
+            label="Contrato"
+            items={["Todos", "Alquiler", "Venta"]}
+            value={0}
+          />
+          <Select
+            label="Precio"
+            items={[
+              "Todos",
+              "Menos de € 500",
+              "€ 500 - € 600",
+              "€ 600 - € 700",
+              "€ 700 - € 800",
+              "€ 800 - € 900",
+              "€ 900 - € 1000",
+              "Más de € 1000",
+            ]}
+            value={0}
+          />
+          <Select label="Zona" items={["Todas las zonas"]} value={0} />
           <Button
             fullWidth
             variant="contained"
@@ -88,8 +61,8 @@ const MainSlider: React.FC = () => {
           </Button>
         </form>
       </div>
-    )
-  }
+    );
+  };
 
   const PropertyData = () => {
     return (
@@ -101,8 +74,8 @@ const MainSlider: React.FC = () => {
           Los Abrigos - Granadilla de Abona
         </h3>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <section className="main-slider">
@@ -111,14 +84,14 @@ const MainSlider: React.FC = () => {
         alt=""
         className="img-responsive crop-center"
       />
-      <Container>
+      <Container className="main-slider-container">
         <Hidden xsDown>
           <SearchForm />
         </Hidden>
         <PropertyData />
       </Container>
     </section>
-  )
-}
+  );
+};
 
-export default MainSlider
+export default MainSlider;

@@ -8,10 +8,10 @@ import {
   Grid,
   InputLabel,
   MenuItem,
-  Select,
   TextField,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import Select from "../Select";
 
 const SearchForm: React.FC = () => {
   return (
@@ -20,141 +20,65 @@ const SearchForm: React.FC = () => {
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
-              <FormControl fullWidth variant="filled">
-                <InputLabel id="search-type-label">Tipo</InputLabel>
-                <Select
-                  labelId="search-type-label"
-                  id="search-type"
-                  label="Tipo"
-                  name="type"
-                  classes={{ root: "main-search-select" }}
-                  // onChange={handleChange}
-                  value=""
-                >
-                  <MenuItem value={0}>
-                    <em>Todos</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Piso</MenuItem>
-                  <MenuItem value={20}>Casa</MenuItem>
-                </Select>
-              </FormControl>
+              <Select
+                label="Tipo"
+                items={["Todos", "Piso", "Casa"]}
+                value={0}
+              />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <FormControl fullWidth variant="filled">
-                <InputLabel id="search-contract-label">Contrato</InputLabel>
-                <Select
-                  labelId="search-contract-label"
-                  id="search-contract"
-                  label="Contrato"
-                  name="contract"
-                  classes={{ root: "main-search-select" }}
-                  // onChange={handleChange}
-                  value=""
-                >
-                  <MenuItem value={0}>
-                    <em>Todos</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Alquiler</MenuItem>
-                  <MenuItem value={20}>Venta</MenuItem>
-                </Select>
-              </FormControl>
+              <Select
+                label="Contrato"
+                items={["Todos", "Alquiler", "Venta"]}
+                value={0}
+              />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <FormControl fullWidth variant="filled">
-                <InputLabel id="search-price-label">Precio</InputLabel>
-                <Select
-                  labelId="search-price-label"
-                  id="search-price"
-                  label="Precio"
-                  name="price"
-                  classes={{ root: "main-search-select" }}
-                  // onChange={handleChange}
-                  value=""
-                >
-                  <MenuItem value={0}>
-                    <em>Todos</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Menos de € 500</MenuItem>
-                  <MenuItem value={20}>€ 500 - € 600</MenuItem>
-                  <MenuItem value={30}>€ 600 - € 700</MenuItem>
-                  <MenuItem value={40}>€ 700 - € 800</MenuItem>
-                  <MenuItem value={50}>€ 800 - € 900</MenuItem>
-                  <MenuItem value={60}>€ 900 - € 1000</MenuItem>
-                  <MenuItem value={60}>Más de € 1000</MenuItem>
-                </Select>
-              </FormControl>
+              <Select
+                label="Precio"
+                items={[
+                  "Todos",
+                  "Menos de € 500",
+                  "€ 500 - € 600",
+                  "€ 600 - € 700",
+                  "€ 700 - € 800",
+                  "€ 800 - € 900",
+                  "€ 900 - € 1000",
+                  "Más de € 1000",
+                ]}
+                value={0}
+              />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <FormControl fullWidth variant="filled">
-                <InputLabel id="search-size-label">Tamaño</InputLabel>
-                <Select
-                  labelId="search-size-label"
-                  id="search-size"
-                  label="Tamaño"
-                  name="size"
-                  classes={{ root: "main-search-select" }}
-                  // onChange={handleChange}
-                  value=""
-                >
-                  <MenuItem value={0}>
-                    <em>Todos</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Menos de 50m</MenuItem>
-                  <MenuItem value={20}>50m - 100m</MenuItem>
-                  <MenuItem value={30}>100m - 150m</MenuItem>
-                  <MenuItem value={40}>150m - 200m</MenuItem>
-                  <MenuItem value={50}>Más de 200m</MenuItem>
-                </Select>
-              </FormControl>
+              <Select
+                label="Tamaño"
+                items={[
+                  "Todos",
+                  "Menos de 50m",
+                  "50m - 100m",
+                  "100m - 150m",
+                  "150m - 200m",
+                  "Más de 200m",
+                ]}
+                value={0}
+              />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <FormControl fullWidth variant="filled">
-                <InputLabel id="search-rooms-label">Habitaciones</InputLabel>
-                <Select
-                  labelId="search-rooms-label"
-                  id="search-rooms"
-                  label="Habitaciones"
-                  name="rooms"
-                  classes={{ root: "main-search-select" }}
-                  // onChange={handleChange}
-                  value=""
-                >
-                  <MenuItem value={0}>
-                    <em>Todos</em>
-                  </MenuItem>
-                  <MenuItem value={10}>1</MenuItem>
-                  <MenuItem value={20}>2</MenuItem>
-                  <MenuItem value={30}>3</MenuItem>
-                  <MenuItem value={40}>4</MenuItem>
-                  <MenuItem value={50}>Más de 4</MenuItem>
-                </Select>
-              </FormControl>
+              <Select
+                label="Habitaciones"
+                items={["Todos", "1", "2", "3", "4", "Más de 4"]}
+                value={0}
+              />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <FormControl fullWidth variant="filled">
-                <InputLabel id="search-baths-label">Baños</InputLabel>
-                <Select
-                  labelId="search-baths-label"
-                  id="search-baths"
-                  label="Baños"
-                  name="baths"
-                  classes={{ root: "main-search-select" }}
-                  // onChange={handleChange}
-                  value=""
-                >
-                  <MenuItem value={0}>
-                    <em>Todos</em>
-                  </MenuItem>
-                  <MenuItem value={10}>1</MenuItem>
-                  <MenuItem value={20}>2</MenuItem>
-                  <MenuItem value={30}>3</MenuItem>
-                  <MenuItem value={40}>4</MenuItem>
-                  <MenuItem value={50}>Más de 4</MenuItem>
-                </Select>
-              </FormControl>
+              <Select
+                label="Baños"
+                items={["Todos", "1", "2", "3", "4", "Más de 4"]}
+                value={0}
+              />
             </Grid>
             <Grid item xs={12}>
-              <TextField fullWidth size="small" label="Zona" variant="filled" />
+              <Select label="Zona" items={["Todas las zonas"]} value={0} />
             </Grid>
             <Grid item xs={12}>
               <Button
