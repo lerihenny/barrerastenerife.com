@@ -5,15 +5,16 @@ import SEO from "../../components/SEO";
 import List from "../../components/properties/List";
 import SearchForm from "../../components/properties/SearchForm";
 import { useRepository } from "../../context/repository";
+import { type } from "../../constants";
 
 const Properties: React.FC<PageProps> = () => {
+  const title = "Casas / Villas";
   const { properties } = useRepository();
-  const title = "Propiedades en alquiler";
 
   return (
     <Layout>
       <SEO title={title} />
-      <SearchForm />
+      <SearchForm type={type.indexOf(title)} />
       <List title={title} properties={properties} />
     </Layout>
   );

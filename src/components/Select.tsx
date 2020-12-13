@@ -5,9 +5,17 @@ interface Props {
   label: string;
   items: string[];
   value: number;
+  onChange?: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
-const Select: React.FC<Props> = ({ label, items, value }) => {
+const Select: React.FC<Props> = ({
+  label,
+  items,
+  value,
+  onChange = () => {},
+}) => {
   const labelToId = () => {
     return label.toLowerCase().replace(" ", "-");
   };
@@ -21,9 +29,11 @@ const Select: React.FC<Props> = ({ label, items, value }) => {
         fullWidth
         select
         id={labelToId()}
+        name={labelToId()}
         size="small"
         variant="filled"
         value={value}
+        onChange={onChange}
       >
         {items.map((item: string, index: number) => (
           <MenuItem key={`${labelToId()}-${index}`} value={index}>

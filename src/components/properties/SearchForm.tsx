@@ -1,19 +1,28 @@
 import React from "react";
-import {
-  Button,
-  Card,
-  CardContent,
-  Container,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  TextField,
-} from "@material-ui/core";
+import { Button, Card, CardContent, Container, Grid } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "../Select";
+import * as constants from "../../constants";
 
-const SearchForm: React.FC = () => {
+interface Props {
+  type?: number;
+}
+
+const SearchForm: React.FC<Props> = ({ type = 0 }) => {
+  const [state, setState] = React.useState({
+    tipo: type,
+    contrato: 0,
+    precio: 0,
+    tamaño: 0,
+    habitaciones: 0,
+    baños: 0,
+    zonas: 0,
+  });
+
+  const handleChange = (event: any) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+
   return (
     <Container>
       <Card className="full-search-form">
@@ -22,63 +31,58 @@ const SearchForm: React.FC = () => {
             <Grid item xs={12} sm={4}>
               <Select
                 label="Tipo"
-                items={["Todos", "Piso", "Casa"]}
-                value={0}
+                items={constants.type}
+                value={state.tipo}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
                 label="Contrato"
-                items={["Todos", "Alquiler", "Venta"]}
-                value={0}
+                items={constants.contract}
+                value={state.contrato}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
                 label="Precio"
-                items={[
-                  "Todos",
-                  "Menos de € 500",
-                  "€ 500 - € 600",
-                  "€ 600 - € 700",
-                  "€ 700 - € 800",
-                  "€ 800 - € 900",
-                  "€ 900 - € 1000",
-                  "Más de € 1000",
-                ]}
-                value={0}
+                items={constants.price}
+                value={state.precio}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
                 label="Tamaño"
-                items={[
-                  "Todos",
-                  "Menos de 50m",
-                  "50m - 100m",
-                  "100m - 150m",
-                  "150m - 200m",
-                  "Más de 200m",
-                ]}
-                value={0}
+                items={constants.size}
+                value={state.tamaño}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
                 label="Habitaciones"
-                items={["Todos", "1", "2", "3", "4", "Más de 4"]}
-                value={0}
+                items={constants.rooms}
+                value={state.habitaciones}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
                 label="Baños"
-                items={["Todos", "1", "2", "3", "4", "Más de 4"]}
-                value={0}
+                items={constants.baths}
+                value={state.baños}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
-              <Select label="Zona" items={["Todas las zonas"]} value={0} />
+              <Select
+                label="Zonas"
+                items={constants.zones}
+                value={state.zonas}
+                onChange={handleChange}
+              />
             </Grid>
             <Grid item xs={12}>
               <Button

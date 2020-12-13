@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
+import * as constants from "../constants";
 
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -26,30 +27,44 @@ const MainSlider: React.FC = () => {
   `);
 
   const SearchForm = () => {
+    const [state, setState] = React.useState({
+      tipo: 0,
+      contrato: 0,
+      precio: 0,
+      zonas: 0,
+    });
+
+    const handleChange = (event: any) => {
+      setState({ ...state, [event.target.name]: event.target.value });
+    };
+
     return (
       <div className="main-search-form MuiPaper-elevation3">
         <form>
-          <Select label="Tipo" items={["Todos", "Piso", "Casa"]} value={0} />
+          <Select
+            label="Tipo"
+            items={constants.type}
+            value={state.tipo}
+            onChange={handleChange}
+          />
           <Select
             label="Contrato"
-            items={["Todos", "Alquiler", "Venta"]}
-            value={0}
+            items={constants.contract}
+            value={state.contrato}
+            onChange={handleChange}
           />
           <Select
             label="Precio"
-            items={[
-              "Todos",
-              "Menos de € 500",
-              "€ 500 - € 600",
-              "€ 600 - € 700",
-              "€ 700 - € 800",
-              "€ 800 - € 900",
-              "€ 900 - € 1000",
-              "Más de € 1000",
-            ]}
-            value={0}
+            items={constants.price}
+            value={state.precio}
+            onChange={handleChange}
           />
-          <Select label="Zona" items={["Todas las zonas"]} value={0} />
+          <Select
+            label="Zonas"
+            items={constants.zones}
+            value={state.zonas}
+            onChange={handleChange}
+          />
           <Button
             fullWidth
             variant="contained"

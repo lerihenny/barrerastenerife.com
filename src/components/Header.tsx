@@ -9,9 +9,10 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemText,
+  Slide,
   SwipeableDrawer,
   Toolbar,
+  useScrollTrigger,
 } from "@material-ui/core";
 import Menu from "@material-ui/icons/Menu";
 
@@ -19,7 +20,21 @@ interface Props {
   siteTitle: string;
 }
 
-const Header: React.FC<Props> = ({ siteTitle = "" }) => {
+interface HideOnScrollProps {
+  children: React.ReactElement;
+}
+
+const HideOnScroll: React.FC<HideOnScrollProps> = ({ children }) => {
+  const trigger = useScrollTrigger({ target: undefined });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+};
+
+const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   const logo = useStaticQuery(graphql`
@@ -35,8 +50,9 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
   `);
 
   const linkList = [
-    { to: "/properties/rent", text: "Alquiler" },
-    { to: "/properties/sale", text: "Venta" },
+    { to: "/properties/apartment", text: "Apartamentos" },
+    { to: "/properties/house", text: "Casas / Villas" },
+    { to: "/properties/luxury", text: "Lujo" },
     { to: "/about", text: "Quienes Somos" },
     { to: "/contact", text: "Contacto" },
   ];
@@ -78,45 +94,49 @@ const Header: React.FC<Props> = ({ siteTitle = "" }) => {
   );
 
   return (
-    <AppBar position="fixed">
-      <Container>
-        <Toolbar disableGutters>
-          <Link to="/">
-            <Img fixed={logo.top.childImageSharp.fixed} alt={siteTitle} />
-          </Link>
-          <Hidden smDown>
-            <List className="top-menu ml-auto">
-              {linkList.map((link, index) => (
-                <ListItem
-                  key={`${link.text.toLowerCase().replace(" ", "-")}-${index}`}
-                >
-                  <Link to={link.to} activeClassName="active">
-                    {link.text}
-                  </Link>
-                </ListItem>
-              ))}
-            </List>
-          </Hidden>
-          <Hidden mdUp>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              className="ml-auto"
-              onClick={toggleDrawer(true)}
-            >
-              <Menu />
-            </IconButton>
-            <SwipeableDrawer
-              open={isDrawerOpen}
-              onClose={toggleDrawer(false)}
-              onOpen={toggleDrawer(true)}
-            >
-              <NavList />
-            </SwipeableDrawer>
-          </Hidden>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <HideOnScroll {...rest}>
+      <AppBar position="fixed">
+        <Container>
+          <Toolbar disableGutters>
+            <Link to="/">
+              <Img fixed={logo.top.childImageSharp.fixed} alt={siteTitle} />
+            </Link>
+            <Hidden smDown>
+              <List className="top-menu ml-auto">
+                {linkList.map((link, index) => (
+                  <ListItem
+                    key={`${link.text
+                      .toLowerCase()
+                      .replace(" ", "-")}-${index}`}
+                  >
+                    <Link to={link.to} activeClassName="active">
+                      {link.text}
+                    </Link>
+                  </ListItem>
+                ))}
+              </List>
+            </Hidden>
+            <Hidden mdUp>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                className="ml-auto"
+                onClick={toggleDrawer(true)}
+              >
+                <Menu />
+              </IconButton>
+              <SwipeableDrawer
+                open={isDrawerOpen}
+                onClose={toggleDrawer(false)}
+                onOpen={toggleDrawer(true)}
+              >
+                <NavList />
+              </SwipeableDrawer>
+            </Hidden>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </HideOnScroll>
   );
 };
 
