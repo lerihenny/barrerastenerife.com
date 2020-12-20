@@ -60,6 +60,15 @@ p {
 .text-center {
   text-align: center;
 }
+.text-right {
+  text-align: end;
+}
+.m-4 {
+  margin: 0.5em;
+}
+.m-5 {
+  margin: 1em;
+}
 .mr-3 {
   margin-right: 0.3em;
 }
@@ -84,11 +93,29 @@ body {
 
   header {
     background: $primary-color;
-    padding: 1em;
+
+    .contact-bar {
+      background-color: $color-white;
+      color: $color-black;
+
+      a {
+        color: $color-black;
+        font-size: 14px;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
 
     a {
       color: $color-white;
       font-size: 1.1em;
+    }
+    ul {
+      display: inline-flex;
     }
   }
 
@@ -141,13 +168,13 @@ body {
 
   .main-container {
     position: relative;
-    margin-top: 104px;
+    margin-top: 148px;
     padding-left: 0;
     padding-right: 0;
     min-height: calc(100vh - 92px - 52px);
 
-    @media (max-width: 600px) {
-      margin-top: 84px;
+    @media (max-width: 960px) {
+      margin-top: 96px;
     }
 
     .main-slider {

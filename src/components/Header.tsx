@@ -96,7 +96,24 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
   return (
     <HideOnScroll {...rest}>
       <AppBar position="fixed">
-        <Container>
+        <Hidden smDown>
+          <div className="contact-bar">
+            <Container className="text-right">
+              <List>
+                <ListItem dense>+34 638 41 89 17</ListItem>
+                <ListItem dense>
+                  <a
+                    href="mailto:contacto@barrerastenerife.com"
+                    target="_blank"
+                  >
+                    contacto@barrerastenerife.com
+                  </a>
+                </ListItem>
+              </List>
+            </Container>
+          </div>
+        </Hidden>
+        <Container className="m-5">
           <Toolbar disableGutters>
             <Link to="/">
               <Img fixed={logo.top.childImageSharp.fixed} alt={siteTitle} />
