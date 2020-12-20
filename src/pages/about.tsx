@@ -5,12 +5,29 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { Card, CardContent, Container, Grid, Hidden } from "@material-ui/core";
+import {
+  Avatar,
+  Card,
+  CardContent,
+  CardHeader,
+  Container,
+  Grid,
+  Hidden,
+  Typography,
+} from "@material-ui/core";
+import CheckIcon from "@material-ui/icons/Check";
 
 const AboutPage: React.FC<PageProps> = () => {
   const images = useStaticQuery(graphql`
     query {
       banner: file(relativePath: { eq: "bg/4.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1366) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      vector: file(relativePath: { eq: "bg/5.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1366) {
             ...GatsbyImageSharpFluid
@@ -68,16 +85,24 @@ const AboutPage: React.FC<PageProps> = () => {
     );
   };
 
+  const ServiceBox = ({ text }) => {
+    return (
+      <Grid item xs={4}>
+        <Card className="service-card">
+          <CardContent>
+            <Avatar className="service-avatar">
+              <CheckIcon />
+            </Avatar>
+            {text}
+          </CardContent>
+        </Card>
+      </Grid>
+    );
+  };
+
   return (
     <Layout>
       <SEO title="About" />
-      <Hidden smDown>
-        <Img
-          fluid={images.banner.childImageSharp.fluid}
-          alt=""
-          className="img-responsive crop-center"
-        />
-      </Hidden>
       <Container>
         <Grid
           container
@@ -85,13 +110,21 @@ const AboutPage: React.FC<PageProps> = () => {
           alignItems="center"
           className="about-content"
         >
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
+            <div>
+              <Img
+                fluid={images.vector.childImageSharp.fluid}
+                alt=""
+                className="img-responsive about-image"
+              />
+            </div>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
             <div className="about-title">
               <h1>Inmobiliaria Barreras</h1>
               <h3>Un servicio de alta calidad</h3>
             </div>
-          </Grid>
-          <Grid item xs={12}>
             <p>
               Bienvenidos a su Inmobiliaria. Con el propósito de ofrecer un
               servicio de asesoramiento de alta calidad en sus transacciones
@@ -107,15 +140,7 @@ const AboutPage: React.FC<PageProps> = () => {
               agencias colaboradoras pertenecientes al grupo familiar.
             </p>
           </Grid>
-          <Grid item xs={12} sm={5}>
-            <div style={{ backgroundColor: "blue", margin: "0 80px" }}>
-              <Img
-                fluid={images.team1.childImageSharp.fluid}
-                alt=""
-                className="img-responsive about-image"
-              />
-            </div>
-          </Grid>
+
           <Grid item xs={12} sm={7}>
             <p>
               Actualmente, tras la jubilacion del fundador de la empresa, sus
@@ -130,31 +155,36 @@ const AboutPage: React.FC<PageProps> = () => {
               de comprar o vender su vivienda.
             </p>
           </Grid>
-          <Grid item xs={12}>
-            <p>Los servicios que ofrecemos a nuestros clientes:</p>
-            <ul>
-              <li>
-                Información detallada y puntual de las gestiones de compra,
-                venta o alquiler de su casa, oficina o local.
-              </li>
-              <li>Clarificación de dudas y asesoramiento legal y fiscal</li>
-              <li>
-                Ideas para invertir en inmuebles en Tenerife y asesoramiento a
-                particulares que compran piso como vivienda habitual sin animo
-                de inversion, sino para vivir y usar el comprador y su familia.
-              </li>
-              <li>
-                Esmerada atención personalizada para clientes recurrentes e
-                inversores nacionales o de otros paises.
-              </li>
-              <li>
-                Dinamismo y calidad de servicio el compromiso de no defraudar su
-                confianza
-              </li>
-            </ul>
+
+          <Grid item xs={12} sm={5}>
+            <div style={{ margin: "0 80px" }}>
+              <Img
+                fluid={images.team1.childImageSharp.fluid}
+                alt=""
+                className="img-responsive about-image"
+              />
+            </div>
+          </Grid>
+
+          <Grid item xs={12} className="text-center">
+            <Typography variant="h4" component="p" className="mb-5">
+              Nuestros Servicios
+            </Typography>
+            <Grid container spacing={5} justify="center">
+              <ServiceBox text="Información detallada y puntual de las gestiones de compra, venta o alquiler de su casa, oficina o local." />
+              <ServiceBox text="Clarificación de dudas y asesoramiento legal y fiscal." />
+              <ServiceBox text="Ideas para invertir en inmuebles en Tenerife y asesoramiento a particulares que compran piso como vivienda habitual." />
+              <ServiceBox text="Esmerada atención personalizada para clientes recurrentes e inversores nacionales o de otros paises." />
+              <ServiceBox text="Dinamismo y calidad de servicio el compromiso de no defraudar su confianza." />
+            </Grid>
           </Grid>
         </Grid>
-        <Grid container justify="center" className="team-section">
+        <Grid container justify="center" className="team-section text-center">
+          <Grid item xs={12}>
+            <Typography variant="h4" component="p" className="mb-5">
+              Nuestro Equipo
+            </Typography>
+          </Grid>
           <Team
             image={images.team2.childImageSharp.fluid}
             name="Giambattista Guala"
