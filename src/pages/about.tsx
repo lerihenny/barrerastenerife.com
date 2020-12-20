@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { Card, CardContent, Container, Grid } from "@material-ui/core";
+import { Card, CardContent, Container, Grid, Hidden } from "@material-ui/core";
 
 const AboutPage: React.FC<PageProps> = () => {
   const images = useStaticQuery(graphql`
@@ -56,7 +56,7 @@ const AboutPage: React.FC<PageProps> = () => {
   const Team: React.FC<Props> = ({ image, name }) => {
     return (
       <Grid item xs={9} sm={3}>
-        <Card>
+        <Card className="team-card">
           <Img fluid={image} alt={name} className="img-responsive team-image" />
           <CardContent className="team-container text-center">
             <p className="team-name">{name}</p>
@@ -71,11 +71,13 @@ const AboutPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <Img
-        fluid={images.banner.childImageSharp.fluid}
-        alt=""
-        className="img-responsive crop-center"
-      />
+      <Hidden smDown>
+        <Img
+          fluid={images.banner.childImageSharp.fluid}
+          alt=""
+          className="img-responsive crop-center"
+        />
+      </Hidden>
       <Container>
         <Grid
           container
@@ -105,14 +107,16 @@ const AboutPage: React.FC<PageProps> = () => {
               agencias colaboradoras pertenecientes al grupo familiar.
             </p>
           </Grid>
-          <Grid item xs={3}>
-            <Img
-              fluid={images.team1.childImageSharp.fluid}
-              alt=""
-              className="img-responsive about-image"
-            />
+          <Grid item xs={12} sm={5}>
+            <div style={{ backgroundColor: "blue", margin: "0 80px" }}>
+              <Img
+                fluid={images.team1.childImageSharp.fluid}
+                alt=""
+                className="img-responsive about-image"
+              />
+            </div>
           </Grid>
-          <Grid item xs={9}>
+          <Grid item xs={12} sm={7}>
             <p>
               Actualmente, tras la jubilacion del fundador de la empresa, sus
               alumnos siguen llevando la gestion, manteniendo los principios y
@@ -150,7 +154,7 @@ const AboutPage: React.FC<PageProps> = () => {
             </ul>
           </Grid>
         </Grid>
-        <Grid container spacing={10} justify="center" className="team-section">
+        <Grid container justify="center" className="team-section">
           <Team
             image={images.team2.childImageSharp.fluid}
             name="Giambattista Guala"

@@ -1,14 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import {
-  Button,
-  Container,
-  TextField,
-  Hidden,
-  InputLabel,
-  MenuItem,
-} from "@material-ui/core";
+import { Button, Container, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
 import * as constants from "../constants";
