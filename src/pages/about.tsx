@@ -65,12 +65,7 @@ const AboutPage: React.FC<PageProps> = () => {
     }
   `);
 
-  interface Props {
-    image: FluidObject;
-    name: string;
-  }
-
-  const Team: React.FC<Props> = ({ image, name }) => {
+  const Team = ({ image, name }: { image: FluidObject; name: string }) => {
     return (
       <Grid item xs={9} sm={3}>
         <Card className="team-card">
@@ -85,14 +80,18 @@ const AboutPage: React.FC<PageProps> = () => {
     );
   };
 
-  const ServiceBox = ({ text }) => {
+  const ServiceBox = ({ title, text }: { title: string; text: string }) => {
     return (
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} md={4}>
         <Card className="service-card">
           <CardContent>
-            <Avatar className="service-avatar">
+            {/* <Avatar className="service-avatar">
               <CheckIcon />
-            </Avatar>
+            </Avatar> */}
+            <Typography component="p" variant="h5" className="text-uppercase">
+              {title}
+            </Typography>
+            <hr />
             {text}
           </CardContent>
         </Card>
@@ -167,21 +166,36 @@ const AboutPage: React.FC<PageProps> = () => {
           </Grid>
 
           <Grid item xs={12} className="text-center">
-            <Typography variant="h4" component="p" className="mb-5">
+            <Typography variant="h4" component="p" className="section-title">
               Nuestros Servicios
             </Typography>
             <Grid container spacing={5} justify="center">
-              <ServiceBox text="Información detallada y puntual de las gestiones de compra, venta o alquiler de su casa, oficina o local." />
-              <ServiceBox text="Clarificación de dudas y asesoramiento legal y fiscal." />
-              <ServiceBox text="Ideas para invertir en inmuebles en Tenerife y asesoramiento a particulares que compran piso como vivienda habitual." />
-              <ServiceBox text="Esmerada atención personalizada para clientes recurrentes e inversores nacionales o de otros paises." />
-              <ServiceBox text="Dinamismo y calidad de servicio el compromiso de no defraudar su confianza." />
+              <ServiceBox
+                title="Información"
+                text="Información detallada y puntual de las gestiones de compra, venta o alquiler de su casa, oficina o local."
+              />
+              <ServiceBox
+                title="Asesoría"
+                text="Clarificación de dudas y asesoramiento legal y fiscal."
+              />
+              <ServiceBox
+                title="Inversión"
+                text="Ideas para invertir en inmuebles en Tenerife y asesoramiento a particulares que compran piso como vivienda habitual."
+              />
+              <ServiceBox
+                title="Atención"
+                text="Esmerada atención personalizada para clientes recurrentes e inversores nacionales o de otros paises."
+              />
+              <ServiceBox
+                title="Calidad"
+                text="Dinamismo y calidad de servicio el compromiso de no defraudar su confianza."
+              />
             </Grid>
           </Grid>
         </Grid>
         <Grid container justify="center" className="team-section text-center">
           <Grid item xs={12}>
-            <Typography variant="h4" component="p" className="mb-5">
+            <Typography variant="h4" component="p" className="section-title">
               Nuestro Equipo
             </Typography>
           </Grid>

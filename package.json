@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "barrerastenerife.com",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Website for a real estate agency in Tenerife.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jorge Daniel Sosa <jdsosa@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",

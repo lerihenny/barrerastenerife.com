@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container } from "@material-ui/core";
+import { Grid, Container, Typography } from "@material-ui/core";
 import { Property } from "../../models/Property";
 import PropertyCard from "./PropertyCard";
 
@@ -17,10 +17,10 @@ const List: React.FC<Props> = ({
   return (
     <Container>
       <Grid container spacing={3} className="properties-container">
-        <Grid item xs={12}>
-          <h2 className="properties-container-title">
+        <Grid item xs={12} className="text-center">
+          <Typography variant="h4" component="p" className="section-title">
             {featured ? "Propiedades Destacadas" : title}
-          </h2>
+          </Typography>
         </Grid>
         {properties.map(property => (
           <Grid
