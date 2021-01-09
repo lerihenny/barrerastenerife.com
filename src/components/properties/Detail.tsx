@@ -10,6 +10,7 @@ import ImageGallery from "react-image-gallery";
 import PropertyFooter from "./PropertyFooter";
 import { propertyImages } from "../../qraphql/queries";
 import { imageSetBySize } from "../../utils";
+import MapView from "../maps/MapView";
 
 interface Images {
   original: string;
@@ -121,6 +122,7 @@ const Detail = () => {
           </Grid>
         </Grid>
       </Container>
+      <MapView />
     </>
   );
 };

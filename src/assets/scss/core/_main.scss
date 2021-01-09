@@ -444,3 +444,11 @@ body {
   align-self: center;
   padding: 5em;
 }
+.map-container {
+  height: 500px;
+  width: 100%;
+}
+.location-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
