@@ -6,7 +6,7 @@ import { SvgIconTypeMap } from "@material-ui/core/SvgIcon/SvgIcon";
 interface FooterItemProps {
   detail?: boolean;
   title: string;
-  value: string;
+  value: number;
   component: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
 }
 

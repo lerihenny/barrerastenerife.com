@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import { propertyImages } from "../qraphql/queries";
+import React, { useContext, useEffect, useState } from "react";
+import firebase from "gatsby-plugin-firebase";
+import { Property } from "../models/Property";
 
 const RepositoryContext = React.createContext([]);
 
@@ -14,52 +15,44 @@ export const RepositoryProvider: React.FC<any> = ({ value, children }) => {
 export const useRepository = () => {
   const context = useContext(RepositoryContext);
 
-  // TODO: Fetch Properties via repository (propertyImages must be used within a hook)
-  const images = propertyImages();
-
-  const findImage = (image: string) =>
-    Object.values(images).find(srcImage =>
-      srcImage.childImageSharp.fluid.src.endsWith(image)
-    ).childImageSharp.fluid;
-
-  const properties = [
-    {
-      id: 0,
-      price: "€ 100.000",
-      title: "Propiedad Bonita",
-      address: "Los Abrigos - Granadilla de Abona",
-      image: findImage("property1.jpg"),
-    },
-    {
-      id: 1,
-      price: "€ 200.000",
-      title: "Casa Grande",
-      address: "Los Abrigos - Granadilla de Abona",
-      image: findImage("property2.jpg"),
-    },
-    {
-      id: 2,
-      price: "€ 500.000",
-      title: "Piso Cómodo",
-      address: "Los Abrigos - Granadilla de Abona",
-      image: findImage("property3.jpg"),
-    },
-    {
-      id: 3,
-      price: "€ 350.000",
-      title: "Ático Espacioso",
-      address: "Los Abrigos - Granadilla de Abona",
-      image: findImage("property4.jpg"),
-    },
-  ];
-
   if (context === null) {
     throw new Error("useRepository must be used within an RepositoryProvider");
   }
 
   return {
     ...context,
-    properties,
-    images,
+    properties: getPropertyList(),
+    getProperty
   };
+};
+
+const getPropertyList = () => {
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    const test = firebase.functions().httpsCallable("getPropertyList");
+
+    test()
+      .then(response => setProperties(response.data.results))
+      .catch(error => console.log("Error", error));
+  }, []);
+
+  return properties;
+};
+
+const getProperty = ({ identifier }: { identifier: string }) => {
+  const [property, setProperty] = useState<Property>();
+
+  useEffect(() => {
+    const test = firebase.functions().httpsCallable("getProperty");
+
+    test({ identifier })
+      .then(response => {
+        console.log(response)
+        setProperty(response.data.response.results[0])
+      })
+      .catch(error => console.log("Error", error));
+  }, [identifier]);
+
+  return property;
 };

@@ -12,21 +12,27 @@ interface Props {
 
 const PropertyCard: React.FC<Props> = ({ property }) => {
   return (
-    <Link to="/property">
+    <Link to="/property" state={{ id: property.identifier }}>
       <Card>
         <div className="property-card-media">
-          <Img
-            fluid={property.image}
+          <img
+            src={property.pictures[0]}
             alt={property.title}
             className="img-responsive crop-center"
           />
         </div>
         <PropertyDescription
-          price={property.price}
+          price={
+            property.selling ? property.selling_cost : property.renting_cost
+          }
           title={property.title}
-          address={property.address}
+          address={property.town}
         />
-        <PropertyFooter />
+        <PropertyFooter
+          area={property.area}
+          bathrooms={property.bathrooms}
+          bedrooms={property.bedrooms}
+        />
       </Card>
     </Link>
   );

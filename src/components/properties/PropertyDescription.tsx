@@ -2,7 +2,7 @@ import { CardContent, Chip, Typography } from "@material-ui/core";
 import React from "react";
 
 interface Props {
-  price: string;
+  price: number;
   title: string;
   address: string;
 }
