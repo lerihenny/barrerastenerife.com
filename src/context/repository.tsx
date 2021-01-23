@@ -22,25 +22,29 @@ export const useRepository = () => {
   return {
     ...context,
     properties: getPropertyList(),
-    getProperty
+    getProperty,
   };
 };
 
-const getPropertyList = () => {
+const getPropertyList = (): Property[] => {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
     const test = firebase.functions().httpsCallable("getPropertyList");
 
     test()
-      .then(response => setProperties(response.data.results))
+      .then(response => setProperties(response.data.response.results))
       .catch(error => console.log("Error", error));
   }, []);
 
   return properties;
 };
 
-const getProperty = ({ identifier }: { identifier: string }) => {
+const getProperty = ({
+  identifier,
+}: {
+  identifier: string;
+}): Property | undefined => {
   const [property, setProperty] = useState<Property>();
 
   useEffect(() => {
@@ -48,8 +52,18 @@ const getProperty = ({ identifier }: { identifier: string }) => {
 
     test({ identifier })
       .then(response => {
-        console.log(response)
-        setProperty(response.data.response.results[0])
+        const data = response.data.response.results[0];
+        const pictures = data.pictures.map((picture: string) => {
+          return {
+            original: picture,
+            thumbnail: picture,
+          };
+        });
+
+        setProperty({
+          ...data,
+          pictures,
+        });
       })
       .catch(error => console.log("Error", error));
   }, [identifier]);

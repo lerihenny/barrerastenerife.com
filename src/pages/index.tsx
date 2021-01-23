@@ -10,8 +10,6 @@ import { useRepository } from "../context/repository";
 const IndexPage: React.FC<PageProps> = () => {
   const { properties } = useRepository();
 
-  if (!properties) return null;
-
   return (
     <Layout>
       <SEO title="Home" />

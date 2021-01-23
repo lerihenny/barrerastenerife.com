@@ -23,7 +23,9 @@ module.exports = {
   rules: {
     "quotes": ["error", "double"],
     "indent": "off",
-    // "max-len": ["error", { "code": 100 }]
-    // "template-curly-spacing": ["error", "always"]
+    "max-len": ["error", { code: 100 }],
+    "template-curly-spacing": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "arrow-parens": ["error", "as-needed"],
   },
 };

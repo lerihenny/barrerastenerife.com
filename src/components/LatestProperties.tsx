@@ -9,12 +9,11 @@ const LatestProperties = () => {
 
   return (
     <Grid container spacing={2}>
-      {properties.map(property => (
+      {properties.slice(0, 4).map(property => (
         <Grid key={`latest-properties-${property.id}`} item xs={3}>
-          <Link to={`/property`}>
-            <Img
-              fluid={property.image}
-              alt={property.title}
+          <Link to={`/property/?${property.identifier}`}>
+            <img
+              src={property.pictures[0]}
               className="img-responsive crop-center"
             />
           </Link>

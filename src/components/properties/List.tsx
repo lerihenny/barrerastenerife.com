@@ -1,5 +1,10 @@
 import React from "react";
-import { Grid, Container, Typography } from "@material-ui/core";
+import {
+  Grid,
+  CircularProgress,
+  Container,
+  Typography,
+} from "@material-ui/core";
 import { Property } from "../../models/Property";
 import PropertyCard from "./PropertyCard";
 
@@ -22,18 +27,24 @@ const List: React.FC<Props> = ({
             {featured ? "Propiedades Destacadas" : title}
           </Typography>
         </Grid>
-        {properties.map(property => (
-          <Grid
-            key={`property-${property.id}`}
-            item
-            xs={12}
-            sm={6}
-            md={6}
-            lg={3}
-          >
-            <PropertyCard property={property} />
-          </Grid>
-        ))}
+        {properties.length === 0 ? (
+          <Container className="text-center p-5">
+            <CircularProgress />
+          </Container>
+        ) : (
+          properties.map(property => (
+            <Grid
+              key={`property-${property.id}`}
+              item
+              xs={12}
+              sm={6}
+              md={6}
+              lg={3}
+            >
+              <PropertyCard property={property} />
+            </Grid>
+          ))
+        )}
       </Grid>
     </Container>
   );

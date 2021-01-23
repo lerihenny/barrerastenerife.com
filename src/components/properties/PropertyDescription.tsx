@@ -1,5 +1,6 @@
 import { CardContent, Chip, Typography } from "@material-ui/core";
 import React from "react";
+import { formatPrice } from "../../utils";
 
 interface Props {
   price: number;
@@ -11,7 +12,7 @@ const PropertyDescription: React.FC<Props> = ({ price, title, address }) => {
   return (
     <CardContent classes={{ root: "property-card-content" }}>
       <Chip
-        label={price}
+        label={formatPrice(price)}
         color="secondary"
         classes={{ root: "property-card-price" }}
       />

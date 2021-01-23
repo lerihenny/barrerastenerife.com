@@ -3,7 +3,7 @@
   height: auto;
 }
 .crop-center {
-  object-fit: none;
+  // object-fit: none;
   object-position: center;
   height: 100%;
 }
@@ -56,4 +56,7 @@
 }
 .ml-auto {
   margin-left: auto !important;
+}
+.p-5 {
+  padding: 1em !important;
 }

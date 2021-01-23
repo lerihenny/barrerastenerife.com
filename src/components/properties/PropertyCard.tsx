@@ -12,7 +12,7 @@ interface Props {
 
 const PropertyCard: React.FC<Props> = ({ property }) => {
   return (
-    <Link to="/property" state={{ id: property.identifier }}>
+    <Link to={`/property/?${property.identifier}`}>
       <Card>
         <div className="property-card-media">
           <img

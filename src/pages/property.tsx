@@ -8,12 +8,10 @@ import { useRepository } from "../context/repository";
 import { Property } from "../models/Property";
 
 const PropertyPage: React.FC<PageProps> = ({ location }) => {
-  const { id } = location.state
   const { getProperty } = useRepository();
 
-  const property: Property = getProperty({identifier: id})
-  
-  if (!property) return null;
+  const id = location.search.slice(1);
+  const property = getProperty({ identifier: id });
 
   return (
     <Layout>
