@@ -452,3 +452,7 @@ body {
   position: absolute;
   transform: translate(-50%, -50%);
 }
+.image-gallery-thumbnail-image {
+  height: 80px;
+  object-fit: cover;
+}

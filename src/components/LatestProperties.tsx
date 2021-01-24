@@ -5,7 +5,8 @@ import Img from "gatsby-image";
 import { useRepository } from "../context/repository";
 
 const LatestProperties = () => {
-  const { properties } = useRepository();
+  const { getPropertyList } = useRepository();
+  const properties = getPropertyList();
 
   return (
     <Grid container spacing={2}>

@@ -8,12 +8,13 @@ import List from "../components/properties/List";
 import { useRepository } from "../context/repository";
 
 const IndexPage: React.FC<PageProps> = () => {
-  const { properties } = useRepository();
+  const { getPropertyList } = useRepository();
+  const properties = getPropertyList();
 
   return (
     <Layout>
       <SEO title="Home" />
-      <MainSlider />
+      <MainSlider properties={properties} />
       <List featured properties={properties} />
     </Layout>
   );

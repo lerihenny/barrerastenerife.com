@@ -12,7 +12,7 @@ interface Props {
 
 const PropertyCard: React.FC<Props> = ({ property }) => {
   return (
-    <Link to={`/property/?${property.identifier}`}>
+    <Link to={`/property/?id=${property.identifier}`}>
       <Card>
         <div className="property-card-media">
           <img
@@ -25,8 +25,8 @@ const PropertyCard: React.FC<Props> = ({ property }) => {
           price={
             property.selling ? property.selling_cost : property.renting_cost
           }
-          title={property.title}
-          address={property.town}
+          title={property.town}
+          address={property.kind.toUpperCase()}
         />
         <PropertyFooter
           area={property.area}

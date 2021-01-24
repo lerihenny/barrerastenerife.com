@@ -1,23 +1,22 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import { Button, Container, Hidden } from "@material-ui/core";
+import { Button, CircularProgress, Container, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
 import * as constants from "../constants";
+import { Property } from "../models/Property";
+import { formatPrice } from "../utils";
 
-const MainSlider: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "properties/property1.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1366) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+interface Props {
+  properties: Property[];
+}
+
+const MainSlider: React.FC<Props> = ({ properties }) => {
+  const property =
+    properties[Math.floor(Math.random() * Math.floor(properties.length))];
+
+  console.log(property);
 
   const SearchForm = () => {
     const [state, setState] = React.useState({
@@ -75,29 +74,38 @@ const MainSlider: React.FC = () => {
   const PropertyData = () => {
     return (
       <div className="main-slider-property-data property-data MuiPaper-elevation5">
-        <h2 className="property-data-price">€ 100.000</h2>
+        <h2 className="property-data-price">
+          {formatPrice(
+            property.selling ? property.selling_cost : property.renting_cost
+          )}
+        </h2>
         <hr />
-        <h2 className="property-data-title">Casa bonita</h2>
-        <h3 className="property-data-address">
-          Los Abrigos - Granadilla de Abona
-        </h3>
+        <h2 className="property-data-title">{property.street}</h2>
+        <h3 className="property-data-address">{property.town}</h3>
       </div>
     );
   };
 
   return (
     <section className="main-slider">
-      <Img
-        fluid={data.placeholderImage.childImageSharp.fluid}
-        alt=""
-        className="img-responsive crop-center"
-      />
-      <Container className="main-slider-container">
-        <Hidden xsDown>
-          <SearchForm />
-        </Hidden>
-        <PropertyData />
-      </Container>
+      {properties.length === 0 ? (
+        <Container className="text-center p-5">
+          <CircularProgress />
+        </Container>
+      ) : (
+        <>
+          <img
+            src={property.pictures[0]}
+            className="img-responsive crop-center"
+          />
+          <Container className="main-slider-container">
+            <Hidden xsDown>
+              <SearchForm />
+            </Hidden>
+            <PropertyData />
+          </Container>
+        </>
+      )}
     </section>
   );
 };

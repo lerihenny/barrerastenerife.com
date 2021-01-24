@@ -9,7 +9,10 @@ import { type } from "../../constants";
 
 const Properties: React.FC<PageProps> = () => {
   const title = "Casas / Villas";
-  const { properties } = useRepository();
+  const { getPropertyList } = useRepository();
+  const properties = getPropertyList({
+    kind: "chalet",
+  });
 
   return (
     <Layout>

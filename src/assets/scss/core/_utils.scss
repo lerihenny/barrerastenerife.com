@@ -3,7 +3,7 @@
   height: auto;
 }
 .crop-center {
-  // object-fit: none;
+  object-fit: cover;
   object-position: center;
   height: 100%;
 }

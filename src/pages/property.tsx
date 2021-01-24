@@ -10,8 +10,9 @@ import { Property } from "../models/Property";
 const PropertyPage: React.FC<PageProps> = ({ location }) => {
   const { getProperty } = useRepository();
 
-  const id = location.search.slice(1);
-  const property = getProperty({ identifier: id });
+  const searchParams = new URLSearchParams(location.search);
+  const identifier = searchParams.get("id");
+  const property = getProperty({ identifier });
 
   return (
     <Layout>

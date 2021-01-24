@@ -8,8 +8,12 @@ import { useRepository } from "../../context/repository";
 import { type } from "../../constants";
 
 const Properties: React.FC<PageProps> = () => {
-  const { properties } = useRepository();
   const title = "Apartamentos";
+
+  const { getPropertyList } = useRepository();
+  const properties = getPropertyList({
+    kind: "flat",
+  });
 
   return (
     <Layout>

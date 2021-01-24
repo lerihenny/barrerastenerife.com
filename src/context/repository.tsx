@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import firebase from "gatsby-plugin-firebase";
 import { Property } from "../models/Property";
+import { Search } from "../models/Search";
 
 const RepositoryContext = React.createContext([]);
 
@@ -21,19 +22,23 @@ export const useRepository = () => {
 
   return {
     ...context,
-    properties: getPropertyList(),
+    getPropertyList,
     getProperty,
   };
 };
 
-const getPropertyList = (): Property[] => {
+const getPropertyList = (data: Search = {}): Property[] => {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
     const test = firebase.functions().httpsCallable("getPropertyList");
 
-    test()
-      .then(response => setProperties(response.data.response.results))
+    test({
+      ...data,
+      status: "available",
+      sort_by: "creation_date_desc",
+    })
+      .then(response => setProperties(response.data.results))
       .catch(error => console.log("Error", error));
   }, []);
 
@@ -43,7 +48,7 @@ const getPropertyList = (): Property[] => {
 const getProperty = ({
   identifier,
 }: {
-  identifier: string;
+  identifier: string | null;
 }): Property | undefined => {
   const [property, setProperty] = useState<Property>();
 
@@ -52,7 +57,7 @@ const getProperty = ({
 
     test({ identifier })
       .then(response => {
-        const data = response.data.response.results[0];
+        const data = response.data.results[0];
         const pictures = data.pictures.map((picture: string) => {
           return {
             original: picture,

@@ -5,9 +5,15 @@ import fetch from "node-fetch";
 // // https://firebase.google.com/docs/functions/typescript
 
 exports.getPropertyList = functions.https.onCall(async (data, context) => {
+  const urlParams = new URLSearchParams();
+
+  for (const [key, value] of Object.entries<string>(data)) {
+    urlParams.append(key, value);
+  }
+
   let response;
 
-  await fetch(functions.config().witei.url, {
+  await fetch(`${functions.config().witei.url}/?${urlParams.toString()}`, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${functions.config().witei.key}`,
@@ -24,14 +30,14 @@ exports.getPropertyList = functions.https.onCall(async (data, context) => {
       return error;
     });
 
-  return { response };
+  return response;
 });
 
 exports.getProperty = functions.https.onCall(async (data, context) => {
   const { identifier } = data;
   let response;
 
-  await fetch(functions.config().witei.url + "/?identifier=" + identifier, {
+  await fetch(`${functions.config().witei.url}/?identifier=${identifier}`, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${functions.config().witei.key}`,
@@ -48,5 +54,5 @@ exports.getProperty = functions.https.onCall(async (data, context) => {
       return response;
     });
 
-  return { response };
+  return response;
 });
