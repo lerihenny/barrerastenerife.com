@@ -1,16 +1,8 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
-
 module.exports = {
   siteMetadata: {
     title: `Inmobiliaria Barreras`,
     description: `INMOBILIARIA BARRERAS nace en pintoresco pueblo de pescadores de nombre Los Abrigos ubicado en la parte sur de la isla de Tenerife en el año 1995.`,
     author: `Jorge Daniel Sosa <jdsosa@gmail.com>`,
-  },
-  proxy: {
-    prefix: "/api",
-    url: process.env.API_URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

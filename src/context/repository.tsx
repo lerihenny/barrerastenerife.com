@@ -31,9 +31,15 @@ const getPropertyList = (data: Search = {}): Property[] => {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    const test = firebase.functions().httpsCallable("getPropertyList");
+    const emulator = firebase.functions();
 
-    test({
+    if (process.env.NODE_ENV === "development") {
+      emulator.useEmulator("localhost", 5001);
+    }
+
+    const getProperties = emulator.httpsCallable("getPropertyList");
+
+    getProperties({
       ...data,
       status: "available",
       sort_by: "creation_date_desc",
@@ -53,22 +59,17 @@ const getProperty = ({
   const [property, setProperty] = useState<Property>();
 
   useEffect(() => {
-    const test = firebase.functions().httpsCallable("getProperty");
+    const emulator = firebase.functions();
 
-    test({ identifier })
+    if (process.env.NODE_ENV === "development") {
+      emulator.useEmulator("localhost", 5001);
+    }
+
+    const getProperty = emulator.httpsCallable("getProperty");
+
+    getProperty({ identifier })
       .then(response => {
-        const data = response.data.results[0];
-        const pictures = data.pictures.map((picture: string) => {
-          return {
-            original: picture,
-            thumbnail: picture,
-          };
-        });
-
-        setProperty({
-          ...data,
-          pictures,
-        });
+        setProperty(response.data);
       })
       .catch(error => console.log("Error", error));
   }, [identifier]);

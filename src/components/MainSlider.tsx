@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
 import { Button, CircularProgress, Container, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
@@ -15,8 +15,6 @@ interface Props {
 const MainSlider: React.FC<Props> = ({ properties }) => {
   const property =
     properties[Math.floor(Math.random() * Math.floor(properties.length))];
-
-  console.log(property);
 
   const SearchForm = () => {
     const [state, setState] = React.useState({
@@ -73,16 +71,18 @@ const MainSlider: React.FC<Props> = ({ properties }) => {
 
   const PropertyData = () => {
     return (
-      <div className="main-slider-property-data property-data MuiPaper-elevation5">
-        <h2 className="property-data-price">
-          {formatPrice(
-            property.selling ? property.selling_cost : property.renting_cost
-          )}
-        </h2>
-        <hr />
-        <h2 className="property-data-title">{property.street}</h2>
-        <h3 className="property-data-address">{property.town}</h3>
-      </div>
+      <Link to={`/property/?id=${property.identifier}`}>
+        <div className="main-slider-property-data property-data MuiPaper-elevation5">
+          <h2 className="property-data-price">
+            {formatPrice(
+              property.selling ? property.selling_cost : property.renting_cost
+            )}
+          </h2>
+          <hr />
+          <h2 className="property-data-title">{property.street}</h2>
+          <h3 className="property-data-address">{property.town}</h3>
+        </div>
+      </Link>
     );
   };
 
