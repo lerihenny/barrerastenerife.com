@@ -50,9 +50,8 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
   `);
 
   const linkList = [
-    { to: "/properties/apartment", text: "Apartamentos" },
-    { to: "/properties/house", text: "Casas / Villas" },
-    { to: "/properties/luxury", text: "Lujo" },
+    { to: "/properties/buy", text: "Compra" },
+    { to: "/properties/rent", text: "Alquiler" },
     { to: "/about", text: "Quienes Somos" },
     { to: "/contact", text: "Contacto" },
   ];

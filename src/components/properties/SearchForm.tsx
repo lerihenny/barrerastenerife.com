@@ -1,19 +1,21 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Button, Card, CardContent, Container, Grid } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "../Select";
 import * as constants from "../../constants";
+import { Search } from "../../models/Search";
 
 interface Props {
-  type?: number;
+  contrato?: number;
+  setFilter: Dispatch<SetStateAction<Search>>;
 }
 
-const SearchForm: React.FC<Props> = ({ type = 0 }) => {
+const SearchForm: React.FC<Props> = ({ contrato = 0, setFilter }) => {
   const [state, setState] = React.useState({
-    tipo: type,
-    contrato: 0,
-    precio: 0,
-    tamaño: 0,
+    tipo: 0,
+    contrato,
+    // precio: 0,
+    // tamaño: 0,
     habitaciones: 0,
     baños: 0,
     zonas: 0,
@@ -21,6 +23,42 @@ const SearchForm: React.FC<Props> = ({ type = 0 }) => {
 
   const handleChange = (event: any) => {
     setState({ ...state, [event.target.name]: event.target.value });
+  };
+
+  const handleSearch = () => {
+    let data: Search = {};
+
+    if (state.tipo === 1) {
+      data.kind = "flat";
+    }
+
+    if (state.tipo === 2) {
+      data.kind = "chalet";
+    }
+
+    if (state.contrato === 1) {
+      data.buyop = "rent";
+    }
+
+    if (state.contrato === 2) {
+      data.buyop = "sell";
+    }
+
+    if (state.habitaciones > 0) {
+      data.bedrooms_min = state.habitaciones;
+      data.bedrooms_max = state.habitaciones;
+    }
+
+    if (state.baños > 0) {
+      data.bathrooms_min = state.baños;
+      data.bathrooms_max = state.baños;
+    }
+
+    if (state.zonas > 0) {
+      data.town = constants.zones[state.zonas];
+    }
+
+    setFilter(data);
   };
 
   return (
@@ -44,7 +82,7 @@ const SearchForm: React.FC<Props> = ({ type = 0 }) => {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            {/* <Grid item xs={12} sm={4}>
               <Select
                 label="Precio"
                 items={constants.price}
@@ -59,7 +97,7 @@ const SearchForm: React.FC<Props> = ({ type = 0 }) => {
                 value={state.tamaño}
                 onChange={handleChange}
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} sm={4}>
               <Select
                 label="Habitaciones"
@@ -90,6 +128,7 @@ const SearchForm: React.FC<Props> = ({ type = 0 }) => {
                 color="primary"
                 size="large"
                 startIcon={<SearchIcon />}
+                onClick={handleSearch}
               >
                 Buscar
               </Button>

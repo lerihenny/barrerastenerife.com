@@ -1,3 +1,7 @@
+import React from "react";
+import { Search } from "./models/Search";
+import firebase from "gatsby-plugin-firebase";
+
 export const imageSetBySize = (string: string, size: string) => {
   const array = string.split(",\n").find(image => image.endsWith(size));
 
@@ -16,4 +20,20 @@ export const formatPrice = (price: number) => {
   });
 
   return formatter.format(price);
+};
+
+export const getPropertyList = (data: Search) => {
+  const emulator = firebase.functions();
+
+  if (process.env.NODE_ENV === "development") {
+    emulator.useEmulator("localhost", 5001);
+  }
+
+  const getProperties = emulator.httpsCallable("getPropertyList");
+
+  return getProperties({
+    ...data,
+    status: "available",
+    sort_by: "creation_date_desc",
+  }).catch(error => console.log("Error", error));
 };
