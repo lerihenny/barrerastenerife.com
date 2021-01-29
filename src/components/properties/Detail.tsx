@@ -22,6 +22,8 @@ const Detail = ({ property }: { property: Property | undefined }) => {
     );
   }
 
+  console.log(property);
+
   return (
     <>
       <Container>

@@ -14,8 +14,6 @@ const SearchForm: React.FC<Props> = ({ contrato = 0, setFilter }) => {
   const [state, setState] = React.useState({
     tipo: 0,
     contrato,
-    // precio: 0,
-    // tamaño: 0,
     habitaciones: 0,
     baños: 0,
     zonas: 0,
@@ -28,34 +26,25 @@ const SearchForm: React.FC<Props> = ({ contrato = 0, setFilter }) => {
   const handleSearch = () => {
     let data: Search = {};
 
-    if (state.tipo === 1) {
-      data.kind = "flat";
+    data.kind = constants.types[state.tipo].value;
+    data.buyop = constants.contract[state.contrato].value;
+    data.bedrooms_min = constants.rooms[state.habitaciones].value;
+    data.bedrooms_max = constants.rooms[state.habitaciones].value;
+    data.bathrooms_min = constants.baths[state.baños].value;
+    data.bathrooms_max = constants.baths[state.baños].value;
+
+    if (state.habitaciones === 8) {
+      data.bedrooms_min = "8";
+      data.bedrooms_max = "20";
     }
 
-    if (state.tipo === 2) {
-      data.kind = "chalet";
+    if (state.baños === 8) {
+      data.bathrooms_min = "8";
+      data.bathrooms_max = "20";
     }
 
-    if (state.contrato === 1) {
-      data.buyop = "rent";
-    }
-
-    if (state.contrato === 2) {
-      data.buyop = "sell";
-    }
-
-    if (state.habitaciones > 0) {
-      data.bedrooms_min = state.habitaciones;
-      data.bedrooms_max = state.habitaciones;
-    }
-
-    if (state.baños > 0) {
-      data.bathrooms_min = state.baños;
-      data.bathrooms_max = state.baños;
-    }
-
-    if (state.zonas > 0) {
-      data.town = constants.zones[state.zonas];
+    if (state.zonas !== 0) {
+      data.town = constants.zones[state.zonas].value;
     }
 
     setFilter(data);
@@ -69,7 +58,7 @@ const SearchForm: React.FC<Props> = ({ contrato = 0, setFilter }) => {
             <Grid item xs={12} sm={4}>
               <Select
                 label="Tipo"
-                items={constants.type}
+                items={constants.types}
                 value={state.tipo}
                 onChange={handleChange}
               />
@@ -82,22 +71,6 @@ const SearchForm: React.FC<Props> = ({ contrato = 0, setFilter }) => {
                 onChange={handleChange}
               />
             </Grid>
-            {/* <Grid item xs={12} sm={4}>
-              <Select
-                label="Precio"
-                items={constants.price}
-                value={state.precio}
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Select
-                label="Tamaño"
-                items={constants.size}
-                value={state.tamaño}
-                onChange={handleChange}
-              />
-            </Grid> */}
             <Grid item xs={12} sm={4}>
               <Select
                 label="Habitaciones"

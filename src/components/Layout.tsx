@@ -16,6 +16,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { RepositoryProvider } from "../context/repository";
 
+import { QueryClient, QueryClientProvider } from "react-query";
+
 interface Props {
   children: any;
 }
@@ -31,15 +33,19 @@ const Layout: React.FC<Props> = ({ children }) => {
     }
   `);
 
+  const queryClient = new QueryClient();
+
   return (
     <CustomThemeProvider>
-      <RepositoryProvider>
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <Container maxWidth={false} className="main-container">
-          {children}
-        </Container>
-        <Footer />
-      </RepositoryProvider>
+      <QueryClientProvider client={queryClient}>
+        <RepositoryProvider>
+          <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+          <Container maxWidth={false} className="main-container">
+            {children}
+          </Container>
+          <Footer />
+        </RepositoryProvider>
+      </QueryClientProvider>
     </CustomThemeProvider>
   );
 };

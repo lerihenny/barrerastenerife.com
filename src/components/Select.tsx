@@ -3,7 +3,7 @@ import { InputLabel, MenuItem, TextField } from "@material-ui/core";
 
 interface Props {
   label: string;
-  items: string[];
+  items: any;
   value: number;
   onChange?: (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -35,9 +35,9 @@ const Select: React.FC<Props> = ({
         value={value}
         onChange={onChange}
       >
-        {items.map((item: string, index: number) => (
+        {items.map((item: any, index: number) => (
           <MenuItem key={`${labelToId()}-${index}`} value={index}>
-            {index === 0 ? <em>{item}</em> : item}
+            {item.name}
           </MenuItem>
         ))}
       </TextField>

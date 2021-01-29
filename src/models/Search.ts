@@ -22,7 +22,7 @@ export enum SearchParams {
 
 export type Search = {
   page?: number;
-  buyop?: "sell" | "rent" | "vacation";
+  buyop?: "sell" | "rent" | "vacation" | "";
   min_price?: number; // buyop must be defined.
   max_price?: number; // buyop must be defined.
   status?:
@@ -66,10 +66,10 @@ export type Search = {
   tags?: [];
   area_min?: number;
   area_max?: number;
-  bedrooms_min?: number;
-  bedrooms_max?: number;
-  bathrooms_min?: number;
-  bathrooms_max?: number;
+  bedrooms_min?: string;
+  bedrooms_max?: string;
+  bathrooms_min?: string;
+  bathrooms_max?: string;
   sort_by?:
     | "creation_date_desc" // most recent
     | "creation_date_asc" // least recent
