@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Button, Container, Grid } from "@material-ui/core";
-import { Pagination } from "@material-ui/lab";
 import { useQuery } from "react-query";
 import { Search } from "../models/Search";
 import { getPropertyList } from "../utils";
 import List from "./properties/List";
 import SearchForm from "./properties/SearchForm";
 
-export const BuyProperties = () => {
+export const RentProperties = () => {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Search>({
-    buyop: "sell",
+    buyop: "rent",
     page,
   });
   const { status, data } = useQuery(["properties", [page, filter]], () =>
@@ -27,7 +26,7 @@ export const BuyProperties = () => {
 
   return (
     <Container>
-      <SearchForm contrato={2} setFilter={setFilter} setPage={setPage} />
+      <SearchForm contrato={1} setFilter={setFilter} setPage={setPage} />
       <List featured properties={data?.data?.results} status={status} />
       <Grid container spacing={2}>
         <Grid item xs={12} className="text-center">

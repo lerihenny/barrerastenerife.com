@@ -26,7 +26,7 @@ const List: React.FC<Props> = ({
     <Grid container spacing={3} className="properties-container">
       <Grid item xs={12} className="text-center">
         <Typography variant="h4" component="p" className="section-title">
-          {featured ? "Propiedades Destacadas" : title}
+          {featured ? "Propiedades Recientes" : title}
         </Typography>
       </Grid>
       {status === "loading" && (

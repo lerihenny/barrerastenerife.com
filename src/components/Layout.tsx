@@ -17,10 +17,21 @@ import Footer from "./Footer";
 import { RepositoryProvider } from "../context/repository";
 
 import { QueryClient, QueryClientProvider } from "react-query";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 interface Props {
   children: any;
 }
+
+const WhatsAppButton = () => {
+  return (
+    <a href="https://wa.me/34638418917" target="_blank">
+      <div className="whatsapp-button">
+        <WhatsAppIcon fontSize="large" />
+      </div>
+    </a>
+  );
+};
 
 const Layout: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -42,6 +53,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
           <Container maxWidth={false} className="main-container">
             {children}
+            <WhatsAppButton />
           </Container>
           <Footer />
         </RepositoryProvider>

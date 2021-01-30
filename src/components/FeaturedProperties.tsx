@@ -22,14 +22,6 @@ export const FeaturedProperties = () => {
   return (
     <Container>
       <List featured properties={data?.data?.results} status={status} />
-      <Pagination
-        count={5}
-        color="primary"
-        size="large"
-        page={page}
-        onChange={handleChange}
-        className="flex-center p-5"
-      />
     </Container>
   );
 };

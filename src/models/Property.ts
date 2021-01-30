@@ -1,3 +1,5 @@
+import { ReactImageGalleryItem } from "react-image-gallery";
+
 export type Property = {
   id: number;
   identifier: string;
@@ -21,7 +23,7 @@ export type Property = {
   bedrooms: number;
   bathrooms: number;
   area: number;
-  pictures: string[];
+  pictures: ReactImageGalleryItem[];
   description: string;
   agency: {
     name: string;

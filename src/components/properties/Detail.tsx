@@ -66,9 +66,11 @@ const Detail = ({ property }: { property: Property | undefined }) => {
               <CardContent>{property.description}</CardContent>
             </Card>
           </Grid>
+          <Grid item xs={12}>
+            <MapView lat={property.geo_lat} lng={property.geo_lng} />
+          </Grid>
         </Grid>
       </Container>
-      <MapView lat={property.geo_lat} lng={property.geo_lng} />
     </>
   );
 };

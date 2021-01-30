@@ -1,18 +1,32 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Button, Container, Grid } from "@material-ui/core";
-import { Pagination } from "@material-ui/lab";
 import { useQuery } from "react-query";
-import { Search } from "../models/Search";
-import { getPropertyList } from "../utils";
-import List from "./properties/List";
-import SearchForm from "./properties/SearchForm";
+import { Search } from "../../models/Search";
+import { getPropertyList } from "../../utils";
+import List from "./List";
+import SearchForm from "./SearchForm";
+import * as constants from "../../constants";
 
-export const BuyProperties = () => {
+type Props = {
+  tipo?: number;
+  contrato?: number;
+  zonas?: number;
+};
+
+export const Properties: FC<Props> = ({
+  tipo = 0,
+  contrato = 0,
+  zonas = 0,
+}) => {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Search>({
-    buyop: "sell",
+    kind: constants.types[tipo].value,
+    buyop: constants.contract[contrato].value,
+    town: constants.zones[zonas].value,
     page,
   });
+
+  console.log(filter);
   const { status, data } = useQuery(["properties", [page, filter]], () =>
     getPropertyList({ page, ...filter })
   );
@@ -27,7 +41,13 @@ export const BuyProperties = () => {
 
   return (
     <Container>
-      <SearchForm contrato={2} setFilter={setFilter} setPage={setPage} />
+      <SearchForm
+        tipo={tipo}
+        contrato={contrato}
+        zonas={zonas}
+        setFilter={setFilter}
+        setPage={setPage}
+      />
       <List featured properties={data?.data?.results} status={status} />
       <Grid container spacing={2}>
         <Grid item xs={12} className="text-center">

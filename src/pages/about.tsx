@@ -140,7 +140,7 @@ const AboutPage: React.FC<PageProps> = () => {
             </p>
           </Grid>
 
-          <Grid item xs={12} sm={7}>
+          <Grid item xs={12}>
             <p>
               Actualmente, tras la jubilacion del fundador de la empresa, sus
               alumnos siguen llevando la gestion, manteniendo los principios y
@@ -155,7 +155,7 @@ const AboutPage: React.FC<PageProps> = () => {
             </p>
           </Grid>
 
-          <Grid item xs={12} sm={5}>
+          {/* <Grid item xs={12} sm={5}>
             <div style={{ margin: "0 80px" }}>
               <Img
                 fluid={images.team1.childImageSharp.fluid}
@@ -163,7 +163,7 @@ const AboutPage: React.FC<PageProps> = () => {
                 className="img-responsive about-image"
               />
             </div>
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} className="text-center">
             <Typography variant="h4" component="p" className="section-title">
@@ -193,7 +193,7 @@ const AboutPage: React.FC<PageProps> = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container justify="center" className="team-section text-center">
+        {/* <Grid container justify="center" className="team-section text-center">
           <Grid item xs={12}>
             <Typography variant="h4" component="p" className="section-title">
               Nuestro Equipo
@@ -211,7 +211,7 @@ const AboutPage: React.FC<PageProps> = () => {
             image={images.team4.childImageSharp.fluid}
             name="Irina Elistratova"
           />
-        </Grid>
+        </Grid> */}
       </Container>
     </Layout>
   );

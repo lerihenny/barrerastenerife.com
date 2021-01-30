@@ -164,14 +164,47 @@ export const baths: Baths[] = [
     value: "10",
   },
 ];
+
+type Sort = {
+  name: string;
+  value:
+    | "creation_date_desc"
+    | "creation_date_asc"
+    | "price_desc"
+    | "price_asc";
+};
+
+export const sort_by: Sort[] = [
+  {
+    name: "Recientes",
+    value: "creation_date_desc",
+  },
+  {
+    name: "Precio más alto",
+    value: "price_desc",
+  },
+  {
+    name: "Precio más bajo",
+    value: "price_asc",
+  },
+  // {
+  //   name: "Antiguas",
+  //   value: "creation_date_asc",
+  // },
+];
+
 export const zones = [
   {
     name: "Todas las zonas",
-    value: "Todas las zonas",
+    value: "",
   },
   {
     name: "Adeje",
     value: "Adeje",
+  },
+  {
+    name: "Alcalá",
+    value: "Alcalá",
   },
   {
     name: "Arafo",
@@ -180,6 +213,14 @@ export const zones = [
   {
     name: "Arico",
     value: "Arico",
+  },
+  {
+    name: "Amarilla Golf",
+    value: "Amarilla Golf",
+  },
+  {
+    name: "Armeñime",
+    value: "Armeñime",
   },
   {
     name: "Arona",
@@ -192,6 +233,10 @@ export const zones = [
   {
     name: "Candelaria",
     value: "Candelaria",
+  },
+  {
+    name: "Chayofa",
+    value: "Chayofa",
   },
   {
     name: "El Rosario",
@@ -214,8 +259,8 @@ export const zones = [
     value: "Granadilla de Abona",
   },
   {
-    name: "Guia de Isora",
-    value: "Guia de Isora",
+    name: "Guía de Isora",
+    value: "Guía de Isora",
   },
   {
     name: "Guimar",
@@ -234,12 +279,20 @@ export const zones = [
     value: "La Orotava",
   },
   {
+    name: "Los Abrigos",
+    value: "Los Abrigos",
+  },
+  {
     name: "Los Realejos",
     value: "Los Realejos",
   },
   {
     name: "Los Silos",
     value: "Los Silos",
+  },
+  {
+    name: "La Tejita",
+    value: "La Tejita",
   },
   {
     name: "Norte",
@@ -254,6 +307,10 @@ export const zones = [
     value: "Puerto de la Cruz",
   },
   {
+    name: "Puerto de Santiago",
+    value: "Puerto de Santiago",
+  },
+  {
     name: "San Cristobal de La Laguna",
     value: "San Cristobal de La Laguna",
   },
@@ -264,6 +321,10 @@ export const zones = [
   {
     name: "San Miguel de Abona",
     value: "San Miguel de Abona",
+  },
+  {
+    name: "San Miguel de Tajao",
+    value: "San Miguel de Tajao",
   },
   {
     name: "Santa Cruz de Tenerife",

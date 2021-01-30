@@ -26,7 +26,6 @@ const MapView = ({
     >
       <LocationPin lat={lat} lng={lng} />
     </GoogleMapReact>
-    ;
   </div>
 );
 

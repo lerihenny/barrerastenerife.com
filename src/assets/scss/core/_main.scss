@@ -206,10 +206,14 @@ body {
       transform: translate(-50%);
     }
 
-    .main-slider-property-data {
+    .main-slider-property-data > h2 {
+      font-family: "Rochester", cursive !important;
+      font-style: italic;
+      font-size: 4.5em;
       bottom: 2em;
       right: 2em;
-      margin-bottom: 2em;
+      color: $secondary-color;
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
     }
   }
 }
@@ -445,14 +449,30 @@ body {
   padding: 5em;
 }
 .map-container {
-  height: 500px;
+  height: 400px;
   width: 100%;
 }
 .location-icon {
   position: absolute;
   transform: translate(-50%, -50%);
+  text-shadow: 3px 3px 3px black;
 }
 .image-gallery-thumbnail-image {
   height: 80px;
   object-fit: cover;
+}
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.7);
+  z-index: 100;
 }

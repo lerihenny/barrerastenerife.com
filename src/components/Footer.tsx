@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <p className="footer-title">Propiedades Destacadas</p>
+          <p className="footer-title">Propiedades Recientes</p>
           <LatestProperties />
         </Grid>
         <Grid item xs={12} sm={3}>

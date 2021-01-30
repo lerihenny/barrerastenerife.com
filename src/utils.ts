@@ -34,6 +34,6 @@ export const getPropertyList = (data: Search) => {
   return getProperties({
     ...data,
     status: "available",
-    sort_by: "creation_date_desc",
+    // sort_by: "creation_date_desc",
   }).catch(error => console.log("Error", error));
 };

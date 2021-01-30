@@ -1,26 +1,28 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql, useStaticQuery, navigate } from "gatsby";
 import Img from "gatsby-image";
-import { Button, CircularProgress, Container, Hidden } from "@material-ui/core";
+import { Button, Container, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
 import * as constants from "../constants";
-import { Property } from "../models/Property";
-import { formatPrice } from "../utils";
 
-interface Props {
-  properties: Property[];
-}
-
-const MainSlider: React.FC<Props> = ({ properties }) => {
-  const property =
-    properties[Math.floor(Math.random() * Math.floor(properties.length))];
+const MainSlider: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "properties/property1.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1366) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
 
   const SearchForm = () => {
     const [state, setState] = React.useState({
       tipo: 0,
       contrato: 0,
-      precio: 0,
       zonas: 0,
     });
 
@@ -28,12 +30,16 @@ const MainSlider: React.FC<Props> = ({ properties }) => {
       setState({ ...state, [event.target.name]: event.target.value });
     };
 
+    const handleSearch = () => {
+      navigate("/properties/search", { state });
+    };
+
     return (
       <div className="main-search-form MuiPaper-elevation3">
         <form>
           <Select
             label="Tipo"
-            items={constants.type}
+            items={constants.types}
             value={state.tipo}
             onChange={handleChange}
           />
@@ -41,12 +47,6 @@ const MainSlider: React.FC<Props> = ({ properties }) => {
             label="Contrato"
             items={constants.contract}
             value={state.contrato}
-            onChange={handleChange}
-          />
-          <Select
-            label="Precio"
-            items={constants.price}
-            value={state.precio}
             onChange={handleChange}
           />
           <Select
@@ -61,6 +61,7 @@ const MainSlider: React.FC<Props> = ({ properties }) => {
             color="primary"
             size="large"
             startIcon={<SearchIcon />}
+            onClick={handleSearch}
           >
             Buscar
           </Button>
@@ -71,41 +72,25 @@ const MainSlider: React.FC<Props> = ({ properties }) => {
 
   const PropertyData = () => {
     return (
-      <Link to={`/property/?id=${property.identifier}`}>
-        <div className="main-slider-property-data property-data MuiPaper-elevation5">
-          <h2 className="property-data-price">
-            {formatPrice(
-              property.selling ? property.selling_cost : property.renting_cost
-            )}
-          </h2>
-          <hr />
-          <h2 className="property-data-title">{property.street}</h2>
-          <h3 className="property-data-address">{property.town}</h3>
-        </div>
-      </Link>
+      <div className="main-slider-property-data">
+        <h2 className="">Where Dreams Come Home</h2>
+      </div>
     );
   };
 
   return (
     <section className="main-slider">
-      {properties.length === 0 ? (
-        <Container className="text-center p-5">
-          <CircularProgress />
-        </Container>
-      ) : (
-        <>
-          <img
-            src={property.pictures[0]}
-            className="img-responsive crop-center"
-          />
-          <Container className="main-slider-container">
-            <Hidden xsDown>
-              <SearchForm />
-            </Hidden>
-            <PropertyData />
-          </Container>
-        </>
-      )}
+      <Img
+        fluid={data.placeholderImage.childImageSharp.fluid}
+        alt=""
+        className="img-responsive crop-center"
+      />
+      <Container className="main-slider-container">
+        <Hidden xsDown>
+          <SearchForm />
+        </Hidden>
+        <PropertyData />
+      </Container>
     </section>
   );
 };
