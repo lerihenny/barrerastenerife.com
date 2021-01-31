@@ -5,6 +5,7 @@ interface Props {
   label: string;
   items: any;
   value: number;
+  disabled?: boolean;
   onChange?: (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
@@ -14,6 +15,7 @@ const Select: React.FC<Props> = ({
   label,
   items,
   value,
+  disabled = false,
   onChange = () => {},
 }) => {
   const labelToId = () => {
@@ -28,6 +30,7 @@ const Select: React.FC<Props> = ({
       <TextField
         fullWidth
         select
+        disabled={disabled}
         id={labelToId()}
         name={labelToId()}
         size="small"

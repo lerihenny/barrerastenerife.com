@@ -6,12 +6,15 @@ import { Properties } from "../../components/properties/Properties";
 
 const SearchProperties: React.FC<PageProps> = ({ location }) => {
   const title = "Propiedades";
-  const { tipo, contrato, zonas } = location.state;
 
   return (
     <Layout>
       <SEO title={title} />
-      <Properties tipo={tipo} contrato={contrato} zonas={zonas} />
+      <Properties
+        tipo={location?.state?.tipo}
+        contrato={location?.state?.contrato}
+        zonas={location?.state?.zonas}
+      />
     </Layout>
   );
 };

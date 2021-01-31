@@ -46,7 +46,7 @@ const Detail = ({ property }: { property: Property | undefined }) => {
                 )}
               </h2>
               <hr />
-              <h2 className="property-data-title">{property.street}</h2>
+              <h2 className="property-data-title">{property.zone}</h2>
               <h3 className="property-data-address">{property.town}</h3>
             </div>
           </Grid>

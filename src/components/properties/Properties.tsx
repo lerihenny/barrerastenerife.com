@@ -11,12 +11,14 @@ type Props = {
   tipo?: number;
   contrato?: number;
   zonas?: number;
+  disableContract?: boolean;
 };
 
 export const Properties: FC<Props> = ({
   tipo = 0,
   contrato = 0,
   zonas = 0,
+  disableContract = false,
 }) => {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Search>({
@@ -26,7 +28,6 @@ export const Properties: FC<Props> = ({
     page,
   });
 
-  console.log(filter);
   const { status, data } = useQuery(["properties", [page, filter]], () =>
     getPropertyList({ page, ...filter })
   );
@@ -42,6 +43,7 @@ export const Properties: FC<Props> = ({
   return (
     <Container>
       <SearchForm
+        disableContract={disableContract}
         tipo={tipo}
         contrato={contrato}
         zonas={zonas}

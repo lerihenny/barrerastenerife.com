@@ -50,6 +50,7 @@ const Footer: React.FC = () => {
           <p>Santa Cruz de Tenerife.</p>
           <p>38618</p>
           <p>+34 822 29 81 28</p>
+          <p>+34 638 41 89 17</p>
         </Grid>
         <Grid item xs={12} className="text-center">
           © {new Date().getFullYear()} - Todos los derechos reservados

@@ -27,8 +27,8 @@ const PropertyCard: React.FC<Props> = ({ property }) => {
           price={
             property.selling ? property.selling_cost : property.renting_cost
           }
-          title={property.town}
-          address={property.kind.toUpperCase()}
+          title={property.zone ? property.zone : property.town}
+          address={property.town}
         />
         <PropertyFooter
           area={property.area}

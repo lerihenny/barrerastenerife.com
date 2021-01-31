@@ -99,20 +99,18 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
           <div className="contact-bar">
             <Container className="text-right">
               <List>
+                <ListItem dense>+34 822 29 81 28</ListItem>
                 <ListItem dense>+34 638 41 89 17</ListItem>
                 <ListItem dense>
-                  <a
-                    href="mailto:contacto@barrerastenerife.com"
-                    target="_blank"
-                  >
-                    contacto@barrerastenerife.com
+                  <a href="mailto:info@barrerastenerife.com" target="_blank">
+                    info@barrerastenerife.com
                   </a>
                 </ListItem>
               </List>
             </Container>
           </div>
         </Hidden>
-        <Container className="m-5">
+        <Container className="mt-3 mb-3">
           <Toolbar disableGutters>
             <Link to="/">
               <Img fixed={logo.top.childImageSharp.fixed} alt={siteTitle} />

@@ -44,12 +44,12 @@ const ContactPage: React.FC<PageProps> = () => {
               <Block
                 icon={<PhoneIcon fontSize="large" />}
                 title="Teléfono"
-                text="+34 638 41 89 17"
+                text="+34 822 29 81 28 / +34 638 41 89 17"
               />
               <Block
                 icon={<EmailIcon fontSize="large" />}
                 title="Correo"
-                text="contacto@barrerastenerife.com"
+                text="info@barrerastenerife.com"
               />
             </Grid>
           </div>

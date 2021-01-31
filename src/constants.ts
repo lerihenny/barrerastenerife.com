@@ -347,3 +347,133 @@ export const zones = [
     value: "Vilaflor",
   },
 ];
+
+export const municipios = [
+  {
+    name: "Todos los municipios",
+    value: "",
+  },
+  {
+    value: "Adeje",
+    name: "Adeje",
+  },
+  {
+    value: "Arico",
+    name: "Arico",
+  },
+  {
+    value: "Arona",
+    name: "Arona",
+  },
+  {
+    value: "Candelaria",
+    name: "Candelaria",
+  },
+  {
+    value: "Fasnia",
+    name: "Fasnia",
+  },
+  {
+    value: "Granadilla De Abona",
+    name: "Granadilla De Abona",
+  },
+  {
+    value: "Guía De Isora",
+    name: "Guía De Isora",
+  },
+  {
+    value: "Guimar",
+    name: "Guimar",
+  },
+  {
+    value: "La Laguna",
+    name: "La Laguna",
+  },
+  {
+    value: "Puerto De La Cruz",
+    name: "Puerto De La Cruz",
+  },
+  {
+    value: "San Miguel De Abona",
+    name: "San Miguel De Abona",
+  },
+  {
+    value: "Santa Cruz De Tenerife",
+    name: "Santa Cruz De Tenerife",
+  },
+  {
+    value: "Santiago Del Teide",
+    name: "Santiago Del Teide",
+  },
+];
+
+export const localidades = [
+  {
+    name: "Todas las localidades",
+    value: "",
+  },
+  {
+    value: "Acantilados de Los Gigantes",
+    name: "Acantilados de Los Gigantes",
+  },
+  {
+    value: "Alcalá",
+    name: "Alcalá",
+  },
+  {
+    value: "Aldea Blanca-Las Zocas",
+    name: "Aldea Blanca-Las Zocas",
+  },
+  {
+    value: "Callao Salvaje - Playa Paraíso",
+    name: "Callao Salvaje - Playa Paraíso",
+  },
+  {
+    value: "Chayofa",
+    name: "Chayofa",
+  },
+  {
+    value: "Cho-Guaza",
+    name: "Cho-Guaza",
+  },
+  {
+    value: "El Médano",
+    name: "El Médano",
+  },
+  {
+    value: "Golf del Sur-Amarilla Golf",
+    name: "Golf del Sur-Amarilla Golf",
+  },
+  {
+    value: "Las Chafiras",
+    name: "Las Chafiras",
+  },
+  {
+    value: "Los Abrigos",
+    name: "Los Abrigos",
+  },
+  {
+    value: "Los Cristianos",
+    name: "Los Cristianos",
+  },
+  {
+    value: "Palm Mar",
+    name: "Palm Mar",
+  },
+  {
+    value: "Playa San Juan",
+    name: "Playa San Juan",
+  },
+  {
+    value: "Playa de Fañabé Alto",
+    name: "Playa de Fañabé Alto",
+  },
+  {
+    value: "Puerto de Santiago",
+    name: "Puerto de Santiago",
+  },
+  {
+    value: "San Eugenio Bajo",
+    name: "San Eugenio Bajo",
+  },
+];

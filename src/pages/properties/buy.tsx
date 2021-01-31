@@ -2,17 +2,17 @@ import React from "react";
 import { PageProps } from "gatsby";
 import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
-import { BuyProperties } from "../../components/BuyProperties";
+import { Properties } from "../../components/properties/Properties";
 
-const Properties: React.FC<PageProps> = () => {
+const BuyProperties: React.FC<PageProps> = () => {
   const title = "Compra";
 
   return (
     <Layout>
       <SEO title={title} />
-      <BuyProperties />
+      <Properties contrato={2} disableContract />
     </Layout>
   );
 };
 
-export default Properties;
+export default BuyProperties;

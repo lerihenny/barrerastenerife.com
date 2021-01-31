@@ -18,7 +18,9 @@ interface Props {
   contrato?: number;
   habitaciones?: number;
   baños?: number;
-  zonas?: number;
+  municipios?: number;
+  localidades?: number;
+  disableContract?: boolean;
   setFilter: Dispatch<SetStateAction<Search>>;
   setPage: Dispatch<SetStateAction<number>>;
 }
@@ -28,7 +30,9 @@ const SearchForm: React.FC<Props> = ({
   contrato = 0,
   habitaciones = 0,
   baños = 0,
-  zonas = 0,
+  municipios = 0,
+  localidades = 0,
+  disableContract = false,
   setFilter,
   setPage,
 }) => {
@@ -37,13 +41,13 @@ const SearchForm: React.FC<Props> = ({
     contrato,
     habitaciones,
     baños,
-    zonas,
+    municipios,
+    localidades,
     "ordenar-por": 0,
     "identifier": "",
   });
 
   const handleChange = (event: any) => {
-    console.log(event.target);
     setState({ ...state, [event.target.name]: event.target.value });
   };
 
@@ -79,8 +83,12 @@ const SearchForm: React.FC<Props> = ({
       data.bathrooms_max = "20";
     }
 
-    if (state.zonas !== 0) {
-      data.town = constants.zones[state.zonas].value;
+    if (state.municipios !== 0) {
+      data.town = constants.municipios[state.municipios].value;
+    }
+
+    if (state.localidades !== 0) {
+      data.zone = constants.localidades[state.localidades].value;
     }
 
     setPage(1);
@@ -98,17 +106,18 @@ const SearchForm: React.FC<Props> = ({
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <Select
-                label="Tipo"
-                items={constants.types}
-                value={state.tipo}
+                disabled={disableContract}
+                label="Contrato"
+                items={constants.contract}
+                value={state.contrato}
                 onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
-                label="Contrato"
-                items={constants.contract}
-                value={state.contrato}
+                label="Tipo"
+                items={constants.types}
+                value={state.tipo}
                 onChange={handleChange}
               />
             </Grid>
@@ -154,11 +163,19 @@ const SearchForm: React.FC<Props> = ({
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <Select
-                label="Zonas"
-                items={constants.zones}
-                value={state.zonas}
+                label="Municipios"
+                items={constants.municipios}
+                value={state.municipios}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Select
+                label="Localidades"
+                items={constants.localidades}
+                value={state.localidades}
                 onChange={handleChange}
               />
             </Grid>
