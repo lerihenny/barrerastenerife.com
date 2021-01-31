@@ -28,15 +28,23 @@ const Footer: React.FC = () => {
             <Img fixed={data.placeholderImage.childImageSharp.fixed} />
           </Link>
           <div className="footer-social">
-            <Link to="/" className="mr-3">
+            <a
+              href="https://es-es.facebook.com/inmobiliariabarrerastenerife/"
+              target="_blank"
+              className="mr-3"
+            >
               <FacebookIcon />
-            </Link>
-            <Link to="/" className="mr-3">
+            </a>
+            <a
+              href="https://www.instagram.com/inmobarrerastenerife/"
+              target="_blank"
+              className="mr-3"
+            >
               <InstagramIcon />
-            </Link>
-            <Link to="/" className="mr-3">
+            </a>
+            {/* <Link to="/" className="mr-3">
               <YouTubeIcon />
-            </Link>
+            </Link> */}
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>

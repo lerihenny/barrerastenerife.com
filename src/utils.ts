@@ -37,3 +37,19 @@ export const getPropertyList = (data: Search) => {
     // sort_by: "creation_date_desc",
   }).catch(error => console.log("Error", error));
 };
+
+export const sendMail = (data: {
+  name: string;
+  email: string;
+  message: string;
+}) => {
+  const emulator = firebase.functions();
+
+  if (process.env.NODE_ENV === "development") {
+    emulator.useEmulator("localhost", 5001);
+  }
+
+  const sendMail = emulator.httpsCallable("sendMail");
+
+  return sendMail(data).catch(error => console.log("Error", error));
+};
