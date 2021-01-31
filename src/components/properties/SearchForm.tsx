@@ -18,8 +18,9 @@ interface Props {
   contrato?: number;
   habitaciones?: number;
   baños?: number;
-  municipios?: number;
-  localidades?: number;
+  tags?: number;
+  municipio?: number;
+  localidad?: number;
   disableContract?: boolean;
   setFilter: Dispatch<SetStateAction<Search>>;
   setPage: Dispatch<SetStateAction<number>>;
@@ -30,8 +31,9 @@ const SearchForm: React.FC<Props> = ({
   contrato = 0,
   habitaciones = 0,
   baños = 0,
-  municipios = 0,
-  localidades = 0,
+  tags = 0,
+  municipio = 0,
+  localidad = 0,
   disableContract = false,
   setFilter,
   setPage,
@@ -41,8 +43,9 @@ const SearchForm: React.FC<Props> = ({
     contrato,
     habitaciones,
     baños,
-    municipios,
-    localidades,
+    tags,
+    municipio,
+    localidad,
     "ordenar-por": 0,
     "identifier": "",
   });
@@ -73,6 +76,10 @@ const SearchForm: React.FC<Props> = ({
     data.bathrooms_max = constants.baths[state.baños].value;
     data.sort_by = constants.sort_by[state["ordenar-por"]].value;
 
+    if (state.tags !== 0) {
+      data.tags = constants.tags[state.tags].value;
+    }
+
     if (state.habitaciones === 8) {
       data.bedrooms_min = "8";
       data.bedrooms_max = "20";
@@ -83,12 +90,12 @@ const SearchForm: React.FC<Props> = ({
       data.bathrooms_max = "20";
     }
 
-    if (state.municipios !== 0) {
-      data.town = constants.municipios[state.municipios].value;
+    if (state.municipio !== 0) {
+      data.town = constants.municipios[state.municipio].value;
     }
 
-    if (state.localidades !== 0) {
-      data.zone = constants.localidades[state.localidades].value;
+    if (state.localidad !== 0) {
+      data.zone = constants.localidades[state.localidad].value;
     }
 
     setPage(1);
@@ -104,15 +111,17 @@ const SearchForm: React.FC<Props> = ({
       <Card className="full-search-form">
         <CardContent>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={4}>
-              <Select
-                disabled={disableContract}
-                label="Contrato"
-                items={constants.contract}
-                value={state.contrato}
-                onChange={handleChange}
-              />
-            </Grid>
+            {!disableContract && (
+              <Grid item xs={12} sm={4}>
+                <Select
+                  disabled={disableContract}
+                  label="Contrato"
+                  items={constants.contract}
+                  value={state.contrato}
+                  onChange={handleChange}
+                />
+              </Grid>
+            )}
             <Grid item xs={12} sm={4}>
               <Select
                 label="Tipo"
@@ -146,6 +155,14 @@ const SearchForm: React.FC<Props> = ({
               />
             </Grid>
             <Grid item xs={12} sm={4}>
+              <Select
+                label="Tags"
+                items={constants.tags}
+                value={state.tags}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
               <InputLabel
                 shrink
                 htmlFor="identifier"
@@ -167,7 +184,7 @@ const SearchForm: React.FC<Props> = ({
               <Select
                 label="Municipios"
                 items={constants.municipios}
-                value={state.municipios}
+                value={state.municipio}
                 onChange={handleChange}
               />
             </Grid>
@@ -175,7 +192,7 @@ const SearchForm: React.FC<Props> = ({
               <Select
                 label="Localidades"
                 items={constants.localidades}
-                value={state.localidades}
+                value={state.localidad}
                 onChange={handleChange}
               />
             </Grid>

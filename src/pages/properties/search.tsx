@@ -13,7 +13,8 @@ const SearchProperties: React.FC<PageProps> = ({ location }) => {
       <Properties
         tipo={location?.state?.tipo}
         contrato={location?.state?.contrato}
-        zonas={location?.state?.zonas}
+        municipio={location?.state?.municipio}
+        localidad={location?.state?.localidad}
       />
     </Layout>
   );

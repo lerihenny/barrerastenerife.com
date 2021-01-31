@@ -3,6 +3,7 @@ import { ReactImageGalleryItem } from "react-image-gallery";
 export type Property = {
   id: number;
   identifier: string;
+  zone: string;
   town: string;
   province: string;
   neighborhood: string;

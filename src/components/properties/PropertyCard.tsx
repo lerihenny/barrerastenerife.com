@@ -1,5 +1,4 @@
 import React from "react";
-import Img, { FluidObject } from "gatsby-image";
 import { Link } from "gatsby";
 import { Card } from "@material-ui/core";
 import PropertyDescription from "./PropertyDescription";
@@ -11,8 +10,7 @@ interface Props {
 }
 
 const PropertyCard: React.FC<Props> = ({ property }) => {
-  console.log(property);
-
+  // console.log(property.tags);
   return (
     <Link to={`/property/?id=${property.identifier}`}>
       <Card>

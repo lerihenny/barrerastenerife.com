@@ -23,7 +23,8 @@ const MainSlider: React.FC = () => {
     const [state, setState] = React.useState({
       tipo: 0,
       contrato: 0,
-      zonas: 0,
+      municipio: 0,
+      localidad: 0,
     });
 
     const handleChange = (event: any) => {
@@ -50,9 +51,15 @@ const MainSlider: React.FC = () => {
             onChange={handleChange}
           />
           <Select
-            label="Zonas"
-            items={constants.zones}
-            value={state.zonas}
+            label="Municipio"
+            items={constants.municipios}
+            value={state.municipio}
+            onChange={handleChange}
+          />
+          <Select
+            label="Localidad"
+            items={constants.localidades}
+            value={state.localidad}
             onChange={handleChange}
           />
           <Button

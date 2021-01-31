@@ -10,7 +10,7 @@ const BuyProperties: React.FC<PageProps> = () => {
   return (
     <Layout>
       <SEO title={title} />
-      <Properties contrato={2} disableContract />
+      <Properties contrato={2} disableContract title="Propiedades en venta" />
     </Layout>
   );
 };
