@@ -63,7 +63,7 @@ export type Search = {
   zone?: string;
   district?: string;
   identifier?: string;
-  tags?: [];
+  tags?: string | string[];
   area_min?: number;
   area_max?: number;
   bedrooms_min?: string;

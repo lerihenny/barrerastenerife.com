@@ -11,7 +11,11 @@ const IndexPage: React.FC<PageProps> = () => {
     <Layout>
       <SEO title="Home" />
       <MainSlider />
-      <Properties title="Propiedades Recientes" pagination={false} />
+      <Properties
+        title="Propiedades Recientes"
+        pagination={false}
+        search={false}
+      />
     </Layout>
   );
 };

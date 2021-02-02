@@ -6,12 +6,14 @@ import {
   Container,
   Grid,
   InputLabel,
+  Slider,
   TextField,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "../Select";
 import * as constants from "../../constants";
 import { Search } from "../../models/Search";
+import { formatPrice } from "../../utils";
 
 interface Props {
   tipo?: number;
@@ -48,10 +50,15 @@ const SearchForm: React.FC<Props> = ({
     localidad,
     "ordenar-por": 0,
     "identifier": "",
+    "price": contrato === 1 ? [400, 2000] : [50000, 1000000],
   });
 
   const handleChange = (event: any) => {
     setState({ ...state, [event.target.name]: event.target.value });
+  };
+
+  const handlePriceChange = (event: any, newValue: number | number[]) => {
+    setState({ ...state, price: newValue as number[] });
   };
 
   const handleSearch = () => {
@@ -75,6 +82,8 @@ const SearchForm: React.FC<Props> = ({
     data.bathrooms_min = constants.baths[state.baños].value;
     data.bathrooms_max = constants.baths[state.baños].value;
     data.sort_by = constants.sort_by[state["ordenar-por"]].value;
+    data.min_price = state.price[0];
+    data.max_price = state.price[1];
 
     if (state.tags !== 0) {
       data.tags = constants.tags[state.tags].value;
@@ -180,7 +189,7 @@ const SearchForm: React.FC<Props> = ({
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={4}>
               <Select
                 label="Municipios"
                 items={constants.municipios}
@@ -188,13 +197,46 @@ const SearchForm: React.FC<Props> = ({
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={4}>
               <Select
                 label="Localidades"
                 items={constants.localidades}
                 value={state.localidad}
                 onChange={handleChange}
               />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <InputLabel
+                shrink
+                htmlFor="price"
+                classes={{ root: "mb-3 mt-3" }}
+              >
+                Precio
+              </InputLabel>
+              <Slider
+                id="price"
+                name="price"
+                min={0}
+                step={50}
+                max={contrato === 1 ? 2000 : 1000000}
+                valueLabelDisplay="off"
+                value={state.price}
+                onChange={handlePriceChange}
+                aria-labelledby="range-slider"
+                // marks={[
+                //   {
+                //     value: state.price[0],
+                //     label: `${formatPrice(state.price[0])}`,
+                //   },
+                //   {
+                //     value: state.price[1],
+                //     label: `${formatPrice(state.price[1])}`,
+                //   },
+                // ]}
+              />
+              {`${formatPrice(state.price[0])} - ${formatPrice(
+                state.price[1]
+              )}`}
             </Grid>
             <Grid item xs={12}>
               <Button

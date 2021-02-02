@@ -1,6 +1,7 @@
 import React from "react";
 import {
   CircularProgress,
+  Chip,
   Container,
   Grid,
   Card,
@@ -21,8 +22,6 @@ const Detail = ({ property }: { property: Property | undefined }) => {
       </Container>
     );
   }
-
-  console.log(property);
 
   return (
     <>
@@ -59,6 +58,18 @@ const Detail = ({ property }: { property: Property | undefined }) => {
                 bathrooms={property.bathrooms}
                 bedrooms={property.bedrooms}
               />
+              {property.tags.length > 0 && (
+                <>
+                  <CardHeader title="Etiquetas" />
+                  <ul className="tag-list">
+                    {property.tags.map(tag => (
+                      <li>
+                        <Chip label={tag} color="primary" />
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </Card>
 
             <Card>

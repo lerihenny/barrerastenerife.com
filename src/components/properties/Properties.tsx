@@ -15,6 +15,7 @@ type Props = {
   disableContract?: boolean;
   title?: string;
   pagination?: boolean;
+  search?: boolean;
 };
 
 export const Properties: FC<Props> = ({
@@ -25,6 +26,7 @@ export const Properties: FC<Props> = ({
   disableContract = false,
   title = "Propiedades",
   pagination = true,
+  search = true,
 }) => {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Search>({
@@ -49,15 +51,17 @@ export const Properties: FC<Props> = ({
 
   return (
     <Container>
-      <SearchForm
-        disableContract={disableContract}
-        tipo={tipo}
-        contrato={contrato}
-        municipio={municipio}
-        localidad={localidad}
-        setFilter={setFilter}
-        setPage={setPage}
-      />
+      {search && (
+        <SearchForm
+          disableContract={disableContract}
+          tipo={tipo}
+          contrato={contrato}
+          municipio={municipio}
+          localidad={localidad}
+          setFilter={setFilter}
+          setPage={setPage}
+        />
+      )}
       <List properties={data?.data?.results} status={status} title={title} />
       {pagination && (
         <Grid container spacing={2}>
