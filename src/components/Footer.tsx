@@ -4,10 +4,11 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import YouTubeIcon from "@material-ui/icons/YouTube";
 import LatestProperties from "./LatestProperties";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "logo/logo-navbar.png" }) {
@@ -48,11 +49,11 @@ const Footer: React.FC = () => {
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <p className="footer-title">Propiedades Recientes</p>
+          <p className="footer-title">{t("footer.recent")}</p>
           <LatestProperties />
         </Grid>
         <Grid item xs={12} sm={3}>
-          <p className="footer-title">Contacto</p>
+          <p className="footer-title">{t("footer.contact")}</p>
           <p>Av. Los Abrigos, 32.</p>
           <p>Los Abrigos.</p>
           <p>Santa Cruz de Tenerife.</p>
@@ -61,7 +62,7 @@ const Footer: React.FC = () => {
           <p>+34 638 41 89 17</p>
         </Grid>
         <Grid item xs={12} className="text-center">
-          © {new Date().getFullYear()} - Todos los derechos reservados
+          {`© ${new Date().getFullYear()} - ${t("footer.copyright")}`}
         </Grid>
       </Grid>
     </footer>

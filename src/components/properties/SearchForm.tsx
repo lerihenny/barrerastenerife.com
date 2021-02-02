@@ -14,6 +14,7 @@ import Select from "../Select";
 import * as constants from "../../constants";
 import { Search } from "../../models/Search";
 import { formatPrice } from "../../utils";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 interface Props {
   tipo?: number;
@@ -40,6 +41,7 @@ const SearchForm: React.FC<Props> = ({
   setFilter,
   setPage,
 }) => {
+  const { t } = useTranslation();
   const [state, setState] = React.useState({
     tipo,
     contrato,
@@ -124,7 +126,8 @@ const SearchForm: React.FC<Props> = ({
               <Grid item xs={12} sm={4}>
                 <Select
                   disabled={disableContract}
-                  label="Contrato"
+                  tKey="contract"
+                  label={t("constants.fields.contract")}
                   items={constants.contract}
                   value={state.contrato}
                   onChange={handleChange}
@@ -133,7 +136,8 @@ const SearchForm: React.FC<Props> = ({
             )}
             <Grid item xs={12} sm={4}>
               <Select
-                label="Tipo"
+                tKey="types"
+                label={t("constants.fields.type")}
                 items={constants.types}
                 value={state.tipo}
                 onChange={handleChange}
@@ -141,7 +145,8 @@ const SearchForm: React.FC<Props> = ({
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
-                label="Ordenar por"
+                tKey="sort_by"
+                label={t("constants.fields.sort_by")}
                 items={constants.sort_by}
                 value={state["ordenar-por"]}
                 onChange={handleChange}
@@ -149,7 +154,8 @@ const SearchForm: React.FC<Props> = ({
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
-                label="Habitaciones"
+                tKey="bedrooms"
+                label={t("constants.fields.bedrooms")}
                 items={constants.rooms}
                 value={state.habitaciones}
                 onChange={handleChange}
@@ -157,7 +163,8 @@ const SearchForm: React.FC<Props> = ({
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
-                label="Baños"
+                tKey="bathrooms"
+                label={t("constants.fields.bathrooms")}
                 items={constants.baths}
                 value={state.baños}
                 onChange={handleChange}
@@ -165,7 +172,8 @@ const SearchForm: React.FC<Props> = ({
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
-                label="Tags"
+                tKey="tags"
+                label={t("constants.fields.tags")}
                 items={constants.tags}
                 value={state.tags}
                 onChange={handleChange}
@@ -177,7 +185,7 @@ const SearchForm: React.FC<Props> = ({
                 htmlFor="identifier"
                 classes={{ root: "mb-3 mt-3" }}
               >
-                {"ID de referencia"}
+                {t("constants.fields.identifier")}
               </InputLabel>
               <TextField
                 fullWidth
@@ -191,7 +199,8 @@ const SearchForm: React.FC<Props> = ({
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
-                label="Municipios"
+                tKey="cities"
+                label={t("constants.fields.city")}
                 items={constants.municipios}
                 value={state.municipio}
                 onChange={handleChange}
@@ -199,7 +208,8 @@ const SearchForm: React.FC<Props> = ({
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
-                label="Localidades"
+                tKey="zones"
+                label={t("constants.fields.zone")}
                 items={constants.localidades}
                 value={state.localidad}
                 onChange={handleChange}
@@ -211,7 +221,7 @@ const SearchForm: React.FC<Props> = ({
                 htmlFor="price"
                 classes={{ root: "mb-3 mt-3" }}
               >
-                Precio
+                {t("constants.fields.price")}
               </InputLabel>
               <Slider
                 id="price"
@@ -235,7 +245,7 @@ const SearchForm: React.FC<Props> = ({
                 // ]}
               />
               {`${formatPrice(state.price[0])} - ${formatPrice(
-                state.price[1]
+                state.price[1],
               )}`}
             </Grid>
             <Grid item xs={12}>
@@ -246,7 +256,7 @@ const SearchForm: React.FC<Props> = ({
                 startIcon={<SearchIcon />}
                 onClick={handleSearch}
               >
-                Buscar
+                {t("search")}
               </Button>
             </Grid>
           </Grid>

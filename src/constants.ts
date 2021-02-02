@@ -17,15 +17,15 @@ type Types = {
 
 export const types: Types[] = [
   {
-    name: "Piso",
+    name: "flat",
     value: "flat",
   },
   {
-    name: "Casa / Chalet",
+    name: "chalet",
     value: "chalet",
   },
   {
-    name: "Casa Rústica",
+    name: "country_house",
     value: "country_house",
   },
   // {
@@ -33,35 +33,35 @@ export const types: Types[] = [
   //   value: "bungalow",
   // },
   {
-    name: "Hotel",
+    name: "room",
     value: "room",
   },
   {
-    name: "Garaje",
+    name: "parking",
     value: "parking",
   },
   {
-    name: "Local",
+    name: "shop",
     value: "shop",
   },
   {
-    name: "Nave Industrial",
+    name: "industrial",
     value: "industrial",
   },
   {
-    name: "Oficina",
+    name: "office",
     value: "office",
   },
   {
-    name: "Terreno",
+    name: "land",
     value: "land",
   },
   {
-    name: "Trastero",
+    name: "storage",
     value: "storage",
   },
   {
-    name: "Edificio",
+    name: "building",
     value: "building",
   },
 ];
@@ -72,9 +72,9 @@ type Contracts = {
 };
 
 export const contract: Contracts[] = [
-  { name: "Todos", value: "" },
-  { name: "Alquiler", value: "rent" },
-  { name: "Compra", value: "sell" },
+  { name: "all", value: "" },
+  { name: "rent", value: "rent" },
+  { name: "sell", value: "sell" },
 ];
 
 type Rooms = {
@@ -84,7 +84,7 @@ type Rooms = {
 
 export const rooms: Rooms[] = [
   {
-    name: "Todos",
+    name: "all",
     value: "",
   },
   {
@@ -116,7 +116,7 @@ export const rooms: Rooms[] = [
     value: "7",
   },
   {
-    name: "Más de 7",
+    name: "10",
     value: "10",
   },
 ];
@@ -128,7 +128,7 @@ type Baths = {
 
 export const baths: Baths[] = [
   {
-    name: "Todos",
+    name: "all",
     value: "",
   },
   {
@@ -160,7 +160,7 @@ export const baths: Baths[] = [
     value: "7",
   },
   {
-    name: "Más de 7",
+    name: "10",
     value: "10",
   },
 ];
@@ -176,15 +176,15 @@ type Sort = {
 
 export const sort_by: Sort[] = [
   {
-    name: "Recientes",
+    name: "creation_date_desc",
     value: "creation_date_desc",
   },
   {
-    name: "Precio más alto",
+    name: "price_desc",
     value: "price_desc",
   },
   {
-    name: "Precio más bajo",
+    name: "price_asc",
     value: "price_asc",
   },
   // {
@@ -350,136 +350,136 @@ export const zones = [
 
 export const municipios = [
   {
-    name: "Todos los municipios",
+    name: "all",
     value: "",
   },
   {
+    name: "adeje",
     value: "Adeje",
-    name: "Adeje",
   },
   {
+    name: "arico",
     value: "Arico",
-    name: "Arico",
   },
   {
+    name: "arona",
     value: "Arona",
-    name: "Arona",
   },
   {
+    name: "candelaria",
     value: "Candelaria",
-    name: "Candelaria",
   },
   {
+    name: "fasnia",
     value: "Fasnia",
-    name: "Fasnia",
   },
   {
+    name: "granadilla",
     value: "Granadilla De Abona",
-    name: "Granadilla De Abona",
   },
   {
+    name: "isora",
     value: "Guía De Isora",
-    name: "Guía De Isora",
   },
   {
+    name: "guimar",
     value: "Guimar",
-    name: "Guimar",
   },
   {
+    name: "laguna",
     value: "La Laguna",
-    name: "La Laguna",
   },
   {
+    name: "puertoCruz",
     value: "Puerto De La Cruz",
-    name: "Puerto De La Cruz",
   },
   {
+    name: "sanMiguel",
     value: "San Miguel De Abona",
-    name: "San Miguel De Abona",
   },
   {
+    name: "santaCruz",
     value: "Santa Cruz De Tenerife",
-    name: "Santa Cruz De Tenerife",
   },
   {
+    name: "santiago",
     value: "Santiago Del Teide",
-    name: "Santiago Del Teide",
   },
 ];
 
 export const localidades = [
   {
-    name: "Todas las localidades",
+    name: "all",
     value: "",
   },
   {
+    name: "acantilados",
     value: "Acantilados de Los Gigantes",
-    name: "Acantilados de Los Gigantes",
   },
   {
+    name: "alcala",
     value: "Alcalá",
-    name: "Alcalá",
   },
   {
+    name: "aldea",
     value: "Aldea Blanca-Las Zocas",
-    name: "Aldea Blanca-Las Zocas",
   },
   {
+    name: "callao",
     value: "Callao Salvaje - Playa Paraíso",
-    name: "Callao Salvaje - Playa Paraíso",
   },
   {
+    name: "chayofa",
     value: "Chayofa",
-    name: "Chayofa",
   },
   {
+    name: "guaza",
     value: "Cho-Guaza",
-    name: "Cho-Guaza",
   },
   {
+    name: "medano",
     value: "El Médano",
-    name: "El Médano",
   },
   {
+    name: "golf",
     value: "Golf del Sur-Amarilla Golf",
-    name: "Golf del Sur-Amarilla Golf",
   },
   {
+    name: "chafiras",
     value: "Las Chafiras",
-    name: "Las Chafiras",
   },
   {
+    name: "abrigos",
     value: "Los Abrigos",
-    name: "Los Abrigos",
   },
   {
+    name: "cristianos",
     value: "Los Cristianos",
-    name: "Los Cristianos",
   },
   {
+    name: "palmar",
     value: "Palm Mar",
-    name: "Palm Mar",
   },
   {
+    name: "sanjuan",
     value: "Playa San Juan",
-    name: "Playa San Juan",
   },
   {
+    name: "fanabe",
     value: "Playa de Fañabé Alto",
-    name: "Playa de Fañabé Alto",
   },
   {
+    name: "santiago",
     value: "Puerto de Santiago",
-    name: "Puerto de Santiago",
   },
   {
+    name: "eugenio",
     value: "San Eugenio Bajo",
-    name: "San Eugenio Bajo",
   },
 ];
 
 export const tags = [
-  { value: "", name: "Todas" },
+  { value: "", name: "all" },
   // { value: "access from street", name: "" },
   // { value: "air conditioner", name: "" },
   // { value: "alarm", name: "" },
@@ -514,7 +514,7 @@ export const tags = [
   // { value: "duplex", name: "" },
   // { value: "east", name: "" },
   // { value: "electric heating", name: "" },
-  { value: "elevator", name: "Ascensor" },
+  { value: "elevator", name: "elevator" },
   // { value: "emblematic building", name: "" },
   // { value: "emergency exit", name: "" },
   // { value: "equipped kitchen", name: "" },
@@ -526,9 +526,9 @@ export const tags = [
   // { value: "from a bank", name: "" },
   // { value: "furnished", name: "" },
   // { value: "furnished kitchen", name: "" },
-  { value: "garage", name: "Garaje" },
+  { value: "garage", name: "garage" },
   // { value: "garage included", name: "" },
-  { value: "garden", name: "Jardín" },
+  { value: "garden", name: "garden" },
   // { value: "golf views", name: "" },
   // { value: "green area", name: "" },
   // { value: "gym", name: "" },
@@ -560,7 +560,7 @@ export const tags = [
   // { value: "north", name: "" },
   // { value: "open kitchen", name: "" },
   // { value: "open space", name: "" },
-  { value: "outdoor", name: "Exterior" },
+  { value: "outdoor", name: "outdoor" },
   // { value: "paddle tennis court", name: "" },
   // { value: "pantry", name: "" },
   // { value: "parking", name: "" },
@@ -578,9 +578,9 @@ export const tags = [
   // { value: "raised floor", name: "" },
   // { value: "reformed", name: "" },
   // { value: "reinforced door", name: "" },
-  { value: "rooftop terrace", name: "Ático" },
+  { value: "rooftop terrace", name: "rooftop_terrace" },
   // { value: "sauna", name: "" },
-  { value: "sea views", name: "Vista Mar" },
+  { value: "sea views", name: "sea_views" },
   // { value: "security 24h", name: "" },
   // { value: "security cameras", name: "" },
   // { value: "security door", name: "" },
@@ -596,15 +596,15 @@ export const tags = [
   // { value: "squash court", name: "" },
   // { value: "stairs", name: "" },
   // { value: "stippled walls", name: "" },
-  { value: "storage room", name: "Trastero" },
+  { value: "storage room", name: "storage_room" },
   // { value: "storage room included", name: "" },
   // { value: "students", name: "" },
   // { value: "studio", name: "" },
   // { value: "subsidised housing", name: "" },
   // { value: "sunny", name: "" },
-  { value: "swimming pool", name: "Piscina" },
+  { value: "swimming pool", name: "swimming_pool" },
   // { value: "tennis court", name: "" },
-  { value: "terrace", name: "Terraza" },
+  { value: "terrace", name: "terrace" },
   // { value: "terrazzo floor", name: "" },
   // { value: "to reform", name: "" },
   // { value: "tourist", name: "" },

@@ -1,23 +1,27 @@
 import React from "react";
 import { InputLabel, MenuItem, TextField } from "@material-ui/core";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 interface Props {
+  tKey?: string;
   label: string;
   items: any;
   value: number;
   disabled?: boolean;
   onChange?: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
 }
 
 const Select: React.FC<Props> = ({
+  tKey,
   label,
   items,
   value,
   disabled = false,
   onChange = () => {},
 }) => {
+  const { t } = useTranslation();
   const labelToId = () => {
     return label.toLowerCase().replace(" ", "-");
   };
@@ -40,7 +44,7 @@ const Select: React.FC<Props> = ({
       >
         {items.map((item: any, index: number) => (
           <MenuItem key={`${labelToId()}-${index}`} value={index}>
-            {item.name}
+            {t(`constants.${tKey}.${item.name}`)}
           </MenuItem>
         ))}
       </TextField>

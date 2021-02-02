@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import {
@@ -15,6 +15,12 @@ import {
   useScrollTrigger,
 } from "@material-ui/core";
 import Menu from "@material-ui/icons/Menu";
+import {
+  Link,
+  useI18next,
+  useTranslation,
+  I18nextContext,
+} from "gatsby-plugin-react-i18next";
 
 interface Props {
   siteTitle: string;
@@ -36,6 +42,9 @@ const HideOnScroll: React.FC<HideOnScrollProps> = ({ children }) => {
 
 const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const { languages, originalPath } = useI18next();
+  const { t } = useTranslation();
+  const { language } = React.useContext(I18nextContext);
 
   const logo = useStaticQuery(graphql`
     query {
@@ -46,14 +55,28 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
           }
         }
       }
+      es: file(relativePath: { eq: "flags/sp.jpg" }) {
+        childImageSharp {
+          fixed(height: 20) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      en: file(relativePath: { eq: "flags/uk.jpg" }) {
+        childImageSharp {
+          fixed(height: 20) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `);
 
   const linkList = [
-    { to: "/properties/buy", text: "Compra" },
-    { to: "/properties/rent", text: "Alquiler" },
-    { to: "/about", text: "Quienes Somos" },
-    { to: "/contact", text: "Contacto" },
+    { to: "/properties/buy", text: t("header.link.buy") },
+    { to: "/properties/rent", text: t("header.link.rent") },
+    { to: "/about", text: t("header.link.about") },
+    { to: "/contact", text: t("header.link.contact") },
   ];
 
   const toggleDrawer = (open: boolean) => (event: any) => {
@@ -106,6 +129,35 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
                     info@barrerastenerife.com
                   </a>
                 </ListItem>
+                {languages.map(lng => {
+                  let flag;
+
+                  if (lng === "es") {
+                    flag = (
+                      <Img
+                        fixed={logo.es.childImageSharp.fixed}
+                        alt="español"
+                      />
+                    );
+                  }
+
+                  if (lng === "en") {
+                    flag = (
+                      <Img
+                        fixed={logo.en.childImageSharp.fixed}
+                        alt="english"
+                      />
+                    );
+                  }
+
+                  return (
+                    <ListItem key={lng}>
+                      <Link to={originalPath} language={lng}>
+                        {flag}
+                      </Link>
+                    </ListItem>
+                  );
+                })}
               </List>
             </Container>
           </div>

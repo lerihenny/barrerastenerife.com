@@ -2,8 +2,10 @@ import React from "react";
 import { Grid, Button } from "@material-ui/core";
 import Field from "./Field";
 import { sendMail } from "../../utils";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const Form = () => {
+  const { t } = useTranslation();
   const [state, setState] = React.useState({
     name: "",
     email: "",
@@ -28,26 +30,26 @@ const Form = () => {
   return (
     <Grid container item xs={12} sm={7}>
       <div className="contact-form about-title">
-        <h1>Contáctanos</h1>
-        <h3>¿Tienes preguntas? Estamos para ayudarte con lo que necesites.</h3>
+        <h1>{t("contact.title")}</h1>
+        <h3>{t("contact.subtitle")}</h3>
         <form>
           <Field
             id="name"
-            label="Nombre"
+            label={t("contact.form.name")}
             onChange={handleChange}
             disabled={sent}
             value={state.name}
           />
           <Field
             id="email"
-            label="Correo"
+            label={t("contact.form.email")}
             onChange={handleChange}
             disabled={sent}
             value={state.email}
           />
           <Field
             id="message"
-            label="Mensaje"
+            label={t("contact.form.message")}
             onChange={handleChange}
             disabled={sent}
             value={state.message}
@@ -60,7 +62,7 @@ const Form = () => {
             onClick={handleMail}
             disabled={sent}
           >
-            {sent ? "Enviado" : "Enviar"}
+            {sent ? t("contact.form.sent") : t("contact.form.send")}
           </Button>
         </form>
       </div>

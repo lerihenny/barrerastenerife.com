@@ -1,0 +1,161 @@
+{
+  "home": "Home",
+  "search": "Search",
+
+  "header": {
+    "link": {
+      "buy": "Buy",
+      "rent": "Rent",
+      "about": "About Us",
+      "contact": "Contact"
+    }
+  },
+
+  "footer": {
+    "recent": "Recent Properties",
+    "contact": "Contact",
+    "copyright": "All rights reserved"
+  },
+
+  "properties": {
+    "title": "Properties",
+    "recent": "Recent properties",
+    "sell": "Properties for sale",
+    "rent": "Properties for rent",
+
+    "info": "Basic information",
+    "description": "Description",
+
+    "previous": "Previous",
+    "next": "Next",
+
+    "area": "Area",
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "tags": "Tags"
+  },
+
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "¿Any questions? We are here to help with anything you need.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "sent": "Sent"
+    }
+  },
+
+  "constants": {
+    "fields": {
+      "type": "Type",
+      "contract": "Contract",
+      "city": "City",
+      "zone": "Zone",
+      "sort_by": "Sort by",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "tags": "Tags",
+      "identifier": "Reference ID",
+      "price": "Price"
+    },
+    "types": {
+      "flat": "Flat",
+      "chalet": "House / Chalet",
+      "country_house": "Country House",
+      "bungalow": "Bungalow",
+      "room": "Hotel",
+      "parking": "Parking",
+      "shop": "Shop",
+      "industrial": "Industrial Ship",
+      "office": "Office",
+      "land": "Land",
+      "storage": "Storage",
+      "building": "Building"
+    },
+    "contract": {
+      "all": "All",
+      "rent": "Rent",
+      "sell": "Sale"
+    },
+    "cities": {
+      "all": "All cities",
+      "adeje": "Adeje",
+      "arico": "Arico",
+      "arona": "Arona",
+      "candelaria": "Candelaria",
+      "fasnia": "Fasnia",
+      "granadilla": "Granadilla De Abona",
+      "isora": "Guía De Isora",
+      "guimar": "Guimar",
+      "laguna": "La Laguna",
+      "puertoCruz": "Puerto De La Cruz",
+      "sanMiguel": "San Miguel De Abona",
+      "santaCruz": "Santa Cruz De Tenerife",
+      "santiago": "Santiago Del Teide"
+    },
+    "zones": {
+      "all": "All zones",
+      "acantilados": "Acantilados de Los Gigantes",
+      "alcala": "Alcalá",
+      "aldea": "Aldea Blanca-Las Zocas",
+      "callao": "Callao Salvaje - Playa Paraíso",
+      "chayofa": "Chayofa",
+      "guaza": "Cho-Guaza",
+      "medano": "El Médano",
+      "golf": "Golf del Sur-Amarilla Golf",
+      "chafiras": "Las Chafiras",
+      "abrigos": "Los Abrigos",
+      "cristianos": "Los Cristianos",
+      "palmar": "Palm Mar",
+      "sanjuan": "Playa San Juan",
+      "fanabe": "Playa de Fañabé Alto",
+      "santiago": "Puerto de Santiago",
+      "eugenio": "San Eugenio Bajo"
+    },
+    "sort_by": {
+      "creation_date_desc": "Recent",
+      "price_desc": "Highest price",
+      "price_asc": "Lowest price"
+    },
+    "bedrooms": {
+      "all": "All",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "10": "More than 7"
+    },
+    "bathrooms": {
+      "all": "All",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "10": "More than 7"
+    },
+    "tags": {
+      "all": "All",
+      "elevator": "Elevator",
+      "garage": "Garage",
+      "garden": "Garden",
+      "outdoor": "Outdoor",
+      "rooftop_terrace": "Rooftop terrace",
+      "sea_views": "Sea views",
+      "storage_room": "Storage room",
+      "swimming_pool": "Swimimng pool",
+      "terrace": "Terrace"
+    }
+  }
+}

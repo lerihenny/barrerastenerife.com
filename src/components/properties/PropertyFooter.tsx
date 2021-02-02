@@ -4,6 +4,7 @@ import CropFreeIcon from "@material-ui/icons/CropFree";
 import HotelIcon from "@material-ui/icons/Hotel";
 import BathtubIcon from "@material-ui/icons/Bathtub";
 import FooterItem from "./PropertyFooterItem";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 interface Props {
   detail?: boolean;
@@ -18,6 +19,7 @@ const PropertyFooter: React.FC<Props> = ({
   bedrooms,
   bathrooms,
 }) => {
+  const { t } = useTranslation();
   return (
     <CardActions
       classes={{ root: `property-card-actions${detail ? "--detail" : ""}` }}
@@ -26,7 +28,7 @@ const PropertyFooter: React.FC<Props> = ({
         <Grid item xs={4}>
           <FooterItem
             detail={detail}
-            title="Área"
+            title={t("properties.area")}
             value={area}
             component={CropFreeIcon}
           />
@@ -34,7 +36,7 @@ const PropertyFooter: React.FC<Props> = ({
         <Grid item xs={4}>
           <FooterItem
             detail={detail}
-            title="Habitaciones"
+            title={t("properties.bedrooms")}
             value={bedrooms}
             component={HotelIcon}
           />
@@ -42,7 +44,7 @@ const PropertyFooter: React.FC<Props> = ({
         <Grid item xs={4}>
           <FooterItem
             detail={detail}
-            title="Baños"
+            title={t("properties.bathrooms")}
             value={bathrooms}
             component={BathtubIcon}
           />

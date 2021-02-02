@@ -10,6 +10,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import Block from "../components/contact/Block";
 import Form from "../components/contact/Form";
 import MapView from "../components/maps/MapView";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const ContactPage: React.FC<PageProps> = () => {
   const data = useStaticQuery(graphql`
@@ -23,6 +24,8 @@ const ContactPage: React.FC<PageProps> = () => {
       }
     }
   `);
+
+  const { t } = useTranslation();
 
   return (
     <Layout>
@@ -38,17 +41,17 @@ const ContactPage: React.FC<PageProps> = () => {
             <Grid container spacing={2}>
               <Block
                 icon={<RoomIcon fontSize="large" />}
-                title="Dirección"
+                title={t("contact.address")}
                 text="Av. Los Abrigos, 32. Los Abrigos. Santa Cruz de Tenerife."
               />
               <Block
                 icon={<PhoneIcon fontSize="large" />}
-                title="Teléfono"
+                title={t("contact.phone")}
                 text="+34 822 29 81 28 / +34 638 41 89 17"
               />
               <Block
                 icon={<EmailIcon fontSize="large" />}
-                title="Correo"
+                title={t("contact.email")}
                 text="info@barrerastenerife.com"
               />
             </Grid>

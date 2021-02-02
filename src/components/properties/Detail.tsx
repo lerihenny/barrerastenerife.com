@@ -13,6 +13,7 @@ import PropertyFooter from "./PropertyFooter";
 import { formatPrice } from "../../utils";
 import MapView from "../maps/MapView";
 import { Property } from "../../models/Property";
+import { I18nextContext, useTranslation } from "gatsby-plugin-react-i18next";
 
 const Detail = ({ property }: { property: Property | undefined }) => {
   if (!property) {
@@ -22,6 +23,9 @@ const Detail = ({ property }: { property: Property | undefined }) => {
       </Container>
     );
   }
+
+  const { t } = useTranslation();
+  const { language } = React.useContext(I18nextContext);
 
   return (
     <>
@@ -41,7 +45,7 @@ const Detail = ({ property }: { property: Property | undefined }) => {
                 {formatPrice(
                   property.selling
                     ? property.selling_cost
-                    : property.renting_cost
+                    : property.renting_cost,
                 )}
               </h2>
               <hr />
@@ -51,7 +55,7 @@ const Detail = ({ property }: { property: Property | undefined }) => {
           </Grid>
           <Grid item xs={12}>
             <Card style={{ marginBottom: "20px" }}>
-              <CardHeader title="Información básica" />
+              <CardHeader title={t("properties.info")} />
               <PropertyFooter
                 detail={true}
                 area={property.area}
@@ -60,7 +64,7 @@ const Detail = ({ property }: { property: Property | undefined }) => {
               />
               {property.tags.length > 0 && (
                 <>
-                  <CardHeader title="Etiquetas" />
+                  <CardHeader title={t("properties.tags")} />
                   <ul className="tag-list">
                     {property.tags.map(tag => (
                       <li>
@@ -73,8 +77,12 @@ const Detail = ({ property }: { property: Property | undefined }) => {
             </Card>
 
             <Card>
-              <CardHeader title="Descripción" />
-              <CardContent>{property.description}</CardContent>
+              <CardHeader title={t("properties.description")} />
+              <CardContent>
+                {language === "es"
+                  ? property.description
+                  : property.description_en}
+              </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12}>

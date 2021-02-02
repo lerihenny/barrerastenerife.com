@@ -6,6 +6,7 @@ import { getPropertyList } from "../../utils";
 import List from "./List";
 import SearchForm from "./SearchForm";
 import * as constants from "../../constants";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {
   tipo?: number;
@@ -28,6 +29,7 @@ export const Properties: FC<Props> = ({
   pagination = true,
   search = true,
 }) => {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Search>({
     kind: constants.types[tipo].value,
@@ -38,7 +40,7 @@ export const Properties: FC<Props> = ({
   });
 
   const { status, data } = useQuery(["properties", [page, filter]], () =>
-    getPropertyList({ page, ...filter })
+    getPropertyList({ page, ...filter }),
   );
 
   const handleNext = () => {
@@ -68,12 +70,12 @@ export const Properties: FC<Props> = ({
           <Grid item xs={12} className="text-center">
             {status !== "loading" && page > 1 && (
               <Button onClick={handlePrevious} className="p-5">
-                {"< Anterior"}
+                {`< ${t("properties.previous")}`}
               </Button>
             )}
             {status !== "loading" && data?.data?.results.length === 12 && (
               <Button onClick={handleNext} className="p-5">
-                {"Siguiente >"}
+                {`${t("properties.next")} >`}
               </Button>
             )}
           </Grid>

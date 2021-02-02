@@ -5,6 +5,7 @@ import { Button, Container, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
 import * as constants from "../constants";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -20,6 +21,7 @@ const MainSlider: React.FC = () => {
   `);
 
   const SearchForm = () => {
+    const { t } = useTranslation();
     const [state, setState] = React.useState({
       tipo: 0,
       contrato: 0,
@@ -39,25 +41,29 @@ const MainSlider: React.FC = () => {
       <div className="main-search-form MuiPaper-elevation3">
         <form>
           <Select
-            label="Tipo"
+            tKey="types"
+            label={t("constants.fields.type")}
             items={constants.types}
             value={state.tipo}
             onChange={handleChange}
           />
           <Select
-            label="Contrato"
+            tKey="contract"
+            label={t("constants.fields.contract")}
             items={constants.contract}
             value={state.contrato}
             onChange={handleChange}
           />
           <Select
-            label="Municipio"
+            tKey="cities"
+            label={t("constants.fields.city")}
             items={constants.municipios}
             value={state.municipio}
             onChange={handleChange}
           />
           <Select
-            label="Localidad"
+            tKey="zones"
+            label={t("constants.fields.zone")}
             items={constants.localidades}
             value={state.localidad}
             onChange={handleChange}
@@ -70,7 +76,7 @@ const MainSlider: React.FC = () => {
             startIcon={<SearchIcon />}
             onClick={handleSearch}
           >
-            Buscar
+            {t("search")}
           </Button>
         </form>
       </div>

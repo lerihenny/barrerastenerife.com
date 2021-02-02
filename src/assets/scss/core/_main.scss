@@ -55,6 +55,10 @@ body {
       background-color: $color-white;
       color: $color-black;
 
+      li {
+        width: auto;
+      }
+
       a {
         color: $color-black;
         font-size: 14px;

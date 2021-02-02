@@ -10,7 +10,6 @@ interface Props {
 }
 
 const PropertyCard: React.FC<Props> = ({ property }) => {
-  // console.log(property.tags);
   return (
     <Link to={`/property/?id=${property.identifier}`}>
       <Card>

@@ -1,0 +1,161 @@
+{
+  "home": "Inicio",
+  "search": "Buscar",
+
+  "header": {
+    "link": {
+      "buy": "Comprar",
+      "rent": "Alquilar",
+      "about": "Quienes Somos",
+      "contact": "Contacto"
+    }
+  },
+
+  "footer": {
+    "recent": "Propiedades Recientes",
+    "contact": "Contacto",
+    "copyright": "Todos los derechos reservados"
+  },
+
+  "properties": {
+    "title": "Propiedades",
+    "recent": "Propiedades Recientes",
+    "sell": "Propiedades en venta",
+    "rent": "Propiedades en alquiler",
+
+    "info": "Información básica",
+    "description": "Descripción",
+
+    "previous": "Anterior",
+    "next": "Siguiente",
+
+    "area": "Área",
+    "bedrooms": "Habitaciones",
+    "bathrooms": "Baños",
+    "tags": "Etiquetas"
+  },
+
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "¿Tienes preguntas? Estamos para ayudarte con lo que necesites.",
+    "address": "Dirección",
+    "phone": "Teléfono",
+    "email": "Correo",
+
+    "form": {
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Mensaje",
+      "send": "Enviar",
+      "sent": "Enviado"
+    }
+  },
+
+  "constants": {
+    "fields": {
+      "type": "Tipo",
+      "contract": "Contrato",
+      "city": "Municipio",
+      "zone": "Localidad",
+      "sort_by": "Ordenar por",
+      "bedrooms": "Habitaciones",
+      "bathrooms": "Baños",
+      "tags": "Etiquetas",
+      "identifier": "ID de referencia",
+      "price": "Precio"
+    },
+    "types": {
+      "flat": "Piso",
+      "chalet": "Casa / Chalet",
+      "country_house": "Casa Rústica",
+      "bungalow": "Bungalow",
+      "room": "Hotel",
+      "parking": "Garaje",
+      "shop": "Local",
+      "industrial": "Nave Industrial",
+      "office": "Oficina",
+      "land": "Terreno",
+      "storage": "Trastero",
+      "building": "Edificio"
+    },
+    "contract": {
+      "all": "Todos",
+      "rent": "Alquiler",
+      "sell": "Compra"
+    },
+    "cities": {
+      "all": "Todos los municipios",
+      "adeje": "Adeje",
+      "arico": "Arico",
+      "arona": "Arona",
+      "candelaria": "Candelaria",
+      "fasnia": "Fasnia",
+      "granadilla": "Granadilla De Abona",
+      "isora": "Guía De Isora",
+      "guimar": "Guimar",
+      "laguna": "La Laguna",
+      "puertoCruz": "Puerto De La Cruz",
+      "sanMiguel": "San Miguel De Abona",
+      "santaCruz": "Santa Cruz De Tenerife",
+      "santiago": "Santiago Del Teide"
+    },
+    "zones": {
+      "all": "Todas las localidades",
+      "acantilados": "Acantilados de Los Gigantes",
+      "alcala": "Alcalá",
+      "aldea": "Aldea Blanca-Las Zocas",
+      "callao": "Callao Salvaje - Playa Paraíso",
+      "chayofa": "Chayofa",
+      "guaza": "Cho-Guaza",
+      "medano": "El Médano",
+      "golf": "Golf del Sur-Amarilla Golf",
+      "chafiras": "Las Chafiras",
+      "abrigos": "Los Abrigos",
+      "cristianos": "Los Cristianos",
+      "palmar": "Palm Mar",
+      "sanjuan": "Playa San Juan",
+      "fanabe": "Playa de Fañabé Alto",
+      "santiago": "Puerto de Santiago",
+      "eugenio": "San Eugenio Bajo"
+    },
+    "sort_by": {
+      "creation_date_desc": "Recientes",
+      "price_desc": "Precio más alto",
+      "price_asc": "Precio más bajo"
+    },
+    "bedrooms": {
+      "all": "Todos",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "10": "Más de 7"
+    },
+    "bathrooms": {
+      "all": "Todos",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "10": "Más de 7"
+    },
+    "tags": {
+      "all": "Todas",
+      "elevator": "Ascensor",
+      "garage": "Garaje",
+      "garden": "Jardín",
+      "outdoor": "Exterior",
+      "rooftop_terrace": "Ático",
+      "sea_views": "Vista Mar",
+      "storage_room": "Trastero",
+      "swimming_pool": "Piscina",
+      "terrace": "Terraza"
+    }
+  }
+}
