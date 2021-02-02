@@ -43,9 +43,6 @@ const Footer: React.FC = () => {
             >
               <InstagramIcon />
             </a>
-            {/* <Link to="/" className="mr-3">
-              <YouTubeIcon />
-            </Link> */}
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>

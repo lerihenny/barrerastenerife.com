@@ -9,7 +9,7 @@ interface Props {
   value: number;
   disabled?: boolean;
   onChange?: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
 }
 
@@ -22,28 +22,25 @@ const Select: React.FC<Props> = ({
   onChange = () => {},
 }) => {
   const { t } = useTranslation();
-  const labelToId = () => {
-    return label.toLowerCase().replace(" ", "-");
-  };
 
   return (
     <>
-      <InputLabel shrink htmlFor={labelToId()} classes={{ root: "mb-3 mt-3" }}>
+      <InputLabel shrink htmlFor={tKey} classes={{ root: "mb-3 mt-3" }}>
         {label}
       </InputLabel>
       <TextField
         fullWidth
         select
         disabled={disabled}
-        id={labelToId()}
-        name={labelToId()}
+        id={tKey}
+        name={tKey}
         size="small"
         variant="filled"
         value={value}
         onChange={onChange}
       >
         {items.map((item: any, index: number) => (
-          <MenuItem key={`${labelToId()}-${index}`} value={index}>
+          <MenuItem key={`${tKey}-${index}`} value={index}>
             {t(`constants.${tKey}.${item.name}`)}
           </MenuItem>
         ))}

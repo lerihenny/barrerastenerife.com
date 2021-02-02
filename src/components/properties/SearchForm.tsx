@@ -17,42 +17,42 @@ import { formatPrice } from "../../utils";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 interface Props {
-  tipo?: number;
-  contrato?: number;
-  habitaciones?: number;
-  baños?: number;
+  types?: number;
+  contract?: number;
+  bedrooms?: number;
+  bathrooms?: number;
   tags?: number;
-  municipio?: number;
-  localidad?: number;
+  cities?: number;
+  zones?: number;
   disableContract?: boolean;
   setFilter: Dispatch<SetStateAction<Search>>;
   setPage: Dispatch<SetStateAction<number>>;
 }
 
 const SearchForm: React.FC<Props> = ({
-  tipo = 0,
-  contrato = 0,
-  habitaciones = 0,
-  baños = 0,
+  types = 0,
+  contract = 0,
+  bedrooms = 0,
+  bathrooms = 0,
   tags = 0,
-  municipio = 0,
-  localidad = 0,
+  cities = 0,
+  zones = 0,
   disableContract = false,
   setFilter,
   setPage,
 }) => {
   const { t } = useTranslation();
   const [state, setState] = React.useState({
-    tipo,
-    contrato,
-    habitaciones,
-    baños,
+    types,
+    contract,
+    bedrooms,
+    bathrooms,
     tags,
-    municipio,
-    localidad,
-    "ordenar-por": 0,
-    "identifier": "",
-    "price": contrato === 1 ? [400, 2000] : [50000, 1000000],
+    cities,
+    zones,
+    sort_by: 0,
+    identifier: "",
+    price: contract === 1 ? [400, 2000] : [50000, 1000000],
   });
 
   const handleChange = (event: any) => {
@@ -77,13 +77,13 @@ const SearchForm: React.FC<Props> = ({
       return;
     }
 
-    data.kind = constants.types[state.tipo].value;
-    data.buyop = constants.contract[state.contrato].value;
-    data.bedrooms_min = constants.rooms[state.habitaciones].value;
-    data.bedrooms_max = constants.rooms[state.habitaciones].value;
-    data.bathrooms_min = constants.baths[state.baños].value;
-    data.bathrooms_max = constants.baths[state.baños].value;
-    data.sort_by = constants.sort_by[state["ordenar-por"]].value;
+    data.kind = constants.types[state.types].value;
+    data.buyop = constants.contract[state.contract].value;
+    data.bedrooms_min = constants.rooms[state.bedrooms].value;
+    data.bedrooms_max = constants.rooms[state.bedrooms].value;
+    data.bathrooms_min = constants.baths[state.bathrooms].value;
+    data.bathrooms_max = constants.baths[state.bathrooms].value;
+    data.sort_by = constants.sort_by[state.sort_by].value;
     data.min_price = state.price[0];
     data.max_price = state.price[1];
 
@@ -91,22 +91,22 @@ const SearchForm: React.FC<Props> = ({
       data.tags = constants.tags[state.tags].value;
     }
 
-    if (state.habitaciones === 8) {
+    if (state.bedrooms === 8) {
       data.bedrooms_min = "8";
       data.bedrooms_max = "20";
     }
 
-    if (state.baños === 8) {
+    if (state.bathrooms === 8) {
       data.bathrooms_min = "8";
       data.bathrooms_max = "20";
     }
 
-    if (state.municipio !== 0) {
-      data.town = constants.municipios[state.municipio].value;
+    if (state.cities !== 0) {
+      data.town = constants.municipios[state.cities].value;
     }
 
-    if (state.localidad !== 0) {
-      data.zone = constants.localidades[state.localidad].value;
+    if (state.zones !== 0) {
+      data.zone = constants.localidades[state.zones].value;
     }
 
     setPage(1);
@@ -129,7 +129,7 @@ const SearchForm: React.FC<Props> = ({
                   tKey="contract"
                   label={t("constants.fields.contract")}
                   items={constants.contract}
-                  value={state.contrato}
+                  value={state.contract}
                   onChange={handleChange}
                 />
               </Grid>
@@ -139,7 +139,7 @@ const SearchForm: React.FC<Props> = ({
                 tKey="types"
                 label={t("constants.fields.type")}
                 items={constants.types}
-                value={state.tipo}
+                value={state.types}
                 onChange={handleChange}
               />
             </Grid>
@@ -148,7 +148,7 @@ const SearchForm: React.FC<Props> = ({
                 tKey="sort_by"
                 label={t("constants.fields.sort_by")}
                 items={constants.sort_by}
-                value={state["ordenar-por"]}
+                value={state.sort_by}
                 onChange={handleChange}
               />
             </Grid>
@@ -157,7 +157,7 @@ const SearchForm: React.FC<Props> = ({
                 tKey="bedrooms"
                 label={t("constants.fields.bedrooms")}
                 items={constants.rooms}
-                value={state.habitaciones}
+                value={state.bedrooms}
                 onChange={handleChange}
               />
             </Grid>
@@ -166,7 +166,7 @@ const SearchForm: React.FC<Props> = ({
                 tKey="bathrooms"
                 label={t("constants.fields.bathrooms")}
                 items={constants.baths}
-                value={state.baños}
+                value={state.bathrooms}
                 onChange={handleChange}
               />
             </Grid>
@@ -202,7 +202,7 @@ const SearchForm: React.FC<Props> = ({
                 tKey="cities"
                 label={t("constants.fields.city")}
                 items={constants.municipios}
-                value={state.municipio}
+                value={state.cities}
                 onChange={handleChange}
               />
             </Grid>
@@ -211,7 +211,7 @@ const SearchForm: React.FC<Props> = ({
                 tKey="zones"
                 label={t("constants.fields.zone")}
                 items={constants.localidades}
-                value={state.localidad}
+                value={state.zones}
                 onChange={handleChange}
               />
             </Grid>
@@ -228,24 +228,14 @@ const SearchForm: React.FC<Props> = ({
                 name="price"
                 min={0}
                 step={50}
-                max={contrato === 1 ? 2000 : 1000000}
+                max={contract === 1 ? 2000 : 1000000}
                 valueLabelDisplay="off"
                 value={state.price}
                 onChange={handlePriceChange}
                 aria-labelledby="range-slider"
-                // marks={[
-                //   {
-                //     value: state.price[0],
-                //     label: `${formatPrice(state.price[0])}`,
-                //   },
-                //   {
-                //     value: state.price[1],
-                //     label: `${formatPrice(state.price[1])}`,
-                //   },
-                // ]}
               />
               {`${formatPrice(state.price[0])} - ${formatPrice(
-                state.price[1],
+                state.price[1]
               )}`}
             </Grid>
             <Grid item xs={12}>

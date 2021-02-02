@@ -12,7 +12,7 @@ const BuyProperties: React.FC<PageProps> = () => {
   return (
     <Layout>
       <SEO title={title} />
-      <Properties contrato={2} disableContract title={t("properties.sell")} />
+      <Properties contract={2} disableContract title={t("properties.sell")} />
     </Layout>
   );
 };

@@ -23,13 +23,14 @@ const MainSlider: React.FC = () => {
   const SearchForm = () => {
     const { t } = useTranslation();
     const [state, setState] = React.useState({
-      tipo: 0,
-      contrato: 0,
-      municipio: 0,
-      localidad: 0,
+      types: 0,
+      contract: 0,
+      cities: 0,
+      zones: 0,
     });
 
     const handleChange = (event: any) => {
+      console.log(event.target);
       setState({ ...state, [event.target.name]: event.target.value });
     };
 
@@ -44,28 +45,28 @@ const MainSlider: React.FC = () => {
             tKey="types"
             label={t("constants.fields.type")}
             items={constants.types}
-            value={state.tipo}
+            value={state.types}
             onChange={handleChange}
           />
           <Select
             tKey="contract"
             label={t("constants.fields.contract")}
             items={constants.contract}
-            value={state.contrato}
+            value={state.contract}
             onChange={handleChange}
           />
           <Select
             tKey="cities"
             label={t("constants.fields.city")}
             items={constants.municipios}
-            value={state.municipio}
+            value={state.cities}
             onChange={handleChange}
           />
           <Select
             tKey="zones"
             label={t("constants.fields.zone")}
             items={constants.localidades}
-            value={state.localidad}
+            value={state.zones}
             onChange={handleChange}
           />
           <Button

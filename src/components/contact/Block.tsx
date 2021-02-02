@@ -7,7 +7,7 @@ type Props = {
   text: string;
 };
 
-const Block = ({ icon, title, text }) => (
+const Block: React.FC<Props> = ({ icon, title, text }) => (
   <Grid
     item
     container

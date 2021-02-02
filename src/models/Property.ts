@@ -24,7 +24,8 @@ export type Property = {
   bedrooms: number;
   bathrooms: number;
   area: number;
-  pictures: ReactImageGalleryItem[];
+  // pictures: any;
+  pictures: any;
   description: string;
   agency: {
     name: string;

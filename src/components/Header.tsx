@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "gatsby";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import {
@@ -15,12 +14,7 @@ import {
   useScrollTrigger,
 } from "@material-ui/core";
 import Menu from "@material-ui/icons/Menu";
-import {
-  Link,
-  useI18next,
-  useTranslation,
-  I18nextContext,
-} from "gatsby-plugin-react-i18next";
+import { Link, useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 
 interface Props {
   siteTitle: string;
@@ -44,11 +38,10 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
   const { languages, originalPath } = useI18next();
   const { t } = useTranslation();
-  const { language } = React.useContext(I18nextContext);
 
-  const logo = useStaticQuery(graphql`
+  const images = useStaticQuery(graphql`
     query {
-      top: file(relativePath: { eq: "logo/logo-navbar.png" }) {
+      logo: file(relativePath: { eq: "logo/logo-navbar.png" }) {
         childImageSharp {
           fixed(height: 70) {
             ...GatsbyImageSharpFixed
@@ -92,16 +85,10 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
     >
       <div className="side-menu--logo">
         <Link to="/">
-          <Img fixed={logo.top.childImageSharp.fixed} alt={siteTitle} />
+          <Img fixed={images.logo.childImageSharp.fixed} alt={siteTitle} />
         </Link>
       </div>
       <List disablePadding className="side-menu--list">
-        {/* <ListItem button>
-          <ListItemIcon>
-            <MailIcon />
-          </ListItemIcon>
-          <ListItemText primary="Alquiler" />
-        </ListItem> */}
         {linkList.map((link, index) => (
           <Link
             key={`${link.text.toLowerCase().replace(" ", "-")}-${index}`}
@@ -120,7 +107,7 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
       <AppBar position="fixed">
         <Hidden smDown>
           <div className="contact-bar">
-            <Container className="text-right">
+            <Container className="text-right contact-bar">
               <List>
                 <ListItem dense>+34 822 29 81 28</ListItem>
                 <ListItem dense>+34 638 41 89 17</ListItem>
@@ -130,30 +117,13 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
                   </a>
                 </ListItem>
                 {languages.map(lng => {
-                  let flag;
-
-                  if (lng === "es") {
-                    flag = (
-                      <Img
-                        fixed={logo.es.childImageSharp.fixed}
-                        alt="español"
-                      />
-                    );
-                  }
-
-                  if (lng === "en") {
-                    flag = (
-                      <Img
-                        fixed={logo.en.childImageSharp.fixed}
-                        alt="english"
-                      />
-                    );
-                  }
-
                   return (
                     <ListItem key={lng}>
                       <Link to={originalPath} language={lng}>
-                        {flag}
+                        <Img
+                          fixed={images[lng].childImageSharp.fixed}
+                          alt={lng}
+                        />
                       </Link>
                     </ListItem>
                   );
@@ -165,7 +135,7 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
         <Container className="mt-3 mb-3">
           <Toolbar disableGutters>
             <Link to="/">
-              <Img fixed={logo.top.childImageSharp.fixed} alt={siteTitle} />
+              <Img fixed={images.logo.childImageSharp.fixed} alt={siteTitle} />
             </Link>
             <Hidden smDown>
               <List className="top-menu ml-auto">

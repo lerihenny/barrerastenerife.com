@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Button, Container, Grid } from "@material-ui/core";
-import { useQuery } from "react-query";
+import { QueryStatus, useQuery } from "react-query";
 import { Search } from "../../models/Search";
 import { getPropertyList } from "../../utils";
 import List from "./List";
@@ -9,10 +9,10 @@ import * as constants from "../../constants";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 type Props = {
-  tipo?: number;
-  contrato?: number;
-  municipio?: number;
-  localidad?: number;
+  type?: number;
+  contract?: number;
+  city?: number;
+  zone?: number;
   disableContract?: boolean;
   title?: string;
   pagination?: boolean;
@@ -20,10 +20,10 @@ type Props = {
 };
 
 export const Properties: FC<Props> = ({
-  tipo = 0,
-  contrato = 0,
-  municipio = 0,
-  localidad = 0,
+  type = 0,
+  contract = 0,
+  city = 0,
+  zone = 0,
   disableContract = false,
   title = "Propiedades",
   pagination = true,
@@ -32,15 +32,21 @@ export const Properties: FC<Props> = ({
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Search>({
-    kind: constants.types[tipo].value,
-    buyop: constants.contract[contrato].value,
-    town: constants.municipios[municipio].value,
-    zone: constants.localidades[localidad].value,
+    kind: constants.types[type].value,
+    buyop: constants.contract[contract].value,
+    town: constants.municipios[city].value,
+    zone: constants.localidades[zone].value,
     page,
   });
 
-  const { status, data } = useQuery(["properties", [page, filter]], () =>
-    getPropertyList({ page, ...filter }),
+  const {
+    status,
+    data,
+  }: {
+    status: QueryStatus;
+    data: any;
+  } = useQuery(["properties", [page, filter]], () =>
+    getPropertyList({ page, ...filter })
   );
 
   const handleNext = () => {
@@ -56,10 +62,10 @@ export const Properties: FC<Props> = ({
       {search && (
         <SearchForm
           disableContract={disableContract}
-          tipo={tipo}
-          contrato={contrato}
-          municipio={municipio}
-          localidad={localidad}
+          types={type}
+          contract={contract}
+          cities={city}
+          zones={zone}
           setFilter={setFilter}
           setPage={setPage}
         />

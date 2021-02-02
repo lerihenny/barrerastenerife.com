@@ -5,7 +5,18 @@ import SEO from "../../components/SEO";
 import { Properties } from "../../components/properties/Properties";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
-const SearchProperties: React.FC<PageProps> = ({ location }) => {
+type Props = {
+  location: {
+    state: {
+      types: number;
+      contract: number;
+      cities: number;
+      zones: number;
+    };
+  };
+};
+
+const SearchProperties: React.FC<Props> = ({ location }) => {
   const { t } = useTranslation();
   const title = t("properties.title");
 
@@ -14,10 +25,10 @@ const SearchProperties: React.FC<PageProps> = ({ location }) => {
       <SEO title={title} />
       <Properties
         title={t("properties.title")}
-        tipo={location?.state?.tipo}
-        contrato={location?.state?.contrato}
-        municipio={location?.state?.municipio}
-        localidad={location?.state?.localidad}
+        type={location?.state?.types}
+        contract={location?.state?.contract}
+        city={location?.state?.cities}
+        zone={location?.state?.zones}
       />
     </Layout>
   );

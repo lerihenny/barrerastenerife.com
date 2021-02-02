@@ -13,7 +13,7 @@ const RentProperties: React.FC<PageProps> = () => {
     <Layout>
       <SEO title={title} />
       <Properties
-        contrato={1}
+        contract={1}
         disableContract={true}
         title={t("properties.rent")}
       />
