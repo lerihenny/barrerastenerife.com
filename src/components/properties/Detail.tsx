@@ -37,7 +37,12 @@ const Detail = ({ property }: { property: Property | undefined }) => {
           className="properties-container"
         >
           <Grid item xs={12}>
-            <ImageGallery items={property.pictures} />
+            <ImageGallery
+              items={property.pictures}
+              lazyLoad={true}
+              showFullscreenButton={false}
+              showPlayButton={false}
+            />
           </Grid>
           <Grid item xs={12}>
             <div className="property-data MuiPaper-elevation5">
@@ -45,7 +50,7 @@ const Detail = ({ property }: { property: Property | undefined }) => {
                 {formatPrice(
                   property.selling
                     ? property.selling_cost
-                    : property.renting_cost,
+                    : property.renting_cost
                 )}
               </h2>
               <hr />

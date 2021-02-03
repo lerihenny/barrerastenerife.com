@@ -16,6 +16,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const AboutPage: React.FC<PageProps> = () => {
   const images = useStaticQuery(graphql`
@@ -65,6 +66,8 @@ const AboutPage: React.FC<PageProps> = () => {
     }
   `);
 
+  const { t } = useTranslation();
+
   const Team = ({ image, name }: { image: FluidObject; name: string }) => {
     return (
       <Grid item xs={9} sm={3}>
@@ -73,7 +76,7 @@ const AboutPage: React.FC<PageProps> = () => {
           <CardContent className="team-container text-center">
             <p className="team-name">{name}</p>
             <hr />
-            <p className="team-position">Agente</p>
+            <p className="team-position">{t("about.agent")}</p>
           </CardContent>
         </Card>
       </Grid>
@@ -121,38 +124,14 @@ const AboutPage: React.FC<PageProps> = () => {
 
           <Grid item xs={12} sm={6}>
             <div className="about-title">
-              <h1>Inmobiliaria Barreras</h1>
-              <h3>Un servicio de alta calidad</h3>
+              <h1>{t("about.title")}</h1>
+              <h3>{t("about.subtitle")}</h3>
             </div>
-            <p>
-              Bienvenidos a su Inmobiliaria. Con el propósito de ofrecer un
-              servicio de asesoramiento de alta calidad en sus transacciones
-              inmobiliarias, en nosotros encontrará el apoyo y rigor necesarios
-              para optimizar una decisión tan importante, somos conscientes de
-              nuestra responsabilidad y su satisfacción el mejor estímulo para
-              seguir trabajando en esta línea. INMOBILIARIA BARRERAS nace en
-              pintoresco pueblo de pescadores de nombre Los Abrigos ubicado en
-              la parte sur de la isla de Tenerife en el año 1995. El fundador,
-              Pablo Barreras, ha siguido así la tradición familiar que, durante
-              varias generaciones, ha estado vinculada al ámbito de la abogacía
-              y de los negocios, especialmente inmobiliarios contando con
-              agencias colaboradoras pertenecientes al grupo familiar.
-            </p>
+            <p>{t("about.p1")}</p>
           </Grid>
 
           <Grid item xs={12}>
-            <p>
-              Actualmente, tras la jubilacion del fundador de la empresa, sus
-              alumnos siguen llevando la gestion, manteniendo los principios y
-              los valores del su fundador. Somos miembros del la Agrupacion de
-              Agencias Inmobiliarias, que reune todo el sur de la isla, que
-              permite la cooperación entre profesionales inmobiliarios. Esta
-              filosofía de trabajo es el presente y el futuro de la
-              intermediación inmobiliaria en Tenerife: un sistema que aglutina
-              la más amplia oferta inmobiliaria del momento puesta a disposición
-              del cliente para que éste obtenga las máximas ventajas a la hora
-              de comprar o vender su vivienda.
-            </p>
+            <p>{t("about.p2")}</p>
           </Grid>
 
           {/* <Grid item xs={12} sm={5}>
@@ -167,28 +146,28 @@ const AboutPage: React.FC<PageProps> = () => {
 
           <Grid item xs={12} className="text-center">
             <Typography variant="h4" component="p" className="section-title">
-              Nuestros Servicios
+              {t("about.services")}
             </Typography>
             <Grid container spacing={5} justify="center">
               <ServiceBox
-                title="Información"
-                text="Información detallada y puntual de las gestiones de compra, venta o alquiler de su casa, oficina o local."
+                title={t("about.info.title")}
+                text={t("about.info.description")}
               />
               <ServiceBox
-                title="Asesoría"
-                text="Clarificación de dudas y asesoramiento legal y fiscal."
+                title={t("about.consulting.title")}
+                text={t("about.consulting.description")}
               />
               <ServiceBox
-                title="Inversión"
-                text="Ideas para invertir en inmuebles en Tenerife y asesoramiento a particulares que compran piso como vivienda habitual."
+                title={t("about.investment.title")}
+                text={t("about.investment.description")}
               />
               <ServiceBox
-                title="Atención"
-                text="Esmerada atención personalizada para clientes recurrentes e inversores nacionales o de otros paises."
+                title={t("about.attention.title")}
+                text={t("about.attention.description")}
               />
               <ServiceBox
-                title="Calidad"
-                text="Dinamismo y calidad de servicio el compromiso de no defraudar su confianza."
+                title={t("about.quality.title")}
+                text={t("about.quality.description")}
               />
             </Grid>
           </Grid>
@@ -196,7 +175,7 @@ const AboutPage: React.FC<PageProps> = () => {
         {/* <Grid container justify="center" className="team-section text-center">
           <Grid item xs={12}>
             <Typography variant="h4" component="p" className="section-title">
-              Nuestro Equipo
+              {t("about.team")}
             </Typography>
           </Grid>
           <Team

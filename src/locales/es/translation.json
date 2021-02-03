@@ -1,6 +1,7 @@
 {
   "home": "Inicio",
   "search": "Buscar",
+  "property": "Propiedad",
 
   "header": {
     "link": {
@@ -33,6 +34,38 @@
     "bedrooms": "Habitaciones",
     "bathrooms": "Baños",
     "tags": "Etiquetas"
+  },
+
+  "about": {
+    "title": "Inmobiliaria Barreras",
+    "subtitle": "Un servicio de alta calidad",
+    "p1": "Bienvenidos a su Inmobiliaria. Con el propósito de ofrecer un servicio de asesoramiento de alta calidad en sus transacciones inmobiliarias, en nosotros encontrará el apoyo y rigor necesarios para optimizar una decisión tan importante, somos conscientes de nuestra responsabilidad y su satisfacción el mejor estímulo para seguir trabajando en esta línea. INMOBILIARIA BARRERAS nace en pintoresco pueblo de pescadores de nombre Los Abrigos ubicado en la parte sur de la isla de Tenerife en el año 1995. El fundador, Pablo Barreras, ha siguido así la tradición familiar que, durante varias generaciones, ha estado vinculada al ámbito de la abogacía y de los negocios, especialmente inmobiliarios contando con agencias colaboradoras pertenecientes al grupo familiar.",
+    "p2": "Actualmente, tras la jubilacion del fundador de la empresa, sus alumnos siguen llevando la gestion, manteniendo los principios y los valores del su fundador. Somos miembros del la Agrupacion de Agencias Inmobiliarias, que reune todo el sur de la isla, que permite la cooperación entre profesionales inmobiliarios. Esta filosofía de trabajo es el presente y el futuro de la intermediación inmobiliaria en Tenerife: un sistema que aglutina la más amplia oferta inmobiliaria del momento puesta a disposición del cliente para que éste obtenga las máximas ventajas a la hora de comprar o vender su vivienda.",
+
+    "services": "Nuestros Servicios",
+    "info": {
+      "title": "Información",
+      "description": "Información detallada y puntual de las gestiones de compra, venta o alquiler de su casa, oficina o local."
+    },
+    "consulting": {
+      "title": "Asesoría",
+      "description": "Clarificación de dudas y asesoramiento legal y fiscal."
+    },
+    "investment": {
+      "title": "Inversión",
+      "description": "Ideas para invertir en inmuebles en Tenerife y asesoramiento a particulares que compran piso como vivienda habitual."
+    },
+    "attention": {
+      "title": "Atención",
+      "description": "Esmerada atención personalizada para clientes recurrentes e inversores nacionales o de otros paises."
+    },
+    "quality": {
+      "title": "Calidad",
+      "description": "Dinamismo y calidad de servicio el compromiso de no defraudar su confianza."
+    },
+
+    "team": "Nuestro Equipo",
+    "agent": "Agente"
   },
 
   "contact": {

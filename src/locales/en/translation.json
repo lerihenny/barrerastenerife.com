@@ -1,6 +1,7 @@
 {
   "home": "Home",
   "search": "Search",
+  "property": "Property",
 
   "header": {
     "link": {
@@ -33,6 +34,38 @@
     "bedrooms": "Bedrooms",
     "bathrooms": "Bathrooms",
     "tags": "Tags"
+  },
+
+  "about": {
+    "title": "Inmobiliaria Barreras",
+    "subtitle": "A high quality service",
+    "p1": "Bienvenidos a su Inmobiliaria. Con el propósito de ofrecer un servicio de asesoramiento de alta calidad en sus transacciones inmobiliarias, en nosotros encontrará el apoyo y rigor necesarios para optimizar una decisión tan importante, somos conscientes de nuestra responsabilidad y su satisfacción el mejor estímulo para seguir trabajando en esta línea. INMOBILIARIA BARRERAS nace en pintoresco pueblo de pescadores de nombre Los Abrigos ubicado en la parte sur de la isla de Tenerife en el año 1995. El fundador, Pablo Barreras, ha siguido así la tradición familiar que, durante varias generaciones, ha estado vinculada al ámbito de la abogacía y de los negocios, especialmente inmobiliarios contando con agencias colaboradoras pertenecientes al grupo familiar.",
+    "p2": "Actualmente, tras la jubilacion del fundador de la empresa, sus alumnos siguen llevando la gestion, manteniendo los principios y los valores del su fundador. Somos miembros del la Agrupacion de Agencias Inmobiliarias, que reune todo el sur de la isla, que permite la cooperación entre profesionales inmobiliarios. Esta filosofía de trabajo es el presente y el futuro de la intermediación inmobiliaria en Tenerife: un sistema que aglutina la más amplia oferta inmobiliaria del momento puesta a disposición del cliente para que éste obtenga las máximas ventajas a la hora de comprar o vender su vivienda.",
+
+    "services": "Our Services",
+    "info": {
+      "title": "Information",
+      "description": "Detailed information about the purchasing, selling or renting of your house, office or shop."
+    },
+    "consulting": {
+      "title": "Consulting",
+      "description": "Clarification of doubts and legal or fiscal assessment."
+    },
+    "investment": {
+      "title": "Investment",
+      "description": "Ideas to invest in properties in Tenerife and counseling to individuals buying their main house."
+    },
+    "attention": {
+      "title": "Attention",
+      "description": "Careful personalized attention to recurring clients, national investors, or from other countries."
+    },
+    "quality": {
+      "title": "Quality",
+      "description": "Dynamism and quality of service in the commitment of not dissapointing your trust."
+    },
+
+    "team": "Our Team",
+    "agent": "Agent"
   },
 
   "contact": {

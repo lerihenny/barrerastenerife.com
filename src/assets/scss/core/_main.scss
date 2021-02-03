@@ -495,3 +495,10 @@ body {
     margin-bottom: 1em;
   }
 }
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:hover,
+.image-gallery-thumbnail:focus,
+.image-gallery-icon:hover {
+  color: $primary-color !important;
+  border-color: $primary-color !important;
+}

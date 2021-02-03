@@ -1,11 +1,11 @@
 import React from "react";
-import { graphql, useStaticQuery, navigate } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Button, Container, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
 import * as constants from "../constants";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -21,7 +21,8 @@ const MainSlider: React.FC = () => {
   `);
 
   const SearchForm = () => {
-    const { t } = useTranslation();
+    const { t, navigate } = useI18next();
+
     const [state, setState] = React.useState({
       types: 0,
       contract: 0,
@@ -30,7 +31,6 @@ const MainSlider: React.FC = () => {
     });
 
     const handleChange = (event: any) => {
-      console.log(event.target);
       setState({ ...state, [event.target.name]: event.target.value });
     };
 
