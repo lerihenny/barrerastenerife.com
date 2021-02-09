@@ -104,7 +104,7 @@ const AboutPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO title={t("header.link.about")} />
       <Container>
         <Grid
           container

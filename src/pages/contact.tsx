@@ -29,7 +29,7 @@ const ContactPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      <SEO title="Contact" />
+      <SEO title={t("header.link.contact")} />
       <Grid container style={{ display: "flex" }}>
         <Grid item xs={12} sm={5} className="contact-section">
           <Img

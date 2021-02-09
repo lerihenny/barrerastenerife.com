@@ -17,7 +17,7 @@ const PropertyPage: React.FC<PageProps> = ({ location }) => {
 
   return (
     <Layout>
-      <SEO title={"property"} />
+      <SEO title={t("property")} />
       <Detail property={property} />
     </Layout>
   );
