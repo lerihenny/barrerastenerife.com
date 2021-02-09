@@ -10,7 +10,9 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "properties/property1.jpg" }) {
+      placeholderImage: file(
+        relativePath: { eq: "properties/property2.jpeg" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 1366) {
             ...GatsbyImageSharpFluid
