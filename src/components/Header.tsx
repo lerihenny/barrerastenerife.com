@@ -134,7 +134,7 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
         </Hidden>
         <Container className="mt-3 mb-3">
           <Toolbar disableGutters>
-            <Link to="/">
+            <Link to="/" className="logo-link">
               <Img fixed={images.logo.childImageSharp.fixed} alt={siteTitle} />
             </Link>
             <Hidden smDown>

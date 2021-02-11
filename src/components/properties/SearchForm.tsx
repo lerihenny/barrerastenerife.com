@@ -227,6 +227,7 @@ const SearchForm: React.FC<Props> = ({
                 variant="contained"
                 color="primary"
                 size="large"
+                className="color-white"
                 startIcon={<SearchIcon />}
                 onClick={handleSearch}
               >

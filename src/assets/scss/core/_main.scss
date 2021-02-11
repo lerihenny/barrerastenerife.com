@@ -71,9 +71,9 @@ body {
       }
     }
 
-    a {
-      color: $color-white;
-      font-size: 1.1em;
+    .logo-link {
+      line-height: 0;
+      margin: 8px 0;
     }
     ul {
       display: inline-flex;
@@ -81,7 +81,7 @@ body {
   }
 
   footer {
-    background: $primary-color;
+    background: #111;
     color: $color-white;
     padding: 2rem;
 
@@ -139,7 +139,7 @@ body {
     }
 
     .main-slider {
-      height: 550px;
+      height: 650px;
       // height: calc(100vh - 92px);
       position: relative;
     }
@@ -147,7 +147,7 @@ body {
     .main-search-form {
       padding: 2em;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.7);
       height: 100%;
       width: 350px;
       margin: 0;
@@ -275,6 +275,13 @@ body {
       -webkit-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
+    }
+
+    a {
+      color: $color-white;
+      font-size: 1.2em;
+      font-weight: 400;
+      letter-spacing: 1px;
     }
 
     a.active {
@@ -507,4 +514,10 @@ body {
   font-weight: bold !important;
   background-color: $color-primary-2 !important;
   border-bottom: 1px solid $color-dark-gray-1 !important;
+}
+.MuiFilledInput-root {
+  background-color: $color-light-gray-2 !important;
+}
+.MuiFormLabel-root {
+  color: $color-black !important;
 }
