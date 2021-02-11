@@ -12,10 +12,16 @@ type Types = {
     | "office"
     | "land"
     | "storage"
-    | "building";
+    | "building"
+    | ""
+    | undefined;
 };
 
 export const types: Types[] = [
+  {
+    name: "all",
+    value: "",
+  },
   {
     name: "flat",
     value: "flat",
@@ -193,162 +199,292 @@ export const sort_by: Sort[] = [
   // },
 ];
 
-export const zones = [
-  {
-    name: "Todas las zonas",
-    value: "",
-  },
-  {
-    name: "Adeje",
-    value: "Adeje",
-  },
-  {
-    name: "Alcalá",
-    value: "Alcalá",
-  },
-  {
-    name: "Arafo",
-    value: "Arafo",
-  },
-  {
-    name: "Arico",
-    value: "Arico",
-  },
-  {
-    name: "Amarilla Golf",
-    value: "Amarilla Golf",
-  },
-  {
-    name: "Armeñime",
-    value: "Armeñime",
-  },
-  {
-    name: "Arona",
-    value: "Arona",
-  },
-  {
-    name: "Buenavista del Norte",
-    value: "Buenavista del Norte",
-  },
-  {
-    name: "Candelaria",
-    value: "Candelaria",
-  },
-  {
-    name: "Chayofa",
-    value: "Chayofa",
-  },
-  {
-    name: "El Rosario",
-    value: "El Rosario",
-  },
-  {
-    name: "El Sauzal",
-    value: "El Sauzal",
-  },
-  {
-    name: "Fasnia",
-    value: "Fasnia",
-  },
-  {
-    name: "Garachico",
-    value: "Garachico",
-  },
-  {
-    name: "Granadilla de Abona",
-    value: "Granadilla de Abona",
-  },
-  {
-    name: "Guía de Isora",
-    value: "Guía de Isora",
-  },
-  {
-    name: "Guimar",
-    value: "Guimar",
-  },
-  {
-    name: "Icod de los Vinos",
-    value: "Icod de los Vinos",
-  },
-  {
-    name: "La Matanza de Acentejo",
-    value: "La Matanza de Acentejo",
-  },
-  {
-    name: "La Orotava",
-    value: "La Orotava",
-  },
-  {
-    name: "Los Abrigos",
-    value: "Los Abrigos",
-  },
-  {
-    name: "Los Realejos",
-    value: "Los Realejos",
-  },
-  {
-    name: "Los Silos",
-    value: "Los Silos",
-  },
-  {
-    name: "La Tejita",
-    value: "La Tejita",
-  },
-  {
-    name: "Norte",
-    value: "Norte",
-  },
-  {
-    name: "Otros Islas Canarias",
-    value: "Otros Islas Canarias",
-  },
-  {
-    name: "Puerto de la Cruz",
-    value: "Puerto de la Cruz",
-  },
-  {
-    name: "Puerto de Santiago",
-    value: "Puerto de Santiago",
-  },
-  {
-    name: "San Cristobal de La Laguna",
-    value: "San Cristobal de La Laguna",
-  },
-  {
-    name: "San Juan de la Rambla",
-    value: "San Juan de la Rambla",
-  },
-  {
-    name: "San Miguel de Abona",
-    value: "San Miguel de Abona",
-  },
-  {
-    name: "San Miguel de Tajao",
-    value: "San Miguel de Tajao",
-  },
-  {
-    name: "Santa Cruz de Tenerife",
-    value: "Santa Cruz de Tenerife",
-  },
-  {
-    name: "Santa Ursula",
-    value: "Santa Ursula",
-  },
-  {
-    name: "Santiago del Teide",
-    value: "Santiago del Teide",
-  },
-  {
-    name: "Tegueste",
-    value: "Tegueste",
-  },
-  {
-    name: "Vilaflor",
-    value: "Vilaflor",
-  },
-];
+// export const zones = [
+//   {
+//     name: "Todas las zonas",
+//     value: "",
+//   },
+//   {
+//     name: "Adeje",
+//     value: "Adeje",
+//   },
+//   {
+//     name: "Alcalá",
+//     value: "Alcalá",
+//   },
+//   {
+//     name: "Arafo",
+//     value: "Arafo",
+//   },
+//   {
+//     name: "Arico",
+//     value: "Arico",
+//   },
+//   {
+//     name: "Amarilla Golf",
+//     value: "Amarilla Golf",
+//   },
+//   {
+//     name: "Armeñime",
+//     value: "Armeñime",
+//   },
+//   {
+//     name: "Arona",
+//     value: "Arona",
+//   },
+//   {
+//     name: "Buenavista del Norte",
+//     value: "Buenavista del Norte",
+//   },
+//   {
+//     name: "Candelaria",
+//     value: "Candelaria",
+//   },
+//   {
+//     name: "Chayofa",
+//     value: "Chayofa",
+//   },
+//   {
+//     name: "El Rosario",
+//     value: "El Rosario",
+//   },
+//   {
+//     name: "El Sauzal",
+//     value: "El Sauzal",
+//   },
+//   {
+//     name: "Fasnia",
+//     value: "Fasnia",
+//   },
+//   {
+//     name: "Garachico",
+//     value: "Garachico",
+//   },
+//   {
+//     name: "Granadilla de Abona",
+//     value: "Granadilla de Abona",
+//   },
+//   {
+//     name: "Guía de Isora",
+//     value: "Guía de Isora",
+//   },
+//   {
+//     name: "Guimar",
+//     value: "Guimar",
+//   },
+//   {
+//     name: "Icod de los Vinos",
+//     value: "Icod de los Vinos",
+//   },
+//   {
+//     name: "La Matanza de Acentejo",
+//     value: "La Matanza de Acentejo",
+//   },
+//   {
+//     name: "La Orotava",
+//     value: "La Orotava",
+//   },
+//   {
+//     name: "Los Abrigos",
+//     value: "Los Abrigos",
+//   },
+//   {
+//     name: "Los Realejos",
+//     value: "Los Realejos",
+//   },
+//   {
+//     name: "Los Silos",
+//     value: "Los Silos",
+//   },
+//   {
+//     name: "La Tejita",
+//     value: "La Tejita",
+//   },
+//   {
+//     name: "Norte",
+//     value: "Norte",
+//   },
+//   {
+//     name: "Otros Islas Canarias",
+//     value: "Otros Islas Canarias",
+//   },
+//   {
+//     name: "Puerto de la Cruz",
+//     value: "Puerto de la Cruz",
+//   },
+//   {
+//     name: "Puerto de Santiago",
+//     value: "Puerto de Santiago",
+//   },
+//   {
+//     name: "San Cristobal de La Laguna",
+//     value: "San Cristobal de La Laguna",
+//   },
+//   {
+//     name: "San Juan de la Rambla",
+//     value: "San Juan de la Rambla",
+//   },
+//   {
+//     name: "San Miguel de Abona",
+//     value: "San Miguel de Abona",
+//   },
+//   {
+//     name: "San Miguel de Tajao",
+//     value: "San Miguel de Tajao",
+//   },
+//   {
+//     name: "Santa Cruz de Tenerife",
+//     value: "Santa Cruz de Tenerife",
+//   },
+//   {
+//     name: "Santa Ursula",
+//     value: "Santa Ursula",
+//   },
+//   {
+//     name: "Santiago del Teide",
+//     value: "Santiago del Teide",
+//   },
+//   {
+//     name: "Tegueste",
+//     value: "Tegueste",
+//   },
+//   {
+//     name: "Vilaflor",
+//     value: "Vilaflor",
+//   },
+// ];
 
-export const municipios = [
+// export const municipios = [
+//   {
+//     name: "all",
+//     value: "",
+//   },
+//   {
+//     name: "adeje",
+//     value: "Adeje",
+//   },
+//   {
+//     name: "arico",
+//     value: "Arico",
+//   },
+//   {
+//     name: "arona",
+//     value: "Arona",
+//   },
+//   {
+//     name: "candelaria",
+//     value: "Candelaria",
+//   },
+//   {
+//     name: "fasnia",
+//     value: "Fasnia",
+//   },
+//   {
+//     name: "granadilla",
+//     value: "Granadilla De Abona",
+//   },
+//   {
+//     name: "isora",
+//     value: "Guía De Isora",
+//   },
+//   {
+//     name: "guimar",
+//     value: "Guimar",
+//   },
+//   {
+//     name: "laguna",
+//     value: "La Laguna",
+//   },
+//   {
+//     name: "puertoCruz",
+//     value: "Puerto De La Cruz",
+//   },
+//   {
+//     name: "sanMiguel",
+//     value: "San Miguel De Abona",
+//   },
+//   {
+//     name: "santaCruz",
+//     value: "Santa Cruz De Tenerife",
+//   },
+//   {
+//     name: "santiago",
+//     value: "Santiago Del Teide",
+//   },
+// ];
+
+// export const localidades = [
+//   {
+//     name: "all",
+//     value: "",
+//   },
+//   {
+//     name: "acantilados",
+//     value: "Acantilados de Los Gigantes",
+//   },
+//   {
+//     name: "alcala",
+//     value: "Alcalá",
+//   },
+//   {
+//     name: "aldea",
+//     value: "Aldea Blanca-Las Zocas",
+//   },
+//   {
+//     name: "callao",
+//     value: "Callao Salvaje - Playa Paraíso",
+//   },
+//   {
+//     name: "chayofa",
+//     value: "Chayofa",
+//   },
+//   {
+//     name: "guaza",
+//     value: "Cho-Guaza",
+//   },
+//   {
+//     name: "medano",
+//     value: "El Médano",
+//   },
+//   {
+//     name: "golf",
+//     value: "Golf del Sur-Amarilla Golf",
+//   },
+//   {
+//     name: "chafiras",
+//     value: "Las Chafiras",
+//   },
+//   {
+//     name: "abrigos",
+//     value: "Los Abrigos",
+//   },
+//   {
+//     name: "cristianos",
+//     value: "Los Cristianos",
+//   },
+//   {
+//     name: "palmar",
+//     value: "Palm Mar",
+//   },
+//   {
+//     name: "sanjuan",
+//     value: "Playa San Juan",
+//   },
+//   {
+//     name: "fanabe",
+//     value: "Playa de Fañabé Alto",
+//   },
+//   {
+//     name: "santiago",
+//     value: "Puerto de Santiago",
+//   },
+//   {
+//     name: "eugenio",
+//     value: "San Eugenio Bajo",
+//   },
+// ];
+
+export const zones = [
   {
     name: "all",
     value: "",
@@ -356,125 +492,217 @@ export const municipios = [
   {
     name: "adeje",
     value: "Adeje",
+    highlight: true,
   },
   {
-    name: "arico",
-    value: "Arico",
+    name: "armenime",
+    value: "Armeñime",
+  },
+  {
+    name: "callao",
+    value: "Callao Salvaje",
+  },
+  {
+    name: "costaAdeje",
+    value: "Costa Adeje",
+  },
+  {
+    name: "duque",
+    value: "El Duque",
+  },
+  {
+    name: "caldera",
+    value: "La Caldera",
+  },
+  {
+    name: "caleta",
+    value: "La Caleta",
+  },
+  {
+    name: "madronal",
+    value: "Madroñal",
+  },
+  {
+    name: "playaAmericas",
+    value: "Playa de Las Americas",
+  },
+  {
+    name: "playaParaiso",
+    value: "Playa Paraiso",
+  },
+  {
+    name: "roqueConde",
+    value: "Roque del Conde",
+  },
+  {
+    name: "sanEugenioAlto",
+    value: "San Eugenio Alto",
+  },
+  {
+    name: "sanEugenioBajo",
+    value: "San Eugenio Bajo",
+  },
+  {
+    name: "tijoco",
+    value: "Tijoco",
+  },
+  {
+    name: "torviscasAlto",
+    value: "Torviscas Alto",
+  },
+  {
+    name: "torviscasBajo",
+    value: "Torviscas Bajo",
   },
   {
     name: "arona",
     value: "Arona",
+    highlight: true,
   },
   {
-    name: "candelaria",
-    value: "Candelaria",
+    name: "buzanada",
+    value: "Buzanada",
   },
   {
-    name: "fasnia",
-    value: "Fasnia",
-  },
-  {
-    name: "granadilla",
-    value: "Granadilla De Abona",
-  },
-  {
-    name: "isora",
-    value: "Guía De Isora",
-  },
-  {
-    name: "guimar",
-    value: "Guimar",
-  },
-  {
-    name: "laguna",
-    value: "La Laguna",
-  },
-  {
-    name: "puertoCruz",
-    value: "Puerto De La Cruz",
-  },
-  {
-    name: "sanMiguel",
-    value: "San Miguel De Abona",
-  },
-  {
-    name: "santaCruz",
-    value: "Santa Cruz De Tenerife",
-  },
-  {
-    name: "santiago",
-    value: "Santiago Del Teide",
-  },
-];
-
-export const localidades = [
-  {
-    name: "all",
-    value: "",
-  },
-  {
-    name: "acantilados",
-    value: "Acantilados de Los Gigantes",
-  },
-  {
-    name: "alcala",
-    value: "Alcalá",
-  },
-  {
-    name: "aldea",
-    value: "Aldea Blanca-Las Zocas",
-  },
-  {
-    name: "callao",
-    value: "Callao Salvaje - Playa Paraíso",
+    name: "caboBlanco",
+    value: "Cabo Blanco",
   },
   {
     name: "chayofa",
     value: "Chayofa",
   },
   {
-    name: "guaza",
-    value: "Cho-Guaza",
+    name: "costaSilencio",
+    value: "Costa del Silencio",
   },
   {
-    name: "medano",
-    value: "El Médano",
+    name: "camella",
+    value: "La Camella",
   },
   {
-    name: "golf",
-    value: "Golf del Sur-Amarilla Golf",
-  },
-  {
-    name: "chafiras",
-    value: "Las Chafiras",
-  },
-  {
-    name: "abrigos",
-    value: "Los Abrigos",
+    name: "galletas",
+    value: "Las Galletas",
   },
   {
     name: "cristianos",
     value: "Los Cristianos",
   },
   {
-    name: "palmar",
-    value: "Palm Mar",
+    name: "palMar",
+    value: "Palm-Mar",
   },
   {
-    name: "sanjuan",
+    name: "parqueReina",
+    value: "Parque de la Reina",
+  },
+  {
+    name: "valleSanLorenzo",
+    value: "Valle San Lorenzo",
+  },
+  {
+    name: "granadilla",
+    value: "Granadilla de Abona",
+    highlight: true,
+  },
+  {
+    name: "sanIsidro",
+    value: "San Isidro",
+  },
+  {
+    name: "losAbrigos",
+    value: "Los Abrigos",
+  },
+  {
+    name: "laTejita",
+    value: "La Tejita",
+  },
+  {
+    name: "elMedano",
+    value: "El Medano",
+  },
+  {
+    name: "guiaIsora",
+    value: "Guia de Isora",
+    highlight: true,
+  },
+  {
+    name: "alcala",
+    value: "Alcala",
+  },
+  {
+    name: "playaSanJuan",
     value: "Playa San Juan",
   },
   {
-    name: "fanabe",
-    value: "Playa de Fañabé Alto",
+    name: "norte",
+    value: "Norte",
+    highlight: true,
+  },
+  {
+    name: "sanCristobalLaguna",
+    value: "San Cristobal de la Laguna",
+  },
+  {
+    name: "santaCruz",
+    value: "Santa Cruz de Tenerife",
+  },
+  {
+    name: "puertoCruz",
+    value: "Puerto de la Cruz",
+  },
+  {
+    name: "sanMiguel",
+    value: "San Miguel de Abona",
+    highlight: true,
+  },
+  {
+    name: "aldeaBlanca",
+    value: "Aldea Blanca",
+  },
+  {
+    name: "amarillaGolf",
+    value: "Amarilla Golf",
+  },
+  {
+    name: "elRoque",
+    value: "El Roque",
+  },
+  {
+    name: "golfSur",
+    value: "Golf del Sur",
+  },
+  {
+    name: "guargacho",
+    value: "Guargacho",
+  },
+  {
+    name: "chafiras",
+    value: "Las Chafiras",
+  },
+  {
+    name: "zocas",
+    value: "Las Zocas",
+  },
+  {
+    name: "llanoCamello",
+    value: "Llano del Camello",
   },
   {
     name: "santiago",
-    value: "Puerto de Santiago",
+    value: "Santiago del Teide",
+    highlight: true,
   },
   {
-    name: "eugenio",
-    value: "San Eugenio Bajo",
+    name: "gigantes",
+    value: "Acantilados de Los Gigantes",
+  },
+  {
+    name: "arguayo",
+    value: "Arguayo",
+  },
+  {
+    name: "puertoSantiago",
+    value: "Puerto de Santiago",
   },
 ];
 

@@ -502,3 +502,9 @@ body {
   color: $primary-color !important;
   border-color: $primary-color !important;
 }
+.highlight-item {
+  text-transform: uppercase;
+  font-weight: bold !important;
+  background-color: $color-primary-2 !important;
+  border-bottom: 1px solid $color-dark-gray-1 !important;
+}

@@ -40,7 +40,11 @@ const Select: React.FC<Props> = ({
         onChange={onChange}
       >
         {items.map((item: any, index: number) => (
-          <MenuItem key={`${tKey}-${index}`} value={index}>
+          <MenuItem
+            key={`${tKey}-${index}`}
+            value={index}
+            className={item.highlight ? "highlight-item" : ""}
+          >
             {t(`constants.${tKey}.${item.name}`)}
           </MenuItem>
         ))}

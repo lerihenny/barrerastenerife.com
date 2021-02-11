@@ -44,7 +44,9 @@ export type Search = {
     | "office"
     | "land"
     | "storage"
-    | "building";
+    | "building"
+    | ""
+    | undefined;
   kind_value?:
     | "flat"
     | "chalet"

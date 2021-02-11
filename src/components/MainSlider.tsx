@@ -28,7 +28,6 @@ const MainSlider: React.FC = () => {
     const [state, setState] = React.useState({
       types: 0,
       contract: 0,
-      cities: 0,
       zones: 0,
     });
 
@@ -58,16 +57,9 @@ const MainSlider: React.FC = () => {
             onChange={handleChange}
           />
           <Select
-            tKey="cities"
-            label={t("constants.fields.city")}
-            items={constants.municipios}
-            value={state.cities}
-            onChange={handleChange}
-          />
-          <Select
             tKey="zones"
             label={t("constants.fields.zone")}
-            items={constants.localidades}
+            items={constants.zones}
             value={state.zones}
             onChange={handleChange}
           />

@@ -11,7 +11,6 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 type Props = {
   type?: number;
   contract?: number;
-  city?: number;
   zone?: number;
   disableContract?: boolean;
   title?: string;
@@ -22,7 +21,6 @@ type Props = {
 export const Properties: FC<Props> = ({
   type = 0,
   contract = 0,
-  city = 0,
   zone = 0,
   disableContract = false,
   title = "Propiedades",
@@ -34,8 +32,7 @@ export const Properties: FC<Props> = ({
   const [filter, setFilter] = useState<Search>({
     kind: constants.types[type].value,
     buyop: constants.contract[contract].value,
-    town: constants.municipios[city].value,
-    zone: constants.localidades[zone].value,
+    town: constants.zones[zone].value,
     page,
   });
 
@@ -64,7 +61,6 @@ export const Properties: FC<Props> = ({
           disableContract={disableContract}
           types={type}
           contract={contract}
-          cities={city}
           zones={zone}
           setFilter={setFilter}
           setPage={setPage}

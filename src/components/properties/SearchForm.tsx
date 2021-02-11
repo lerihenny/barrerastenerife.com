@@ -22,7 +22,6 @@ interface Props {
   bedrooms?: number;
   bathrooms?: number;
   tags?: number;
-  cities?: number;
   zones?: number;
   disableContract?: boolean;
   setFilter: Dispatch<SetStateAction<Search>>;
@@ -35,7 +34,6 @@ const SearchForm: React.FC<Props> = ({
   bedrooms = 0,
   bathrooms = 0,
   tags = 0,
-  cities = 0,
   zones = 0,
   disableContract = false,
   setFilter,
@@ -48,7 +46,6 @@ const SearchForm: React.FC<Props> = ({
     bedrooms,
     bathrooms,
     tags,
-    cities,
     zones,
     sort_by: 0,
     identifier: "",
@@ -101,12 +98,8 @@ const SearchForm: React.FC<Props> = ({
       data.bathrooms_max = "20";
     }
 
-    if (state.cities !== 0) {
-      data.town = constants.municipios[state.cities].value;
-    }
-
     if (state.zones !== 0) {
-      data.zone = constants.localidades[state.zones].value;
+      data.town = constants.zones[state.zones].value;
     }
 
     setPage(1);
@@ -199,18 +192,9 @@ const SearchForm: React.FC<Props> = ({
             </Grid>
             <Grid item xs={12} sm={4}>
               <Select
-                tKey="cities"
-                label={t("constants.fields.city")}
-                items={constants.municipios}
-                value={state.cities}
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Select
                 tKey="zones"
                 label={t("constants.fields.zone")}
-                items={constants.localidades}
+                items={constants.zones}
                 value={state.zones}
                 onChange={handleChange}
               />
