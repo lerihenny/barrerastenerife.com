@@ -521,3 +521,45 @@ body {
 .MuiFormLabel-root {
   color: $color-black !important;
 }
+
+.banner-root {
+  position: relative;
+
+  &.banner-primary-color {
+    background-color: $primary-color;
+  }
+
+  &.banner-small {
+    height: 100px;
+  }
+  &.banner-medium {
+    height: 200px;
+  }
+  &.banner-large {
+    height: 300px;
+  }
+}
+
+.banner-container {
+  position: absolute;
+  top: 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &.banner-primary-color {
+    color: $color-white;
+    background-color: $primary-color-overlay;
+  }
+
+  &.banner-small {
+    height: 100px;
+  }
+  &.banner-medium {
+    height: 200px;
+  }
+  &.banner-large {
+    height: 300px;
+  }
+}

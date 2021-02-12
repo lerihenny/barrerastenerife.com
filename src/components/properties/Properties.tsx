@@ -23,7 +23,7 @@ export const Properties: FC<Props> = ({
   contract = 0,
   zone = 0,
   disableContract = false,
-  title = "Propiedades",
+  title,
   pagination = true,
   search = true,
 }) => {

@@ -7,6 +7,20 @@
   object-position: center;
   height: 100%;
 }
+.crop-banner {
+  object-fit: cover;
+  object-position: center;
+
+  &.banner-small {
+    height: 100px;
+  }
+  &.banner-medium {
+    height: 200px;
+  }
+  &.banner-large {
+    height: 300px;
+  }
+}
 .flex-center {
   display: flex;
   justify-content: center;

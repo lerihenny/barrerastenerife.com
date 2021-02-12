@@ -18,17 +18,19 @@ interface Props {
 
 const List: React.FC<Props> = ({
   featured = false,
-  title = "Propiedades",
+  title,
   properties = [],
   status,
 }) => {
   return (
     <Grid container spacing={3} className="properties-container">
-      <Grid item xs={12} className="text-center">
-        <Typography variant="h4" component="p" className="section-title">
-          {featured ? "Propiedades Recientes" : title}
-        </Typography>
-      </Grid>
+      {title && (
+        <Grid item xs={12} className="text-center">
+          <Typography variant="h4" component="p" className="section-title">
+            {featured ? "Propiedades Recientes" : title}
+          </Typography>
+        </Grid>
+      )}
       {status === "loading" && (
         <Container className="text-center p-5">
           <CircularProgress />
