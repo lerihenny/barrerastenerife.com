@@ -48,6 +48,13 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
           }
         }
       }
+      logo2: file(relativePath: { eq: "logo/logo-navbar-2.png" }) {
+        childImageSharp {
+          fixed(height: 70) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
       es: file(relativePath: { eq: "flags/sp.jpg" }) {
         childImageSharp {
           fixed(height: 20) {
@@ -108,9 +115,9 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
         <Hidden smDown>
           <div className="contact-bar">
             <Container className="text-right contact-bar">
-              <List>
-                <ListItem dense>+34 822 29 81 28</ListItem>
-                <ListItem dense>+34 638 41 89 17</ListItem>
+              <List disablePadding>
+                <ListItem dense>(+34) 822 29 81 28</ListItem>
+                <ListItem dense>(+34) 638 41 89 17</ListItem>
                 <ListItem dense>
                   <a href="mailto:info@barrerastenerife.com" target="_blank">
                     info@barrerastenerife.com

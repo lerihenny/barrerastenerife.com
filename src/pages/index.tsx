@@ -36,11 +36,11 @@ const IndexPage: React.FC<PageProps> = () => {
       <MainSlider />
       <Banner size="medium" color={false}>
         <Typography variant="h5" className="text-uppercase">
-          Bienvenido a la tierra de la eterna primavera
+          {t("about.welcome")}
         </Typography>
       </Banner>
       <Banner image={images.background1.childImageSharp.fluid} />
-      <Banner size="medium">
+      <Banner size="small">
         <Typography variant="h4" className="text-uppercase">
           {t("properties.sell")}
         </Typography>

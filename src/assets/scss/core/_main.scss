@@ -90,6 +90,7 @@ body {
     }
     p {
       margin: 0;
+      font-size: 1em;
       line-height: 1.5;
 
       &.footer-title {
@@ -129,7 +130,7 @@ body {
 
   .main-container {
     position: relative;
-    margin-top: 128px;
+    margin-top: 135px;
     padding-left: 0;
     padding-right: 0;
     min-height: calc(100vh - 92px - 52px);
@@ -147,7 +148,7 @@ body {
     .main-search-form {
       padding: 2em;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.7);
+      background-color: rgba(255, 255, 255, 0.5);
       height: 100%;
       width: 350px;
       margin: 0;
@@ -251,7 +252,6 @@ body {
   li {
     width: auto;
     text-transform: uppercase;
-    font-weight: 700;
 
     &:hover:before {
       width: 100%;
@@ -284,9 +284,9 @@ body {
       letter-spacing: 1px;
     }
 
-    a.active {
-      font-weight: 700;
-    }
+    // a.active {
+    //   font-weight: 700;
+    // }
   }
 }
 .side-menu {

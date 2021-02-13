@@ -18,6 +18,13 @@ const Footer: React.FC = () => {
           }
         }
       }
+      map: file(relativePath: { eq: "map.png" }) {
+        childImageSharp {
+          fixed(width: 225) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `);
 
@@ -28,6 +35,12 @@ const Footer: React.FC = () => {
           <Link to="/">
             <Img fixed={data.placeholderImage.childImageSharp.fixed} />
           </Link>
+          <div className="mt-5">
+            <p>Av. Los Abrigos, 32.</p>
+            <p>Los Abrigos.</p>
+            <p>Santa Cruz de Tenerife.</p>
+            <p>38618</p>
+          </div>
           <div className="footer-social">
             <a
               href="https://es-es.facebook.com/inmobiliariabarrerastenerife/"
@@ -50,13 +63,8 @@ const Footer: React.FC = () => {
           <LatestProperties />
         </Grid>
         <Grid item xs={12} sm={3}>
-          <p className="footer-title">{t("footer.contact")}</p>
-          <p>Av. Los Abrigos, 32.</p>
-          <p>Los Abrigos.</p>
-          <p>Santa Cruz de Tenerife.</p>
-          <p>38618</p>
-          <p>+34 822 29 81 28</p>
-          <p>+34 638 41 89 17</p>
+          <p className="footer-title">{t("footer.offices")}</p>
+          <Img fixed={data.map.childImageSharp.fixed} />
         </Grid>
         <Grid item xs={12} className="text-center">
           {`© ${new Date().getFullYear()} - ${t("footer.copyright")}`}
