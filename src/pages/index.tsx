@@ -7,6 +7,7 @@ import SEO from "../components/SEO";
 import MainSlider from "../components/MainSlider";
 import { Banner } from "../components/Banner";
 import { Properties } from "../components/properties/Properties";
+import { ServicesSection } from "../components/ServicesSection";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -39,7 +40,9 @@ const IndexPage: React.FC<PageProps> = () => {
           {t("about.welcome")}
         </Typography>
       </Banner>
-      <Banner image={images.background1.childImageSharp.fluid} />
+      <Banner image={images.background1.childImageSharp.fluid}>
+        <ServicesSection />
+      </Banner>
       <Banner size="small">
         <Typography variant="h4" className="text-uppercase">
           {t("properties.sell")}

@@ -18,7 +18,7 @@
     height: 200px;
   }
   &.banner-large {
-    height: 300px;
+    height: 400px;
   }
 }
 .flex-center {
@@ -34,6 +34,15 @@
 }
 .text-uppercase {
   text-transform: uppercase;
+}
+.position-relative {
+  position: relative;
+}
+.position-absolute {
+  position: absolute;
+}
+.top-offset {
+  top: 125px;
 }
 .mr-3 {
   margin-right: 0.3em !important;
@@ -61,6 +70,9 @@
 }
 .mt-5 {
   margin-top: 1em !important;
+}
+.mt-125 {
+  margin-top: 125px;
 }
 .mb-5 {
   margin-bottom: 1em !important;

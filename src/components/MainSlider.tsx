@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
 import { Button, Container, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
@@ -34,8 +33,6 @@ const MainSlider: React.FC = () => {
       }
     }
   `);
-
-  console.log(data);
 
   const SearchForm = () => {
     const { t, navigate } = useI18next();
@@ -123,7 +120,6 @@ const MainSlider: React.FC = () => {
           },
         ]}
         slideInterval={7000}
-        // slideDuration={2000}
         autoPlay={true}
         lazyLoad={true}
         showNav={false}
@@ -133,23 +129,6 @@ const MainSlider: React.FC = () => {
         disableKeyDown={true}
         disableSwipe={true}
       />
-      {/* <div className="slide">
-        <Img
-          fluid={data.image1.childImageSharp.fluid}
-          alt=""
-          className="img-responsive crop-center"
-        />
-        <Img
-          fluid={data.image2.childImageSharp.fluid}
-          alt=""
-          className="img-responsive crop-center"
-        />
-        <Img
-          fluid={data.image3.childImageSharp.fluid}
-          alt=""
-          className="img-responsive crop-center"
-        />
-      </div> */}
       <Container className="main-slider-container">
         <Hidden xsDown>
           <SearchForm />
