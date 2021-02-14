@@ -6,11 +6,26 @@ import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
 import * as constants from "../constants";
 import { useI18next } from "gatsby-plugin-react-i18next";
+import ImageGallery from "react-image-gallery";
 
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "properties/property5.jpg" }) {
+      image1: file(relativePath: { eq: "properties/property5.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1366) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      image2: file(relativePath: { eq: "properties/property3.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1366) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      image3: file(relativePath: { eq: "properties/property4.jpeg" }) {
         childImageSharp {
           fluid(maxWidth: 1366) {
             ...GatsbyImageSharpFluid
@@ -19,6 +34,8 @@ const MainSlider: React.FC = () => {
       }
     }
   `);
+
+  console.log(data);
 
   const SearchForm = () => {
     const { t, navigate } = useI18next();
@@ -87,11 +104,52 @@ const MainSlider: React.FC = () => {
 
   return (
     <section className="main-slider">
-      <Img
-        fluid={data.placeholderImage.childImageSharp.fluid}
-        alt=""
-        className="img-responsive crop-center"
+      <ImageGallery
+        items={[
+          {
+            original: data.image1.childImageSharp.fluid.src,
+            srcSet: data.image1.childImageSharp.fluid.srcSet,
+            sizes: data.image1.childImageSharp.fluid.sizes,
+          },
+          {
+            original: data.image2.childImageSharp.fluid.src,
+            srcSet: data.image2.childImageSharp.fluid.srcSet,
+            sizes: data.image2.childImageSharp.fluid.sizes,
+          },
+          {
+            original: data.image3.childImageSharp.fluid.src,
+            srcSet: data.image3.childImageSharp.fluid.srcSet,
+            sizes: data.image3.childImageSharp.fluid.sizes,
+          },
+        ]}
+        slideInterval={7000}
+        // slideDuration={2000}
+        autoPlay={true}
+        lazyLoad={true}
+        showNav={false}
+        showFullscreenButton={false}
+        showPlayButton={false}
+        showThumbnails={false}
+        disableKeyDown={true}
+        disableSwipe={true}
       />
+      {/* <div className="slide">
+        <Img
+          fluid={data.image1.childImageSharp.fluid}
+          alt=""
+          className="img-responsive crop-center"
+        />
+        <Img
+          fluid={data.image2.childImageSharp.fluid}
+          alt=""
+          className="img-responsive crop-center"
+        />
+        <Img
+          fluid={data.image3.childImageSharp.fluid}
+          alt=""
+          className="img-responsive crop-center"
+        />
+      </div> */}
       <Container className="main-slider-container">
         <Hidden xsDown>
           <SearchForm />
