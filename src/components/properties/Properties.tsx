@@ -11,8 +11,10 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 type Props = {
   type?: number;
   contract?: number;
+  kind?: "shop" | "building";
   zone?: number;
   disableContract?: boolean;
+  disableKind?: boolean;
   title?: string;
   pagination?: boolean;
   search?: boolean;
@@ -21,8 +23,10 @@ type Props = {
 export const Properties: FC<Props> = ({
   type = 0,
   contract = 0,
+  kind,
   zone = 0,
   disableContract = false,
+  disableKind = false,
   title,
   pagination = true,
   search = true,
@@ -30,7 +34,7 @@ export const Properties: FC<Props> = ({
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Search>({
-    kind: constants.types[type].value,
+    kind: disableKind ? kind : constants.types[type].value,
     buyop: constants.contract[contract].value,
     town: constants.zones[zone].value,
     page,
@@ -59,6 +63,7 @@ export const Properties: FC<Props> = ({
       {search && (
         <SearchForm
           disableContract={disableContract}
+          disableKind={disableKind}
           types={type}
           contract={contract}
           zones={zone}

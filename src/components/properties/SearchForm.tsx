@@ -19,11 +19,13 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 interface Props {
   types?: number;
   contract?: number;
+  kind?: "shop" | "building";
   bedrooms?: number;
   bathrooms?: number;
   tags?: number;
   zones?: number;
   disableContract?: boolean;
+  disableKind?: boolean;
   setFilter: Dispatch<SetStateAction<Search>>;
   setPage: Dispatch<SetStateAction<number>>;
 }
@@ -31,11 +33,13 @@ interface Props {
 const SearchForm: React.FC<Props> = ({
   types = 0,
   contract = 0,
+  kind,
   bedrooms = 0,
   bathrooms = 0,
   tags = 0,
   zones = 0,
   disableContract = false,
+  disableKind = false,
   setFilter,
   setPage,
 }) => {
@@ -74,7 +78,7 @@ const SearchForm: React.FC<Props> = ({
       return;
     }
 
-    data.kind = constants.types[state.types].value;
+    data.kind = disableKind ? kind : constants.types[state.types].value;
     data.buyop = constants.contract[state.contract].value;
     data.bedrooms_min = constants.rooms[state.bedrooms].value;
     data.bedrooms_max = constants.rooms[state.bedrooms].value;
@@ -127,15 +131,17 @@ const SearchForm: React.FC<Props> = ({
                 />
               </Grid>
             )}
-            <Grid item xs={12} sm={4}>
-              <Select
-                tKey="types"
-                label={t("constants.fields.type")}
-                items={constants.types}
-                value={state.types}
-                onChange={handleChange}
-              />
-            </Grid>
+            {!disableKind && (
+              <Grid item xs={12} sm={4}>
+                <Select
+                  tKey="types"
+                  label={t("constants.fields.type")}
+                  items={constants.types}
+                  value={state.types}
+                  onChange={handleChange}
+                />
+              </Grid>
+            )}
             <Grid item xs={12} sm={4}>
               <Select
                 tKey="sort_by"

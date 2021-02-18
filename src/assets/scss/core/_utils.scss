@@ -21,6 +21,9 @@
     height: 400px;
   }
 }
+.crop-folder {
+  height: 300px;
+}
 .flex-center {
   display: flex;
   justify-content: center;
@@ -71,11 +74,14 @@
 .mt-5 {
   margin-top: 1em !important;
 }
-.mt-125 {
-  margin-top: 125px;
-}
 .mb-5 {
   margin-bottom: 1em !important;
+}
+.mt-10 {
+  margin-top: 3em;
+}
+.mb-10 {
+  margin-bottom: 3em;
 }
 .mr-auto {
   margin-right: auto !important;

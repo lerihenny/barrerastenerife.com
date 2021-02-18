@@ -108,16 +108,16 @@ const MainSlider: React.FC = () => {
             srcSet: data.image1.childImageSharp.fluid.srcSet,
             sizes: data.image1.childImageSharp.fluid.sizes,
           },
-          {
-            original: data.image2.childImageSharp.fluid.src,
-            srcSet: data.image2.childImageSharp.fluid.srcSet,
-            sizes: data.image2.childImageSharp.fluid.sizes,
-          },
-          {
-            original: data.image3.childImageSharp.fluid.src,
-            srcSet: data.image3.childImageSharp.fluid.srcSet,
-            sizes: data.image3.childImageSharp.fluid.sizes,
-          },
+          // {
+          //   original: data.image2.childImageSharp.fluid.src,
+          //   srcSet: data.image2.childImageSharp.fluid.srcSet,
+          //   sizes: data.image2.childImageSharp.fluid.sizes,
+          // },
+          // {
+          //   original: data.image3.childImageSharp.fluid.src,
+          //   srcSet: data.image3.childImageSharp.fluid.srcSet,
+          //   sizes: data.image3.childImageSharp.fluid.sizes,
+          // },
         ]}
         slideInterval={7000}
         autoPlay={true}

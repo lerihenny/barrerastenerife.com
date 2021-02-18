@@ -8,8 +8,49 @@
       "buy": "Comprar",
       "rent": "Alquilar",
       "about": "Quienes Somos",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "invest": "Inversión",
+      "local": "Local comercial"
     }
+  },
+
+  "services": {
+    "buy": {
+      "title": "Compra tu propiedad con nosotros",
+      "description": "Comprar una casa es un gran paso y pueden haber muchas cosas que considerar. En Inmobiliaria Barreras creemos que deberia ser una de las experiencias mas satisfactorias de tu vida."
+    },
+    "sell": {
+      "title": "Vende tu propiedad con nosotros",
+      "description": "Ya sea que estás vendiendo por primera vez, o ya has vendido y te has mudado antes, queremos asegurarnos que estás bien informado y sabes exactamente que esperar en cada paso del camino."
+    },
+    "rent": {
+      "title": "Alquila tu propiedad con nosotros",
+      "description": "Ya sea que estás buscando de alquilar tu primer hogar, o buscando un servicio de administración de propiedades, te ayudaremos a entender el proceso, y a obtener todos los hechos!"
+    }
+  },
+
+  "folders": {
+    "buy": {
+      "title": "Comprar",
+      "description": "Viviendas de segunda mano"
+    },
+    "rent": {
+      "title": "Alquilar",
+      "description": "Viviendas en alquiler"
+    },
+    "invest": {
+      "title": "Inversión",
+      "description": "Ideas para inversores"
+    },
+    "local": {
+      "title": "Locales",
+      "description": "Locales comerciales"
+    },
+    "promotion": {
+      "title": "Nueva Promoción",
+      "description": "Nuevos desarrollos"
+    },
+    "more": "Ver Más"
   },
 
   "footer": {

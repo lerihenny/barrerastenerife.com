@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, PageProps, useStaticQuery } from "gatsby";
-import { Typography } from "@material-ui/core";
+import { Hidden, Typography } from "@material-ui/core";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
@@ -8,6 +8,7 @@ import MainSlider from "../components/MainSlider";
 import { Banner } from "../components/Banner";
 import { Properties } from "../components/properties/Properties";
 import { ServicesSection } from "../components/ServicesSection";
+import { PropertiesSection } from "../components/PropertiesSection";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -40,12 +41,15 @@ const IndexPage: React.FC<PageProps> = () => {
           {t("about.welcome")}
         </Typography>
       </Banner>
-      <Banner image={images.background1.childImageSharp.fluid}>
-        <ServicesSection />
-      </Banner>
+      <Hidden smDown>
+        <Banner image={images.background1.childImageSharp.fluid}>
+          <ServicesSection />
+        </Banner>
+      </Hidden>
+      <PropertiesSection />
       <Banner size="small">
         <Typography variant="h4" className="text-uppercase">
-          {t("properties.sell")}
+          {t("properties.recent")}
         </Typography>
       </Banner>
       <Properties pagination={false} search={false} />

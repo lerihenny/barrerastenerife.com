@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
 import Img, { FluidObject } from "gatsby-image";
 
 type Props = {
@@ -32,13 +32,13 @@ export const Banner: FC<Props> = ({
             className={`img-responsive crop-banner banner-${size}`}
           />
         )}
-        <div
+        <Container
           className={`banner-container banner-${size} ${
             color ? "banner-primary-color" : ""
           }`}
         >
           {children}
-        </div>
+        </Container>
       </Grid>
     </Grid>
   );
