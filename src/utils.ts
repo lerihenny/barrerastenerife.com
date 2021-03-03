@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Search } from "./models/Search";
 import firebase from "gatsby-plugin-firebase";
+import { Property } from "./models/Property";
 
 export const imageSetBySize = (string: string, size: string) => {
   const array = string.split(",\n").find(image => image.endsWith(size));
@@ -25,9 +26,9 @@ export const formatPrice = (price: number) => {
 export const getPropertyList = (data: Search) => {
   const emulator = firebase.functions();
 
-  if (process.env.NODE_ENV === "development") {
-    emulator.useEmulator("localhost", 5001);
-  }
+  // if (process.env.NODE_ENV === "development") {
+  //   emulator.useEmulator("localhost", 5001);
+  // }
 
   const getProperties = emulator.httpsCallable("getPropertyList");
 
@@ -38,6 +39,34 @@ export const getPropertyList = (data: Search) => {
   }).catch(error => console.log("Error", error));
 };
 
+type Identifier = {
+  identifier: string | null;
+};
+
+export const getProperty = ({
+  identifier,
+}: Identifier): Property | undefined => {
+  const [property, setProperty] = useState<Property>();
+
+  useEffect(() => {
+    const emulator = firebase.functions();
+
+    // if (process.env.NODE_ENV === "development") {
+    //   emulator.useEmulator("localhost", 5001);
+    // }
+
+    const getProperty = emulator.httpsCallable("getProperty");
+
+    getProperty({ identifier })
+      .then(response => {
+        setProperty(response.data);
+      })
+      .catch(error => console.log("Error", error));
+  }, [identifier]);
+
+  return property;
+};
+
 export const sendMail = (data: {
   name: string;
   email: string;
@@ -45,9 +74,9 @@ export const sendMail = (data: {
 }) => {
   const emulator = firebase.functions();
 
-  if (process.env.NODE_ENV === "development") {
-    emulator.useEmulator("localhost", 5001);
-  }
+  // if (process.env.NODE_ENV === "development") {
+  //   emulator.useEmulator("localhost", 5001);
+  // }
 
   const sendMail = emulator.httpsCallable("sendMail");
 

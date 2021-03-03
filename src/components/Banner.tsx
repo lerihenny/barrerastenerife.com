@@ -32,13 +32,13 @@ export const Banner: FC<Props> = ({
             className={`img-responsive crop-banner banner-${size}`}
           />
         )}
-        <Container
+        <div
           className={`banner-container banner-${size} ${
             color ? "banner-primary-color" : ""
           }`}
         >
           {children}
-        </Container>
+        </div>
       </Grid>
     </Grid>
   );

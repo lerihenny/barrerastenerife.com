@@ -14,7 +14,6 @@ import "../assets/scss/custom-theme.scss";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import { RepositoryProvider } from "../context/repository";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
@@ -49,14 +48,12 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <CustomThemeProvider>
       <QueryClientProvider client={queryClient}>
-        <RepositoryProvider>
-          <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-          <Container maxWidth={false} className="main-container">
-            {children}
-            <WhatsAppButton />
-          </Container>
-          <Footer />
-        </RepositoryProvider>
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <Container maxWidth={false} className="main-container">
+          {children}
+          <WhatsAppButton />
+        </Container>
+        <Footer />
       </QueryClientProvider>
     </CustomThemeProvider>
   );
