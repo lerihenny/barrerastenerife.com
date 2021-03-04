@@ -69,6 +69,13 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
           }
         }
       }
+      ru: file(relativePath: { eq: "flags/ru.jpg" }) {
+        childImageSharp {
+          fixed(height: 20) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `);
 

@@ -57,7 +57,7 @@
     "recent": "Recent Properties",
     "contact": "Contact",
     "copyright": "All rights reserved",
-    "offices": "Our offices"
+    "offices": "Our office"
   },
 
   "properties": {
@@ -82,10 +82,44 @@
     "welcome": "Welcome to the land of the eternal spring",
     "title": "Inmobiliaria Barreras",
     "subtitle": "A high quality service",
-    "p1": "Bienvenidos a su Inmobiliaria. Con el propósito de ofrecer un servicio de asesoramiento de alta calidad en sus transacciones inmobiliarias, en nosotros encontrará el apoyo y rigor necesarios para optimizar una decisión tan importante, somos conscientes de nuestra responsabilidad y su satisfacción el mejor estímulo para seguir trabajando en esta línea. INMOBILIARIA BARRERAS nace en pintoresco pueblo de pescadores de nombre Los Abrigos ubicado en la parte sur de la isla de Tenerife en el año 1995. El fundador, Pablo Barreras, ha siguido así la tradición familiar que, durante varias generaciones, ha estado vinculada al ámbito de la abogacía y de los negocios, especialmente inmobiliarios contando con agencias colaboradoras pertenecientes al grupo familiar.",
-    "p2": "Actualmente, tras la jubilacion del fundador de la empresa, sus alumnos siguen llevando la gestion, manteniendo los principios y los valores del su fundador. Somos miembros del la Agrupacion de Agencias Inmobiliarias, que reune todo el sur de la isla, que permite la cooperación entre profesionales inmobiliarios. Esta filosofía de trabajo es el presente y el futuro de la intermediación inmobiliaria en Tenerife: un sistema que aglutina la más amplia oferta inmobiliaria del momento puesta a disposición del cliente para que éste obtenga las máximas ventajas a la hora de comprar o vender su vivienda.",
+    "p1": "BARRERAS inmobiliaria nace en Los Abrigos ubicado en la parte sur de la isla de Tenerife en el año 1995.",
+    "p2": "El fundador, Pablo Barreras, ha seguido así la tradición familiar que, durante varias generaciones, ha estado vinculada al ámbito de la abogacía y de los negocios.",
+    "p3": "Actualmente, tras la jubilación del fundador de la empresa, sus alumnos siguen llevando la gestión, manteniendo los principios y los valores del su fundador.",
+    "p4": "Somos miembros de la Agrupación de Agencias Inmobiliarias, que reúne todo el sur de la isla, y que permite la cooperación entre profesionales inmobiliarios.",
+    "p5": "Esta filosofía de trabajo es el presente y el futuro de la intermediación inmobiliaria en Tenerife: un sistema que aglutina la más amplia oferta inmobiliaria del momento puesta a disposición del cliente para que éste obtenga las máximas ventajas a la hora de comprar o vender su vivienda.",
 
-    "services": "Our Services",
+    "banner": {
+      "p1": "¿Por qué BARRERAS inmobiliaria?",
+      "p2": "Especialistas inmobiliarios comprometidos a obtener los mejores resultados posibles para ustedes.",
+      "p3": "Los resultados son más importantes que las promesas."
+    },
+
+    "time": {
+      "p1": "Valoramos Tu Tiempo",
+      "p2": "¡Sabemos que tu tiempo vale oro!",
+      "p3": "Priorizamos atención y dedicación a las necesidades de cada uno de nuestro cliente para captar sus prioridades y ofrecer un servicio enfocado en el logro de su objetivo."
+    },
+
+    "comunication": {
+      "p1": "Comunicarse sin estrés",
+      "p2": "¡Sabemos que hablar en propio idioma te evita mayor esfuerzo!",
+      "p3": "Nuestro equipo habla más de 6 idiomas extranjeros para que nada impida la comunicación y concentración sobre el objetivo."
+    },
+
+    "rating": {
+      "p1": "Calificación de estrellas del cliente",
+      "p2": "¡La satisfacción de nuestros clientes es nuestro objetivo mas importante!",
+      "p3": "Nos sentimos bastante honrados de que los clientes de BARRERAS valoren nuestro servicio con una calificación promedio de 4.8 estrellas sobre 5."
+    },
+
+    "services": {
+      "title": "Our Services",
+
+      "p1": "BARRERAS ofrece una gama completa de servicios inmobiliarios. Nos especializamos en la venta de propiedades residenciales, turísticas, comerciales y rurales, así como en servicios de administración de propiedades.",
+      "p2": "Sabemos que los clientes inmobiliarios quieren tratar con consultores que tengan conocimiento, experiencia, honestidad e integridad, y que estén comprometidos a lograr el mejor resultado posible para ellos.",
+      "p3": "Por encima de todo, quieren tratar con personas cercanas, por eso nos enfocamos absolutamente en crear una relación de confianza y respeto con todos nuestros clientes."
+    },
+
     "info": {
       "title": "Information",
       "description": "Detailed information about the purchasing, selling or renting of your house, office or shop."
@@ -113,7 +147,7 @@
 
   "contact": {
     "title": "Contact us",
-    "subtitle": "¿Any questions? We are here to help with anything you need.",
+    "subtitle": "Any questions? We are here to help with anything you need.",
     "address": "Address",
     "phone": "Phone",
     "email": "Email",
@@ -248,7 +282,7 @@
       "garden": "Garden",
       "outdoor": "Outdoor",
       "rooftop_terrace": "Rooftop terrace",
-      "sea_views": "Sea views",
+      "sea_views": "Ocean views",
       "storage_room": "Storage room",
       "swimming_pool": "Swimimng pool",
       "terrace": "Terrace"

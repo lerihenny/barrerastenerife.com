@@ -133,34 +133,13 @@ const AboutPage: React.FC<PageProps> = () => {
               <h1>{t("about.title")}</h1>
               <h3>{t("about.subtitle")}</h3>
             </div>
-            <Typography gutterBottom>
-              BARRERAS inmobiliaria nace en Los Abrigos ubicado en la parte sur
-              de la isla de Tenerife en el año 1995.
-            </Typography>
-            <Typography gutterBottom>
-              El fundador, Pablo Barreras, ha seguido así la tradición familiar
-              que, durante varias generaciones, ha estado vinculada al ámbito de
-              la abogacía y de los negocios.
-            </Typography>
+            <Typography gutterBottom>{t("about.p1")}</Typography>
+            <Typography gutterBottom>{t("about.p2")}</Typography>
           </Grid>
           <Grid xs={12} style={{ padding: "8px" }}>
-            <Typography gutterBottom>
-              Actualmente, tras la jubilación del fundador de la empresa, sus
-              alumnos siguen llevando la gestión, manteniendo los principios y
-              los valores del su fundador.
-            </Typography>
-            <Typography gutterBottom>
-              Somos miembros de la Agrupación de Agencias Inmobiliarias, que
-              reúne todo el sur de la isla, y que permite la cooperación entre
-              profesionales inmobiliarios.
-            </Typography>
-            <Typography gutterBottom>
-              Esta filosofía de trabajo es el presente y el futuro de la
-              intermediación inmobiliaria en Tenerife: un sistema que aglutina
-              la más amplia oferta inmobiliaria del momento puesta a disposición
-              del cliente para que éste obtenga las máximas ventajas a la hora
-              de comprar o vender su vivienda.
-            </Typography>
+            <Typography gutterBottom>{t("about.p3")}</Typography>
+            <Typography gutterBottom>{t("about.p4")}</Typography>
+            <Typography gutterBottom>{t("about.p5")}</Typography>
           </Grid>
         </Grid>
       </Container>
@@ -168,14 +147,13 @@ const AboutPage: React.FC<PageProps> = () => {
       <Banner size="medium">
         <div>
           <Typography variant="h4" align="center" gutterBottom>
-            ¿Por qué BARRERAS inmobiliaria?
+            {t("about.banner.p1")}
           </Typography>
           <Typography variant="h5" align="center" gutterBottom>
-            Especialistas inmobiliarios comprometidos a obtener los mejores
-            resultados posibles para ustedes.
+            {t("about.banner.p2")}
           </Typography>
           <Typography variant="h5" align="center" gutterBottom>
-            Los resultados son más importantes que las promesas.
+            {t("about.banner.p3")}
           </Typography>
         </div>
       </Banner>
@@ -190,16 +168,10 @@ const AboutPage: React.FC<PageProps> = () => {
               <Typography variant="h6">min</Typography>
             </div>
             <Typography variant="h5" gutterBottom>
-              Valoramos Tu Tiempo
+              {t("about.time.p1")}
             </Typography>
-            <Typography gutterBottom>
-              ¡Sabemos que tu tiempo vale oro!
-            </Typography>
-            <Typography gutterBottom>
-              Priorizamos atención y dedicación a las necesidades de cada uno de
-              nuestro cliente para captar sus prioridades y ofrecer un servicio
-              enfocado en el logro de su objetivo.
-            </Typography>
+            <Typography gutterBottom>{t("about.time.p2")}</Typography>
+            <Typography gutterBottom>{t("about.time.p3")}</Typography>
           </Grid>
           <Grid item xs={12} md={4}>
             <div className="circle">
@@ -208,15 +180,10 @@ const AboutPage: React.FC<PageProps> = () => {
               </Typography>
             </div>
             <Typography variant="h5" gutterBottom>
-              Comunicarse sin estrés
+              {t("about.comunication.p1")}
             </Typography>
-            <Typography gutterBottom>
-              ¡Sabemos que hablar en propio idioma te evita mayor esfuerzo!
-            </Typography>
-            <Typography gutterBottom>
-              Nuestro equipo habla más de 6 idiomas extranjeros para que nada
-              impida la comunicación y concentración sobre el objetivo.
-            </Typography>
+            <Typography gutterBottom>{t("about.comunication.p2")}</Typography>
+            <Typography gutterBottom>{t("about.comunication.p3")}</Typography>
           </Grid>
           <Grid item xs={12} md={4}>
             <div className="circle">
@@ -225,22 +192,15 @@ const AboutPage: React.FC<PageProps> = () => {
               </Typography>
             </div>
             <Typography variant="h5" gutterBottom>
-              Calificación de estrellas del cliente
+              {t("about.rating.p1")}
             </Typography>
-            <Typography gutterBottom>
-              ¡La satisfacción de nuestros clientes es nuestro objetivo mas
-              importante!
-            </Typography>
-            <Typography gutterBottom>
-              Nos sentimos bastante honrados de que los clientes de BARRERAS
-              valoren nuestro servicio con una calificación promedio de 4.8
-              estrellas sobre 5.
-            </Typography>
+            <Typography gutterBottom>{t("about.rating.p2")}</Typography>
+            <Typography gutterBottom>{t("about.rating.p3")}</Typography>
           </Grid>
         </Grid>
 
         <Typography variant="h4" component="p" className="section-title">
-          {t("about.services")}
+          {t("about.services.title")}
         </Typography>
 
         <Grid container spacing={5} alignItems="center">
@@ -253,21 +213,13 @@ const AboutPage: React.FC<PageProps> = () => {
           </Grid>
           <Grid item xs={12} sm={7}>
             <Typography gutterBottom align="left">
-              BARRERAS ofrece una gama completa de servicios inmobiliarios. Nos
-              especializamos en la venta de propiedades residenciales,
-              turísticas, comerciales y rurales, así como en servicios de
-              administración de propiedades.
+              {t("about.services.p1")}
             </Typography>
             <Typography gutterBottom align="left">
-              Sabemos que los clientes inmobiliarios quieren tratar con
-              consultores que tengan conocimiento, experiencia, honestidad e
-              integridad, y que estén comprometidos a lograr el mejor resultado
-              posible para ellos.
+              {t("about.services.p2")}
             </Typography>
             <Typography gutterBottom align="left">
-              Por encima de todo, quieren tratar con personas cercanas, por eso
-              nos enfocamos absolutamente en crear una relación de confianza y
-              respeto con todos nuestros clientes.
+              {t("about.services.p3")}
             </Typography>
           </Grid>
         </Grid>
