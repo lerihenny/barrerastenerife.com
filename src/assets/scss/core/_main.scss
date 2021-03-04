@@ -216,8 +216,21 @@ body {
       font-size: 4.5em;
       bottom: 2em;
       right: 2em;
-      color: $secondary-color;
       text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+      // background: $secondary-color-gradient-text;
+      // background-clip: text;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(
+        to right,
+        #cb9e24 0%,
+        #e7bf32 25%,
+        #fae12f 50%,
+        #e7bf32 55%,
+        #cb9e24 75%
+      );
+      color: transparent;
+      -webkit-background-clip: text;
     }
   }
 }
@@ -257,11 +270,11 @@ body {
     }
 
     &::before {
-      background: $secondary-color;
+      background: $secondary-color-gradient-background;
     }
 
     &::before {
-      background: $secondary-color;
+      background: $secondary-color-gradient-background;
     }
 
     &:before {
@@ -383,7 +396,7 @@ body {
 .about-content {
   font-size: 1.2rem;
   font-weight: 100;
-  padding: 20px;
+  padding: 50px 0;
   ul {
     li {
       font-size: 1rem;
@@ -401,7 +414,7 @@ body {
   padding: 20px;
   text-align: center;
   font-weight: 300;
-  background-color: $color-white;
+  background-color: rgba(255, 255, 255, 0.7);
 
   img {
     width: 100%;
@@ -430,7 +443,7 @@ body {
   }
   .service-description {
     font-weight: 300;
-    color: $color-dark-gray-1;
+    color: $color-black;
   }
 }
 .service-card {
@@ -569,7 +582,7 @@ body {
   align-items: center;
 
   &.banner-primary-color {
-    background-color: $primary-color;
+    background: $primary-color-gradient-background-3;
   }
 
   &.banner-small {
@@ -668,4 +681,16 @@ body {
     margin-top: -40px;
     margin-left: 20px;
   }
+}
+.circle {
+  width: 128px;
+  height: 128px;
+  border: 4px solid $primary-color;
+  border-radius: 128px;
+  display: flex;
+  margin: 2em auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: $primary-color;
 }

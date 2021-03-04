@@ -7,11 +7,15 @@ $color-primary-2: #3ebfc5 !default;
 $color-primary-3: #01a5ad !default;
 $color-primary-4: #01757a !default;
 
-$color-secondary-1-0: #d5b568 !default; /* Main Secondary color (1) */
-$color-secondary-1-1: #ffefca !default;
-$color-secondary-1-2: #fde2a3 !default;
-$color-secondary-1-3: #ac8a39 !default;
+$color-secondary-1-0: #cb9e24 !default; /* Main Secondary color (1) */
+$color-secondary-1-2: #fae12f !default;
 $color-secondary-1-4: #806014 !default;
+
+// $color-secondary-1-0: #d5b568 !default; /* Main Secondary color (1) */
+// $color-secondary-1-1: #ffefca !default;
+// $color-secondary-1-2: #fde2a3 !default;
+// $color-secondary-1-3: #ac8a39 !default;
+// $color-secondary-1-4: #806014 !default;
 
 $color-secondary-2-0: #ff2c27 !default; /* Main Secondary color (2) */
 $color-secondary-2-1: #ff7e7b !default;
@@ -31,7 +35,7 @@ $color-dark-gray-1: #777777 !default;
 $primary-color: $color-primary-0;
 $primary-color-overlay: rgba(29, 177, 184, 0.5) !default;
 
-$secondary-color: $color-secondary-1-0;
+$secondary-color: $color-secondary-1-2;
 
 $primary-color-gradient-background: linear-gradient(
   110deg,
