@@ -110,6 +110,19 @@ body {
     }
   }
 
+  .languages-menu {
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    a {
+      display: flex;
+      padding: 14px 0;
+      border-bottom: none;
+    }
+  }
+
   .error-title {
     color: #fff;
     font-size: 8rem;
@@ -136,13 +149,16 @@ body {
     min-height: calc(100vh - 92px - 52px);
 
     @media (max-width: 960px) {
-      margin-top: 104px;
+      margin-top: 94px;
     }
 
     .main-slider {
       height: 650px;
-      // height: calc(100vh - 92px);
       position: relative;
+
+      @media (max-width: 960px) {
+        height: calc(100vh - 94px);
+      }
     }
 
     .main-search-form {
@@ -693,4 +709,8 @@ body {
   justify-content: center;
   flex-direction: column;
   color: $primary-color;
+}
+
+.MuiIconButton-root {
+  color: white !important;
 }

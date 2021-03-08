@@ -112,6 +112,15 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
             <ListItem button>{link.text}</ListItem>
           </Link>
         ))}
+        <ListItem className="languages-menu">
+          {languages.map(lng => {
+            return (
+              <Link key={lng} to={originalPath} language={lng}>
+                <Img fixed={images[lng].childImageSharp.fixed} alt={lng} />
+              </Link>
+            );
+          })}
+        </ListItem>
       </List>
     </div>
   );
@@ -168,7 +177,7 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
             </Hidden>
             <Hidden mdUp>
               <IconButton
-                color="inherit"
+                color="default"
                 aria-label="open drawer"
                 className="ml-auto"
                 onClick={toggleDrawer(true)}
