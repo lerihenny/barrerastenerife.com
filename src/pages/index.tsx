@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, PageProps, useStaticQuery } from "gatsby";
-import { Hidden, Typography } from "@material-ui/core";
+import { Container, Hidden, Typography } from "@material-ui/core";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
@@ -37,9 +37,11 @@ const IndexPage: React.FC<PageProps> = () => {
       <SEO title={t("home")} />
       <MainSlider />
       <Banner size="medium" color={false}>
-        <Typography variant="h5" className="text-uppercase">
-          {t("about.welcome")}
-        </Typography>
+        <Container>
+          <Typography variant="h5" className="text-uppercase" align="center">
+            {t("about.welcome")}
+          </Typography>
+        </Container>
       </Banner>
       <Hidden smDown>
         <Banner image={images.background1.childImageSharp.fluid}>
@@ -48,9 +50,11 @@ const IndexPage: React.FC<PageProps> = () => {
       </Hidden>
       <PropertiesSection />
       <Banner size="small">
-        <Typography variant="h4" className="text-uppercase">
-          {t("properties.recent")}
-        </Typography>
+        <Container>
+          <Typography variant="h4" className="text-uppercase" align="center">
+            {t("properties.recent")}
+          </Typography>
+        </Container>
       </Banner>
       <Properties pagination={false} search={false} />
       <Banner size="medium" image={images.background2.childImageSharp.fluid} />
