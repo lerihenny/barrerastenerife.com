@@ -29,14 +29,9 @@ const Detail = ({ property }: { property: Property | undefined }) => {
 
   return (
     <>
-      <Container>
-        <Grid
-          container
-          spacing={3}
-          justify="center"
-          className="properties-container"
-        >
-          <Grid item xs={12}>
+      <Container className="image-container">
+        <Grid container spacing={3} justify="center">
+          <Grid item xs={12} md={6}>
             <ImageGallery
               items={property.pictures}
               lazyLoad={true}
@@ -44,8 +39,8 @@ const Detail = ({ property }: { property: Property | undefined }) => {
               showPlayButton={false}
             />
           </Grid>
-          <Grid item xs={12}>
-            <div className="property-data MuiPaper-elevation5">
+          <Grid item xs={12} md={6}>
+            <div className="property-data MuiPaper-elevation5 mb-5">
               <h2 className="property-data-price">
                 {formatPrice(
                   property.selling
@@ -57,16 +52,17 @@ const Detail = ({ property }: { property: Property | undefined }) => {
               <h2 className="property-data-title">{property.zone}</h2>
               <h3 className="property-data-address">{property.town}</h3>
             </div>
-          </Grid>
-          <Grid item xs={12}>
-            <Card style={{ marginBottom: "20px" }}>
+
+            <Card className="mb-5">
               <CardHeader title={t("properties.info")} />
-              <PropertyFooter
-                detail={true}
-                area={property.area}
-                bathrooms={property.bathrooms}
-                bedrooms={property.bedrooms}
-              />
+              <CardContent>
+                <PropertyFooter
+                  detail={true}
+                  area={property.area}
+                  bathrooms={property.bathrooms}
+                  bedrooms={property.bedrooms}
+                />
+              </CardContent>
               {property.tags.length > 0 && (
                 <>
                   <CardHeader title={t("properties.tags")} />
@@ -80,8 +76,7 @@ const Detail = ({ property }: { property: Property | undefined }) => {
                 </>
               )}
             </Card>
-
-            <Card>
+            <Card className="mb-5">
               <CardHeader title={t("properties.description")} />
               <CardContent>
                 {language === "es"
@@ -90,10 +85,8 @@ const Detail = ({ property }: { property: Property | undefined }) => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12}>
-            <MapView lat={property.geo_lat} lng={property.geo_lng} />
-          </Grid>
         </Grid>
+        <MapView lat={property.geo_lat} lng={property.geo_lng} />
       </Container>
     </>
   );

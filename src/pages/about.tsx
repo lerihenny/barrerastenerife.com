@@ -144,19 +144,21 @@ const AboutPage: React.FC<PageProps> = () => {
         </Grid>
       </Container>
 
-      <Banner size="medium">
-        <div>
-          <Typography variant="h4" align="center" gutterBottom>
-            {t("about.banner.p1")}
-          </Typography>
-          <Typography variant="h5" align="center" gutterBottom>
-            {t("about.banner.p2")}
-          </Typography>
-          <Typography variant="h5" align="center" gutterBottom>
-            {t("about.banner.p3")}
-          </Typography>
-        </div>
-      </Banner>
+      <Hidden smDown>
+        <Banner size="medium">
+          <div>
+            <Typography variant="h4" align="center" gutterBottom>
+              {t("about.banner.p1")}
+            </Typography>
+            <Typography variant="h5" align="center" gutterBottom>
+              {t("about.banner.p2")}
+            </Typography>
+            <Typography variant="h5" align="center" gutterBottom>
+              {t("about.banner.p3")}
+            </Typography>
+          </div>
+        </Banner>
+      </Hidden>
 
       <Container className="text-center">
         <Grid container spacing={5} className="about-content">

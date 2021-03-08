@@ -156,17 +156,42 @@ body {
       // height: calc(100vh - 94px);
       // max-height: 650px;
       height: 650px;
-
       position: relative;
 
       @media (max-width: 960px) {
         height: calc(100vh - 94px);
-
-        .image-gallery-content .image-gallery-slide .image-gallery-image {
-          max-height: calc(100vh - 94px) !important;
-        }
       }
     }
+
+    .image-gallery-slide .image-gallery-image {
+      width: 100% !important;
+      height: 650px !important;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+
+    .image-container {
+      .image-gallery-content .image-gallery-slide .image-gallery-image {
+        height: calc(100vh - 94px);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .image-gallery-content .image-gallery-slide .image-gallery-image {
+        max-height: calc(100vh - 94px);
+      }
+
+      .image-container {
+        padding: 0 !important;
+      }
+    }
+
+    @media (min-width: 961px) {
+      .image-gallery-content .image-gallery-slide .image-gallery-image {
+        max-height: none;
+      }
+    }
+
     .main-search-form {
       padding: 2em;
       top: 0;
@@ -534,7 +559,12 @@ body {
   height: 100%;
   align-self: center;
   padding: 5em;
+
+  @media (max-width: 960px) {
+    padding: 2em;
+  }
 }
+
 .map-container {
   height: 400px;
   width: 100%;
@@ -566,7 +596,6 @@ body {
 .tag-list {
   list-style: none;
   display: flex;
-  // justify-content: center;
   flex-wrap: wrap;
   margin-top: 0;
   margin-bottom: 1em;
@@ -576,6 +605,10 @@ body {
     margin-right: 0.5em;
     margin-left: 0.5em;
     margin-bottom: 1em;
+
+    span {
+      color: white;
+    }
   }
 }
 .image-gallery-thumbnail.active,
@@ -640,15 +673,6 @@ body {
   &.banner-large {
     height: 400px;
   }
-}
-.image-gallery-content .image-gallery-slide .image-gallery-image {
-  max-height: none !important;
-}
-.image-gallery-slide .image-gallery-image {
-  width: 100% !important;
-  height: 650px !important;
-  object-fit: cover !important;
-  object-position: center !important;
 }
 
 .main-slider {
@@ -717,6 +741,7 @@ body {
   color: $primary-color;
 }
 
+.MuiButtonBase-root,
 .MuiIconButton-root {
   color: white !important;
 }

@@ -25,7 +25,7 @@ const PropertyFooter: React.FC<Props> = ({
       classes={{ root: `property-card-actions${detail ? "--detail" : ""}` }}
     >
       <Grid container spacing={2}>
-        <Grid item xs={4}>
+        <Grid item xs={detail ? 6 : 4} sm={4}>
           <FooterItem
             detail={detail}
             title={t("properties.area")}
@@ -33,7 +33,7 @@ const PropertyFooter: React.FC<Props> = ({
             component={CropFreeIcon}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={detail ? 6 : 4} sm={4}>
           <FooterItem
             detail={detail}
             title={t("properties.bedrooms")}
@@ -41,7 +41,7 @@ const PropertyFooter: React.FC<Props> = ({
             component={HotelIcon}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={detail ? 6 : 4} sm={4}>
           <FooterItem
             detail={detail}
             title={t("properties.bathrooms")}
