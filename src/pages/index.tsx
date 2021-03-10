@@ -49,14 +49,6 @@ const IndexPage: React.FC<PageProps> = () => {
         </Banner>
       </Hidden>
       <PropertiesSection />
-      <Banner size="small">
-        <Container>
-          <Typography variant="h4" className="text-uppercase" align="center">
-            {t("properties.recent")}
-          </Typography>
-        </Container>
-      </Banner>
-      <Properties pagination={false} search={false} />
       <Banner size="medium" image={images.background2.childImageSharp.fluid} />
     </Layout>
   );

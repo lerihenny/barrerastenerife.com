@@ -73,6 +73,20 @@ export const PropertiesSection = () => {
           }
         }
       }
+      promotion: file(relativePath: { eq: "properties/promotion.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      services: file(relativePath: { eq: "properties/services.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
@@ -102,6 +116,18 @@ export const PropertiesSection = () => {
           image={images.shop.childImageSharp.fluid}
           title={t("folders.local.title")}
           description={t("folders.local.description")}
+        />
+        <HomePropertiesContainer
+          to="promotion"
+          image={images.promotion.childImageSharp.fluid}
+          title={t("folders.promotion.title")}
+          description={t("folders.promotion.description")}
+        />
+        <HomePropertiesContainer
+          to="about"
+          image={images.services.childImageSharp.fluid}
+          title={t("folders.services.title")}
+          description={t("folders.services.description")}
         />
       </Grid>
     </Container>

@@ -10,7 +10,8 @@
       "about": "Quienes Somos",
       "contact": "Contacto",
       "invest": "Inversión",
-      "local": "Local comercial"
+      "local": "Local comercial",
+      "promotion": "Nueva promoción"
     }
   },
 
@@ -49,6 +50,10 @@
     "promotion": {
       "title": "Nueva Promoción",
       "description": "Nuevos desarrollos"
+    },
+    "services": {
+      "title": "Servicios",
+      "description": "Nuestros servicios"
     },
     "more": "Ver Más"
   },

@@ -745,3 +745,40 @@ body {
 .MuiIconButton-root {
   color: white !important;
 }
+
+.promotion-container {
+  margin: 2em;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .promotion-overlay {
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .promotion-image {
+    position: unset !important;
+    height: 300px;
+  }
+
+  .promotion-title {
+    z-index: 2;
+    position: absolute;
+    color: white;
+    margin: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+}
