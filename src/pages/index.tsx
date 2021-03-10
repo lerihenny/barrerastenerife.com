@@ -38,7 +38,11 @@ const IndexPage: React.FC<PageProps> = () => {
       <MainSlider />
       <Banner size="medium" color={false}>
         <Container>
-          <Typography variant="h5" className="text-uppercase" align="center">
+          <Typography
+            variant="h5"
+            className="text-uppercase source-font"
+            align="center"
+          >
             {t("about.welcome")}
           </Typography>
         </Container>

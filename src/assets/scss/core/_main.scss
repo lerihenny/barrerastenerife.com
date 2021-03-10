@@ -42,6 +42,9 @@ a {
 p {
   font-size: 1rem;
 }
+.source-font {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
 body {
   // background-color: $color-light-gray-1;
   background-color: $color-white !important;
@@ -310,7 +313,7 @@ body {
 
   li {
     width: auto;
-    text-transform: uppercase;
+    // text-transform: uppercase;
 
     &:hover:before {
       width: 100%;
@@ -517,6 +520,9 @@ body {
 .team-card {
   margin: 2em;
 }
+.team-image {
+  height: 300px;
+}
 .team-name {
   margin: 0;
   font-weight: 700;
@@ -526,6 +532,7 @@ body {
   margin: 0;
   font-size: 1rem;
   color: $color-light-gray-1;
+  font-weight: bold;
 }
 .team-container {
   background: $primary-color-gradient-background-2 !important;
@@ -535,6 +542,15 @@ body {
     background: $secondary-color-gradient-background;
     height: 1px;
     border: 0;
+  }
+}
+.team-flags {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+
+  img {
+    border-radius: 5px;
   }
 }
 .contact-section {
