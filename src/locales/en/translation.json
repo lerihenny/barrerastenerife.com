@@ -51,6 +51,10 @@
       "title": "New Promotion",
       "description": "New property developments"
     },
+    "services": {
+      "title": "Servicios",
+      "description": "Nuestros servicios"
+    },
     "more": "View More"
   },
 
@@ -66,6 +70,7 @@
     "recent": "Recent properties",
     "sell": "Properties for sale",
     "rent": "Properties for rent",
+    "related": "Propiedades relacionadas",
 
     "info": "Basic information",
     "description": "Description",

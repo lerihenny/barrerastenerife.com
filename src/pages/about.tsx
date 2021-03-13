@@ -299,7 +299,12 @@ const AboutPage: React.FC<PageProps> = () => {
           />
         </Grid>
 
-        <Typography variant="h4" component="p" className="section-title">
+        <Typography
+          id="services"
+          variant="h4"
+          component="p"
+          className="section-title"
+        >
           {t("about.services.title")}
         </Typography>
 

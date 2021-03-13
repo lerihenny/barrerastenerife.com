@@ -1,5 +1,5 @@
 import React from "react";
-import { Tooltip } from "@material-ui/core";
+import { Tooltip, Typography } from "@material-ui/core";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import { SvgIconTypeMap } from "@material-ui/core/SvgIcon/SvgIcon";
 
@@ -21,8 +21,15 @@ const FooterItem: React.FC<FooterItemProps> = ({
   if (detail === true) {
     return (
       <span>
-        <strong>{`${title}: `}</strong>
-        {value}
+        <span className="flex-row">
+          <Typography color="textSecondary">
+            <Component className="mr-3" />
+          </Typography>
+          <Typography>{value}</Typography>
+        </span>
+        <Typography variant="body2" color="textSecondary">
+          {title}
+        </Typography>
       </span>
     );
   }

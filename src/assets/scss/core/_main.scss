@@ -175,7 +175,7 @@ body {
 
     .image-container {
       .image-gallery-content .image-gallery-slide .image-gallery-image {
-        height: calc(100vh - 94px);
+        height: 400px !important;
       }
     }
 
@@ -756,11 +756,10 @@ body {
   flex-direction: column;
   color: $primary-color;
 }
-
-.MuiButtonBase-root,
-.MuiIconButton-root {
-  color: white !important;
-}
+// .MuiButtonBase-root,
+// .MuiIconButton-root {
+//   color: white !important;
+// }
 
 .promotion-container {
   margin: 2em;

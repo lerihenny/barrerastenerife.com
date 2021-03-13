@@ -57,7 +57,9 @@ const ContactPage: React.FC<PageProps> = () => {
             </Grid>
           </div>
         </Grid>
-        <Form />
+        <Grid container item xs={12} sm={7}>
+          <Form />
+        </Grid>
       </Grid>
       <MapView />
     </Layout>

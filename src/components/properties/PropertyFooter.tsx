@@ -28,7 +28,7 @@ const PropertyFooter: React.FC<Props> = ({
         <Grid item xs={detail ? 6 : 4} sm={4}>
           <FooterItem
             detail={detail}
-            title={t("properties.area")}
+            title={`${t("properties.area")} m2`}
             value={area}
             component={CropFreeIcon}
           />

@@ -124,7 +124,7 @@ export const PropertiesSection = () => {
           description={t("folders.promotion.description")}
         />
         <HomePropertiesContainer
-          to="about"
+          to="about#services"
           image={images.services.childImageSharp.fluid}
           title={t("folders.services.title")}
           description={t("folders.services.description")}

@@ -21,9 +21,25 @@ exports.getProperty = functions.https.onCall(async data => {
     };
   });
 
+  const related = await fetchProperties({
+    zone: property.zone,
+    town: property.town,
+    buyop: property.selling ? "sell" : "rent",
+    min_price: property.selling
+      ? property.selling_cost - 100000
+      : property.renting_cost - 100,
+    max_price: property.selling
+      ? property.selling_cost + 100000
+      : property.renting_cost + 100,
+  });
+
   return {
     ...property,
     pictures,
+    related:
+      related.results.length > 4
+        ? related.results.slice(0, 4)
+        : related.results,
   };
 });
 

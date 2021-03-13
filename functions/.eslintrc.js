@@ -27,5 +27,6 @@ module.exports = {
     "template-curly-spacing": ["error", "never"],
     "object-curly-spacing": ["error", "always"],
     "arrow-parens": ["error", "as-needed"],
+    "operator-linebreak": ["error", "before"],
   },
 };

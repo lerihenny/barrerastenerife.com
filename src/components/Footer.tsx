@@ -18,6 +18,13 @@ const Footer: React.FC = () => {
           }
         }
       }
+      logo: file(relativePath: { eq: "logo/logo-navbar-2.png" }) {
+        childImageSharp {
+          fixed(height: 55) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
       map: file(relativePath: { eq: "map.png" }) {
         childImageSharp {
           fixed(width: 225) {

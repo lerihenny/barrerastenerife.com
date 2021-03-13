@@ -177,10 +177,10 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
             </Hidden>
             <Hidden mdUp>
               <IconButton
-                color="default"
                 aria-label="open drawer"
                 className="ml-auto"
                 onClick={toggleDrawer(true)}
+                classes={{ root: "color-white" }}
               >
                 <Menu />
               </IconButton>

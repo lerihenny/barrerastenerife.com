@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { CircularProgress, Container, Grid } from "@material-ui/core";
 import { QueryStatus, useQuery } from "react-query";
 import { getPropertyList } from "../utils";
-import { Property } from "models/Property";
+import { Property } from "../models/Property";
 
 const LatestProperties = () => {
   const {
@@ -21,7 +21,7 @@ const LatestProperties = () => {
           <CircularProgress />
         </Container>
       )}
-      {status !== "loading" &&
+      {status === "success" &&
         data?.data?.results.slice(0, 4).map((property: Property) => (
           <Grid key={`latest-properties-${property.id}`} item xs={3}>
             <Link to={`/property/?id=${property.identifier}`}>

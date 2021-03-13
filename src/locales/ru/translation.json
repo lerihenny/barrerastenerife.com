@@ -51,6 +51,10 @@
       "title": "Новое строительство",
       "description": "Новое строительство"
     },
+    "services": {
+      "title": "Servicios",
+      "description": "Nuestros servicios"
+    },
     "more": "Подробнее"
   },
 
@@ -66,6 +70,7 @@
     "recent": "Новинки в сфере недвижимости",
     "sell": "Недвижимость на продажу ",
     "rent": "Недвижимость в аренду",
+    "related": "Propiedades relacionadas",
 
     "info": "Общая информация",
     "description": "Описание",

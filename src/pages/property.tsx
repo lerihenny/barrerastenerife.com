@@ -13,6 +13,7 @@ const PropertyPage: React.FC<PageProps> = ({ location }) => {
   const searchParams = new URLSearchParams(location.search);
   const identifier = searchParams.get("id");
   const property = getProperty({ identifier });
+  console.log(property);
 
   return (
     <Layout>

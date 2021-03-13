@@ -86,4 +86,5 @@ export type Property = {
     name: string;
     email: string;
   };
+  related?: Property[];
 };
