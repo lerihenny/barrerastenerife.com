@@ -47,11 +47,11 @@ const IndexPage: React.FC<PageProps> = () => {
           </Typography>
         </Container>
       </Banner>
-      <Hidden smDown>
-        <Banner image={images.background1.childImageSharp.fluid}>
-          <ServicesSection />
-        </Banner>
-      </Hidden>
+
+      <Banner image={images.background1.childImageSharp.fluid}>
+        <ServicesSection />
+      </Banner>
+
       <PropertiesSection />
       <Banner size="medium" image={images.background2.childImageSharp.fluid} />
     </Layout>

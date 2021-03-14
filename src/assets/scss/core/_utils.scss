@@ -20,6 +20,20 @@
   &.banner-large {
     height: 400px;
   }
+
+  @media (max-width: 960px) {
+    display: none;
+
+    &.banner-small {
+      height: fit-content;
+    }
+    &.banner-medium {
+      height: fit-content;
+    }
+    &.banner-large {
+      height: fit-content;
+    }
+  }
 }
 .crop-folder {
   height: 300px;

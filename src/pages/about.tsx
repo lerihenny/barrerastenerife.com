@@ -15,25 +15,40 @@ import {
 } from "@material-ui/core";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { Banner } from "../components/Banner";
+import { Service } from "../components/Service";
 
 const AboutPage: React.FC<PageProps> = () => {
   const images = useStaticQuery(graphql`
     query {
-      banner: file(relativePath: { eq: "bg/4.jpg" }) {
+      banner: file(relativePath: { eq: "bg/7.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1366) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      founder: file(relativePath: { eq: "team/founder.jpg" }) {
+      founder: file(relativePath: { eq: "team/founder2.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      founder2: file(relativePath: { eq: "team/founder2.jpg" }) {
+      time: file(relativePath: { eq: "time.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      languages: file(relativePath: { eq: "languages.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      reviews: file(relativePath: { eq: "reviews.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -185,6 +200,25 @@ const AboutPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <SEO title={t("header.link.about")} />
+
+      <div className="about-container">
+        <div className="about-overlay" />
+        <Img
+          fluid={images.banner.childImageSharp.fluid}
+          className="about-image crop-center"
+        />
+        <div className="about-text">
+          <Container maxWidth="md">
+            <Typography variant="h3" gutterBottom>
+              {t("about.banner.p1")}
+            </Typography>
+            <Typography variant="h4" gutterBottom>
+              {t("about.banner.p2")}
+            </Typography>
+          </Container>
+        </div>
+      </div>
+
       <Container>
         <Grid
           container
@@ -195,7 +229,7 @@ const AboutPage: React.FC<PageProps> = () => {
         >
           <Grid item xs={12} sm={6}>
             <Img
-              fluid={images.founder2.childImageSharp.fluid}
+              fluid={images.founder.childImageSharp.fluid}
               alt=""
               className="img-responsive about-image"
             />
@@ -216,63 +250,40 @@ const AboutPage: React.FC<PageProps> = () => {
         </Grid>
       </Container>
 
-      <Hidden smDown>
-        <Banner size="medium">
-          <div>
-            <Typography variant="h4" align="center" gutterBottom>
-              {t("about.banner.p1")}
-            </Typography>
-            <Typography variant="h5" align="center" gutterBottom>
-              {t("about.banner.p2")}
-            </Typography>
-            <Typography variant="h5" align="center" gutterBottom>
-              {t("about.banner.p3")}
-            </Typography>
-          </div>
-        </Banner>
-      </Hidden>
+      {/* <Hidden smDown> */}
+      <Banner image={images.banner.childImageSharp.fluid}>
+        <Container>
+          <Grid container spacing={2} justify="center" alignItems="stretch">
+            <Service
+              circle
+              to="#"
+              image={images.time.childImageSharp.fluid}
+              title={t("about.time.p1")}
+              description={[t("about.time.p2"), t("about.time.p3")]}
+            />
+            <Service
+              circle
+              to="#"
+              image={images.languages.childImageSharp.fluid}
+              title={t("about.comunication.p1")}
+              description={[
+                t("about.comunication.p2"),
+                t("about.comunication.p3"),
+              ]}
+            />
+            <Service
+              circle
+              to="#"
+              image={images.reviews.childImageSharp.fluid}
+              title={t("about.rating.p1")}
+              description={[t("about.rating.p2"), t("about.rating.p3")]}
+            />
+          </Grid>
+        </Container>
+      </Banner>
+      {/* </Hidden> */}
 
       <Container className="text-center">
-        <Grid container spacing={5} className="about-content">
-          <Grid item xs={12} md={4}>
-            <div className="circle">
-              <Typography variant="h3" className="font-bold">
-                10
-              </Typography>
-              <Typography variant="h6">min</Typography>
-            </div>
-            <Typography variant="h5" gutterBottom>
-              {t("about.time.p1")}
-            </Typography>
-            <Typography gutterBottom>{t("about.time.p2")}</Typography>
-            <Typography gutterBottom>{t("about.time.p3")}</Typography>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <div className="circle">
-              <Typography variant="h3" className="font-bold">
-                22k
-              </Typography>
-            </div>
-            <Typography variant="h5" gutterBottom>
-              {t("about.comunication.p1")}
-            </Typography>
-            <Typography gutterBottom>{t("about.comunication.p2")}</Typography>
-            <Typography gutterBottom>{t("about.comunication.p3")}</Typography>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <div className="circle">
-              <Typography variant="h3" className="font-bold">
-                4.8
-              </Typography>
-            </div>
-            <Typography variant="h5" gutterBottom>
-              {t("about.rating.p1")}
-            </Typography>
-            <Typography gutterBottom>{t("about.rating.p2")}</Typography>
-            <Typography gutterBottom>{t("about.rating.p3")}</Typography>
-          </Grid>
-        </Grid>
-
         <Grid container justify="center" className="team-section text-center">
           <Grid item xs={12}>
             <Typography variant="h4" component="p" className="section-title">

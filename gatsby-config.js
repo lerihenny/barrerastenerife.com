@@ -31,7 +31,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Roboto\:300,400,400i,700`, "Monsieur La Doulaise"],
+        fonts: [
+          `Roboto\:300,400,400i,700`,
+          "Monsieur La Doulaise",
+          "Source Sans Pro:400;700",
+        ],
         display: "swap",
       },
     },
