@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "gatsby";
 import { CircularProgress, Container, Grid } from "@material-ui/core";
 import { QueryStatus, useQuery } from "react-query";
 import { getPropertyList } from "../utils";
 import { Property } from "../models/Property";
+import { Link } from "gatsby-plugin-react-i18next";
 
 const LatestProperties = () => {
   const {

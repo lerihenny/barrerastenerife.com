@@ -24,19 +24,19 @@ export const ServicesSection = () => {
     <Container>
       <Grid container spacing={2} justify="center" alignItems="stretch">
         <Service
-          to="properties/buy"
+          to="/properties/buy"
           image={images.buy.publicURL}
           title={t("services.buy.title")}
           description={t("services.buy.description")}
         />
         <Service
-          to="properties/buy"
+          to="/properties/buy"
           image={images.sell.publicURL}
           title={t("services.sell.title")}
           description={t("services.sell.description")}
         />
         <Service
-          to="properties/rent"
+          to="/properties/rent"
           image={images.rent.publicURL}
           title={t("services.rent.title")}
           description={t("services.rent.description")}

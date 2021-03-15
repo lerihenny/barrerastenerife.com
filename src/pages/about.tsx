@@ -256,14 +256,14 @@ const AboutPage: React.FC<PageProps> = () => {
           <Grid container spacing={2} justify="center" alignItems="stretch">
             <Service
               circle
-              to="#"
+              to="/about#"
               image={images.time.childImageSharp.fluid}
               title={t("about.time.p1")}
               description={[t("about.time.p2"), t("about.time.p3")]}
             />
             <Service
               circle
-              to="#"
+              to="/about#"
               image={images.languages.childImageSharp.fluid}
               title={t("about.comunication.p1")}
               description={[
@@ -273,7 +273,7 @@ const AboutPage: React.FC<PageProps> = () => {
             />
             <Service
               circle
-              to="#"
+              to="/about#"
               image={images.reviews.childImageSharp.fluid}
               title={t("about.rating.p1")}
               description={[t("about.rating.p2"), t("about.rating.p3")]}

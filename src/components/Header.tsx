@@ -39,6 +39,10 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
   const { languages, originalPath } = useI18next();
   const { t } = useTranslation();
 
+  const url = typeof window !== "undefined" ? window.location.href : "";
+  const test = url.split("/property/");
+  const params = test.length === 2 ? test[1] : "";
+
   const images = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "logo/logo-navbar.png" }) {
@@ -115,7 +119,7 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
         <ListItem className="languages-menu">
           {languages.map(lng => {
             return (
-              <Link key={lng} to={originalPath} language={lng}>
+              <Link key={lng} to={`${originalPath}${params}`} language={lng}>
                 <Img fixed={images[lng].childImageSharp.fixed} alt={lng} />
               </Link>
             );
@@ -142,7 +146,7 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
                 {languages.map(lng => {
                   return (
                     <ListItem key={lng}>
-                      <Link to={originalPath} language={lng}>
+                      <Link to={`${originalPath}${params}`} language={lng}>
                         <Img
                           fixed={images[lng].childImageSharp.fixed}
                           alt={lng}

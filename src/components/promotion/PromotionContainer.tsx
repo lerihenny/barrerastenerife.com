@@ -7,40 +7,50 @@ import Img from "gatsby-image";
 export const PromotionContainer = () => {
   const promotions = [
     {
-      id: 1,
-      type: "abama",
-      name: "Las Terrazas en Abama Resort",
-    },
-    {
-      id: 2,
+      id: "IB-AG330",
       type: "amarilla",
-      name: "Amarilla Gold",
+      name: "Amarilla Golf",
     },
     {
-      id: 3,
-      type: "atalayas",
-      name: "Las Atalayas de Abama",
-    },
-    {
-      id: 4,
+      id: "IB-VAG01",
       type: "green",
       name: "Green South Villas",
     },
     {
-      id: 5,
-      type: "jardines",
-      name: "Los Jardines de Abama",
-    },
-    {
-      id: 6,
+      id: "CIB-VIQ",
       type: "tejita",
       name: "La Tejita",
     },
-    {
-      id: 7,
-      type: "tenis",
-      name: "Villas del Tenis",
-    },
+    // {
+    //   id: "IB-EM290",
+    //   type: "medano",
+    //   name: "El Médano",
+    // },
+    // {
+    //   id: "CIB-ER240",
+    //   type: "roque",
+    //   name: "El Roque",
+    // },
+    // {
+    //   id: 1,
+    //   type: "abama",
+    //   name: "Las Terrazas en Abama Resort",
+    // },
+    // {
+    //   id: 3,
+    //   type: "atalayas",
+    //   name: "Las Atalayas de Abama",
+    // },
+    // {
+    //   id: 5,
+    //   type: "jardines",
+    //   name: "Los Jardines de Abama",
+    // },
+    // {
+    //   id: 7,
+    //   type: "tenis",
+    //   name: "Villas del Tenis",
+    // },
   ];
 
   const images = useStaticQuery(graphql`
@@ -94,6 +104,20 @@ export const PromotionContainer = () => {
           }
         }
       }
+      medano: file(relativePath: { eq: "promotions/tenis.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      roque: file(relativePath: { eq: "promotions/tenis.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
@@ -101,8 +125,8 @@ export const PromotionContainer = () => {
     <Container>
       <Grid container alignItems="center" justify="center">
         {promotions.map(promotion => (
-          <Grid item xs={12} sm={6} md={4}>
-            <Link to="#">
+          <Grid key={promotion.id} item xs={12} sm={6} md={4}>
+            <Link to={`/property/?id=${promotion.id}`}>
               <div className="promotion-container">
                 <div className="promotion-overlay" />
                 <Img

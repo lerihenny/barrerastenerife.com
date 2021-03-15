@@ -94,37 +94,37 @@ export const PropertiesSection = () => {
     <Container className="mt-10 mb-10">
       <Grid container spacing={5} justify="center">
         <HomePropertiesContainer
-          to="properties/buy"
+          to="/properties/buy"
           image={images.buy.childImageSharp.fluid}
           title={t("folders.buy.title")}
           description={t("folders.buy.description")}
         />
         <HomePropertiesContainer
-          to="properties/rent"
+          to="/properties/rent"
           image={images.rent.childImageSharp.fluid}
           title={t("folders.rent.title")}
           description={t("folders.rent.description")}
         />
         <HomePropertiesContainer
-          to="properties/invest"
+          to="/properties/invest"
           image={images.building.childImageSharp.fluid}
           title={t("folders.invest.title")}
           description={t("folders.invest.description")}
         />
         <HomePropertiesContainer
-          to="properties/local"
+          to="/properties/local"
           image={images.shop.childImageSharp.fluid}
           title={t("folders.local.title")}
           description={t("folders.local.description")}
         />
         <HomePropertiesContainer
-          to="promotion"
+          to="/promotion"
           image={images.promotion.childImageSharp.fluid}
           title={t("folders.promotion.title")}
           description={t("folders.promotion.description")}
         />
         <HomePropertiesContainer
-          to="about#services"
+          to="/about#services"
           image={images.services.childImageSharp.fluid}
           title={t("folders.services.title")}
           description={t("folders.services.description")}
