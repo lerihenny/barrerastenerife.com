@@ -120,10 +120,13 @@
 
     "services": {
       "title": "Our Services",
+      "mission": "Nuestra Misión",
 
       "p1": "BARRERAS ofrece una gama completa de servicios inmobiliarios. Nos especializamos en la venta de propiedades residenciales, turísticas, comerciales y rurales, así como en servicios de administración de propiedades.",
       "p2": "Sabemos que los clientes inmobiliarios quieren tratar con consultores que tengan conocimiento, experiencia, honestidad e integridad, y que estén comprometidos a lograr el mejor resultado posible para ellos.",
-      "p3": "Por encima de todo, quieren tratar con personas cercanas, por eso nos enfocamos absolutamente en crear una relación de confianza y respeto con todos nuestros clientes."
+      "p3": "Por encima de todo, quieren tratar con personas cercanas, por eso nos enfocamos absolutamente en crear una relación de confianza y respeto con todos nuestros clientes.",
+      "p4": "Para brindar un servicio excepcional y los mejores resultados posibles para cada cliente con el que trabajamos.",
+      "p5": "Nuestros valores están arraigados en la forma en que opera nuestro equipo, en las decisiones que tomamos y las acciones que emprendemos. Nuestros valores proporcionan la base de nuestro éxito."
     },
 
     "info": {

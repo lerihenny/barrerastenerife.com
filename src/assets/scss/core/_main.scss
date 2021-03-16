@@ -307,6 +307,36 @@ body {
     background: $secondary-color-gradient-background;
   }
 }
+
+.section-title-secondary {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 1.5em !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-weight: 300;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    margin: 10px auto;
+    width: 50%;
+    height: 3px;
+    background: $secondary-color-gradient-background;
+  }
+
+  &.left {
+    &:after {
+      left: 0;
+    }
+  }
+
+  &.right {
+    &:after {
+      right: 0;
+    }
+  }
+}
 .MuiFilledInput-inputMarginDense {
   padding-top: 14px !important;
   padding-bottom: 14px !important;
@@ -449,12 +479,21 @@ body {
 .about-content {
   font-size: 1.2rem;
   font-weight: 100;
-  padding: 50px 0;
+  padding: 0 0 3em;
+
   ul {
     li {
       font-size: 1rem;
       line-height: 2;
     }
+  }
+}
+.about-section {
+  margin-top: 10em;
+  margin-bottom: 10em;
+  &--small {
+    margin-top: 4em;
+    margin-bottom: 6em;
   }
 }
 .service-container {
@@ -531,9 +570,6 @@ body {
 .team-section {
   margin-top: 20px !important;
   margin-bottom: 20px !important;
-}
-.team-card {
-  margin: 2em;
 }
 .team-image {
   height: 300px;

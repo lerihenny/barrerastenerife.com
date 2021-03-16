@@ -16,18 +16,14 @@ import {
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { Banner } from "../components/Banner";
 import { Service } from "../components/Service";
+import AboutBanner from "../components/about/AboutBanner";
+import TeamSection from "../components/about/TeamSection";
+import ServicesSection from "../components/about/ServicesSection";
 
 const AboutPage: React.FC<PageProps> = () => {
   const images = useStaticQuery(graphql`
     query {
-      banner: file(relativePath: { eq: "bg/7.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1366) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      founder: file(relativePath: { eq: "team/founder2.jpg" }) {
+      founder: file(relativePath: { eq: "team/founder.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -55,73 +51,17 @@ const AboutPage: React.FC<PageProps> = () => {
           }
         }
       }
-      service: file(relativePath: { eq: "bg/7.jpg" }) {
+      mission: file(relativePath: { eq: "mission.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      gian: file(relativePath: { eq: "team/gian.jpeg" }) {
+      service: file(relativePath: { eq: "team.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
+          fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      irina: file(relativePath: { eq: "team/irina.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      maryna: file(relativePath: { eq: "team/maryna.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      es: file(relativePath: { eq: "flags/sp.jpg" }) {
-        childImageSharp {
-          fixed(height: 20) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      en: file(relativePath: { eq: "flags/uk.jpg" }) {
-        childImageSharp {
-          fixed(height: 20) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      fr: file(relativePath: { eq: "flags/fr.jpg" }) {
-        childImageSharp {
-          fixed(height: 20) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      it: file(relativePath: { eq: "flags/it.jpg" }) {
-        childImageSharp {
-          fixed(height: 20) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      de: file(relativePath: { eq: "flags/de.jpg" }) {
-        childImageSharp {
-          fixed(height: 20) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      ru: file(relativePath: { eq: "flags/ru.jpg" }) {
-        childImageSharp {
-          fixed(height: 20) {
-            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -130,128 +70,20 @@ const AboutPage: React.FC<PageProps> = () => {
 
   const { t } = useTranslation();
 
-  const Team = ({
-    image,
-    name,
-    phone,
-    languages,
-  }: {
-    image: FluidObject;
-    name: string;
-    phone: string;
-    languages: string[];
-  }) => {
-    return (
-      <Grid item xs={9} sm={3}>
-        <Card className="team-card">
-          <div className="team-image">
-            <Img
-              fluid={image}
-              alt={name}
-              className="img-responsive crop-center"
-            />
-          </div>
-          <CardContent className="team-container text-center">
-            <p className="team-name">{name}</p>
-            <hr />
-            <p className="team-position">{phone}</p>
-            <div className="team-flags">
-              {languages.includes("es") && (
-                <Img fixed={images.es.childImageSharp.fixed} alt="es" />
-              )}
-              {languages.includes("en") && (
-                <Img fixed={images.en.childImageSharp.fixed} alt="en" />
-              )}
-              {languages.includes("fr") && (
-                <Img fixed={images.fr.childImageSharp.fixed} alt="fr" />
-              )}
-              {languages.includes("it") && (
-                <Img fixed={images.it.childImageSharp.fixed} alt="it" />
-              )}
-              {languages.includes("de") && (
-                <Img fixed={images.de.childImageSharp.fixed} alt="de" />
-              )}
-              {languages.includes("ru") && (
-                <Img fixed={images.ru.childImageSharp.fixed} alt="ru" />
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      </Grid>
-    );
-  };
-
-  const ServiceBox = ({ title, text }: { title: string; text: string }) => {
-    return (
-      <Grid item xs={12} sm={6} md={4}>
-        <Card className="service-card">
-          <CardContent>
-            <Typography component="p" variant="h5" className="text-uppercase">
-              {title}
-            </Typography>
-            <hr />
-            {text}
-          </CardContent>
-        </Card>
-      </Grid>
-    );
-  };
-
   return (
     <Layout>
       <SEO title={t("header.link.about")} />
+      <AboutBanner />
 
-      <div className="about-container">
-        <div className="about-overlay" />
-        <Img
-          fluid={images.banner.childImageSharp.fluid}
-          className="about-image crop-center"
-        />
-        <div className="about-text">
-          <Container maxWidth="md">
-            <Typography variant="h3" gutterBottom>
-              {t("about.banner.p1")}
-            </Typography>
-            <Typography variant="h4" gutterBottom>
-              {t("about.banner.p2")}
-            </Typography>
-          </Container>
-        </div>
-      </div>
-
-      <Container>
-        <Grid
-          container
-          spacing={2}
-          className="about-content"
-          justify="center"
-          alignItems="flex-end"
-        >
-          <Grid item xs={12} sm={6}>
-            <Img
-              fluid={images.founder.childImageSharp.fluid}
-              alt=""
-              className="img-responsive about-image"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <div className="about-title mb-5">
-              <h1>{t("about.title")}</h1>
-              <h3>{t("about.subtitle")}</h3>
-            </div>
-            <Typography gutterBottom>{t("about.p1")}</Typography>
-            <Typography gutterBottom>{t("about.p2")}</Typography>
-          </Grid>
-          <Grid xs={12} style={{ padding: "8px" }}>
-            <Typography gutterBottom>{t("about.p3")}</Typography>
-            <Typography gutterBottom>{t("about.p4")}</Typography>
-            <Typography gutterBottom>{t("about.p5")}</Typography>
-          </Grid>
-        </Grid>
+      <Container className="text-center about-section--small">
+        <Typography variant="h4" component="p" className="section-title">
+          {t("about.title")}
+        </Typography>
+        <Typography gutterBottom>{t("about.p1")}</Typography>
+        <Typography gutterBottom>{t("about.p2")}</Typography>
       </Container>
 
-      {/* <Hidden smDown> */}
-      <Banner image={images.banner.childImageSharp.fluid}>
+      <Banner image={images.service.childImageSharp.fluid}>
         <Container>
           <Grid container spacing={2} justify="center" alignItems="stretch">
             <Service
@@ -281,88 +113,83 @@ const AboutPage: React.FC<PageProps> = () => {
           </Grid>
         </Container>
       </Banner>
-      {/* </Hidden> */}
 
-      <Container className="text-center">
-        <Grid container justify="center" className="team-section text-center">
-          <Grid item xs={12}>
-            <Typography variant="h4" component="p" className="section-title">
-              {t("about.team")}
-            </Typography>
+      <TeamSection />
+
+      <Container>
+        <Grid container justify="space-around" className="about-section">
+          <Grid item xs={12} sm={6}>
+            <Img
+              fluid={images.founder.childImageSharp.fluid}
+              alt=""
+              className="img-responsive about-image"
+            />
           </Grid>
-          <Team
-            image={images.gian.childImageSharp.fluid}
-            name="Giambattista Guala"
-            phone="+34 638 418 917"
-            languages={["es", "en", "fr", "it"]}
-          />
-          <Team
-            image={images.maryna.childImageSharp.fluid}
-            name="Maryna Bohush"
-            phone="+34 671 616 456"
-            languages={["es", "en", "it", "ru"]}
-          />
-          <Team
-            image={images.irina.childImageSharp.fluid}
-            name="Irina Elistratova"
-            phone="+34 653 414 149"
-            languages={["es", "en", "de", "it", "ru"]}
-          />
+          <Grid item xs={12} sm={4}>
+            <Typography
+              variant="h4"
+              component="p"
+              className="section-title-secondary left"
+            >
+              {t("header.link.about")}
+            </Typography>
+            <Typography gutterBottom>{t("about.p3")}</Typography>
+            <Typography gutterBottom>{t("about.p4")}</Typography>
+            <Typography gutterBottom>{t("about.p5")}</Typography>
+          </Grid>
         </Grid>
 
-        <Typography
-          id="services"
-          variant="h4"
-          component="p"
-          className="section-title"
+        <Grid
+          container
+          justify="space-around"
+          className="text-right reverse-xs about-section"
         >
-          {t("about.services.title")}
-        </Typography>
+          <Grid item xs={12} sm={4}>
+            <Typography
+              variant="h4"
+              component="p"
+              className="section-title-secondary right"
+            >
+              {t("about.services.mission")}
+            </Typography>
+            <Typography gutterBottom>{t("about.services.p4")}</Typography>
+            <Typography gutterBottom>{t("about.services.p5")}</Typography>
+          </Grid>
 
-        <Grid container spacing={5} alignItems="center">
-          <Grid item xs={12} sm={5}>
+          <Grid item xs={12} sm={6}>
+            <Img
+              fluid={images.mission.childImageSharp.fluid}
+              alt=""
+              className="img-responsive about-image"
+            />
+          </Grid>
+        </Grid>
+
+        <Grid container justify="space-around" className="about-section">
+          <Grid item xs={12} sm={6}>
             <Img
               fluid={images.service.childImageSharp.fluid}
               alt=""
               className="img-responsive about-image"
             />
           </Grid>
-          <Grid item xs={12} sm={7}>
-            <Typography gutterBottom align="left">
-              {t("about.services.p1")}
+          <Grid item xs={12} sm={4}>
+            <Typography
+              id="services"
+              variant="h4"
+              component="p"
+              className="section-title-secondary left"
+            >
+              {t("about.services.title")}
             </Typography>
-            <Typography gutterBottom align="left">
-              {t("about.services.p2")}
-            </Typography>
-            <Typography gutterBottom align="left">
-              {t("about.services.p3")}
-            </Typography>
+            <Typography gutterBottom>{t("about.services.p1")}</Typography>
+            <Typography gutterBottom>{t("about.services.p2")}</Typography>
+            <Typography gutterBottom>{t("about.services.p3")}</Typography>
           </Grid>
         </Grid>
-
-        <Grid container spacing={5} justify="center" className="about-content">
-          <ServiceBox
-            title={t("about.info.title")}
-            text={t("about.info.description")}
-          />
-          <ServiceBox
-            title={t("about.consulting.title")}
-            text={t("about.consulting.description")}
-          />
-          <ServiceBox
-            title={t("about.investment.title")}
-            text={t("about.investment.description")}
-          />
-          <ServiceBox
-            title={t("about.attention.title")}
-            text={t("about.attention.description")}
-          />
-          <ServiceBox
-            title={t("about.quality.title")}
-            text={t("about.quality.description")}
-          />
-        </Grid>
       </Container>
+
+      <ServicesSection />
     </Layout>
   );
 };

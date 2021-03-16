@@ -116,3 +116,8 @@
 .color-white {
   color: white !important;
 }
+.reverse-xs {
+  @media (max-width: 960px) {
+    flex-wrap: wrap-reverse !important;
+  }
+}
