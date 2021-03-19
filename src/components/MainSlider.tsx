@@ -31,6 +31,13 @@ const MainSlider: React.FC = () => {
           }
         }
       }
+      image4: file(relativePath: { eq: "bg/8.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1366) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
@@ -104,9 +111,9 @@ const MainSlider: React.FC = () => {
       <ImageGallery
         items={[
           {
-            original: data.image1.childImageSharp.fluid.src,
-            srcSet: data.image1.childImageSharp.fluid.srcSet,
-            sizes: data.image1.childImageSharp.fluid.sizes,
+            original: data.image4.childImageSharp.fluid.src,
+            srcSet: data.image4.childImageSharp.fluid.srcSet,
+            sizes: data.image4.childImageSharp.fluid.sizes,
           },
           // {
           //   original: data.image2.childImageSharp.fluid.src,

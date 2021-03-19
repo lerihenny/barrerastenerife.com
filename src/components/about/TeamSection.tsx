@@ -93,14 +93,10 @@ const TeamSection = () => {
     languages: string[];
   }) => {
     return (
-      <Grid item xs={12} sm={3}>
-        <Card>
+      <Grid item xs={12} sm={4}>
+        <Card className="team-card">
           <div className="team-image">
-            <Img
-              fluid={image}
-              alt={name}
-              className="img-responsive crop-center"
-            />
+            <Img fluid={image} alt={name} className="img-responsive crop-top" />
           </div>
           <CardContent className="team-container text-center">
             <p className="team-name">{name}</p>

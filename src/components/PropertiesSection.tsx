@@ -45,28 +45,28 @@ export const PropertiesSection = () => {
   const { t } = useTranslation();
   const images = useStaticQuery(graphql`
     query {
-      buy: file(relativePath: { eq: "properties/buy.jpeg" }) {
+      buy: file(relativePath: { eq: "services/buy.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      rent: file(relativePath: { eq: "properties/rent.jpg" }) {
+      rent: file(relativePath: { eq: "services/rent.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      building: file(relativePath: { eq: "properties/building.jpg" }) {
+      invest: file(relativePath: { eq: "services/invest.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      shop: file(relativePath: { eq: "properties/shop.jpg" }) {
+      local: file(relativePath: { eq: "services/local.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -107,13 +107,13 @@ export const PropertiesSection = () => {
         />
         <HomePropertiesContainer
           to="/properties/invest"
-          image={images.building.childImageSharp.fluid}
+          image={images.invest.childImageSharp.fluid}
           title={t("folders.invest.title")}
           description={t("folders.invest.description")}
         />
         <HomePropertiesContainer
           to="/properties/local"
-          image={images.shop.childImageSharp.fluid}
+          image={images.local.childImageSharp.fluid}
           title={t("folders.local.title")}
           description={t("folders.local.description")}
         />

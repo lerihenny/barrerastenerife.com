@@ -571,8 +571,15 @@ body {
   margin-top: 20px !important;
   margin-bottom: 20px !important;
 }
+.team-card {
+  margin: 1em 6em;
+}
 .team-image {
-  height: 300px;
+  height: 250px;
+
+  @media (max-width: 960px) {
+    height: 300px;
+  }
 }
 .team-name {
   margin: 0;
@@ -904,6 +911,8 @@ body {
     h3,
     h4 {
       font-family: "Source Sans Pro", sans-serif !important;
+    }
+    h3 {
       font-weight: bold !important;
     }
   }

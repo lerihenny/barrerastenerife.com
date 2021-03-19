@@ -13,7 +13,7 @@ export const PromotionContainer = () => {
     },
     {
       id: "IB-VAG01",
-      type: "green",
+      type: "greensouth",
       name: "Green South Villas",
     },
     {
@@ -32,6 +32,11 @@ export const PromotionContainer = () => {
     //   name: "El Roque",
     // },
     // {
+    //   id: 'IB-AR810',
+    //   type: "jardines",
+    //   name: "Los Jardines de Abama",
+    // },
+    // {
     //   id: 1,
     //   type: "abama",
     //   name: "Las Terrazas en Abama Resort",
@@ -40,11 +45,6 @@ export const PromotionContainer = () => {
     //   id: 3,
     //   type: "atalayas",
     //   name: "Las Atalayas de Abama",
-    // },
-    // {
-    //   id: 5,
-    //   type: "jardines",
-    //   name: "Los Jardines de Abama",
     // },
     // {
     //   id: 7,
@@ -76,7 +76,7 @@ export const PromotionContainer = () => {
           }
         }
       }
-      green: file(relativePath: { eq: "promotions/green.jpg" }) {
+      greensouth: file(relativePath: { eq: "promotions/green.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -126,7 +126,7 @@ export const PromotionContainer = () => {
       <Grid container alignItems="center" justify="center">
         {promotions.map(promotion => (
           <Grid key={promotion.id} item xs={12} sm={6} md={4}>
-            <Link to={`/property/?id=${promotion.id}`}>
+            <Link to={`/property/list/?id=${promotion.id}`}>
               <div className="promotion-container">
                 <div className="promotion-overlay" />
                 <Img
