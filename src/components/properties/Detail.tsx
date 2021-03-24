@@ -13,10 +13,10 @@ import RoomIcon from "@material-ui/icons/Room";
 import ImageGallery from "react-image-gallery";
 import PropertyFooter from "./PropertyFooter";
 import { formatPrice } from "../../utils";
-import MapView from "../maps/MapView";
-import { Property } from "../../models/Property";
+import MapView from "components/maps/MapView";
+import { Property } from "models/Property";
 import { I18nextContext, useTranslation } from "gatsby-plugin-react-i18next";
-import Form from "../contact/Form";
+import Form from "components/contact/Form";
 import List from "./List";
 
 const Detail = ({ property }: { property: Property | undefined }) => {

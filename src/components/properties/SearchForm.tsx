@@ -10,9 +10,9 @@ import {
   TextField,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import Select from "../Select";
+import Select from "components/Select";
 import * as constants from "../../constants";
-import { Search } from "../../models/Search";
+import { Search } from "models/Search";
 import { formatPrice } from "../../utils";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 

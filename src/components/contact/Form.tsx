@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Grid, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import Field from "./Field";
 import { sendMail } from "../../utils";
 import { useTranslation } from "gatsby-plugin-react-i18next";
@@ -24,7 +24,7 @@ const Form: FC<FormProps> = ({ fullWidth = false, id }) => {
 
   const handleMail = () => {
     if (state.name !== "" && state.email !== "" && state.message !== "") {
-      console.log({
+      sendMail({
         ...state,
         message: id
           ? `Identificador de la propiedad: ${id}\n\n`

@@ -1,13 +1,13 @@
 import React from "react";
 import { graphql, PageProps, useStaticQuery } from "gatsby";
-import { Container, Hidden, Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import MainSlider from "../components/MainSlider";
-import { Banner } from "../components/Banner";
-import { ServicesSection } from "../components/ServicesSection";
-import { PropertiesSection } from "../components/PropertiesSection";
+import Layout from "components/Layout";
+import SEO from "components/SEO";
+import MainSlider from "components/MainSlider";
+import { Banner } from "components/Banner";
+import { ServicesSection } from "components/ServicesSection";
+import { PropertiesSection } from "components/PropertiesSection";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import Slider from "react-slick";
 

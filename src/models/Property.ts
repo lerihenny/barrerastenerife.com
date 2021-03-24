@@ -1,5 +1,3 @@
-import { ReactImageGalleryItem } from "react-image-gallery";
-
 export type Property = {
   id: number;
   identifier: string;

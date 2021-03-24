@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Button, Container, Grid } from "@material-ui/core";
 import { QueryStatus, useQuery } from "react-query";
-import { Search } from "../../models/Search";
+import { Search } from "models/Search";
 import { getPropertyList } from "../../utils";
 import List from "./List";
 import SearchForm from "./SearchForm";

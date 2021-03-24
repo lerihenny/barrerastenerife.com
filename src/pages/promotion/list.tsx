@@ -1,9 +1,9 @@
 import React from "react";
 import { PageProps } from "gatsby";
-import Layout from "../../components/Layout";
-import SEO from "../../components/SEO";
+import Layout from "components/Layout";
+import SEO from "components/SEO";
 import { useTranslation } from "gatsby-plugin-react-i18next";
-import { Properties } from "../../components/properties/Properties";
+import { Properties } from "components/properties/Properties";
 
 const NewPropertiesList: React.FC<PageProps> = ({ location }) => {
   const { t } = useTranslation();

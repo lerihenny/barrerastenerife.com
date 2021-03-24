@@ -3,8 +3,8 @@ import { Button, Grid } from "@material-ui/core";
 import { PageProps, navigate } from "gatsby";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Layout from "components/Layout";
+import SEO from "components/SEO";
 
 const NotFoundPage: React.FC<PageProps> = () => (
   <Layout>

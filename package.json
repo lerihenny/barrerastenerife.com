@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.0",
+    "gatsby-plugin-root-import": "^2.0.6",
     "prettier": "2.1.2"
   },
   "keywords": [

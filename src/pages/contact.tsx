@@ -1,15 +1,15 @@
 import React from "react";
 import { graphql, PageProps, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Layout from "components/Layout";
+import SEO from "components/SEO";
 import { Grid } from "@material-ui/core";
 import RoomIcon from "@material-ui/icons/Room";
 import PhoneIcon from "@material-ui/icons/Phone";
 import EmailIcon from "@material-ui/icons/Email";
-import Block from "../components/contact/Block";
-import Form from "../components/contact/Form";
-import MapView from "../components/maps/MapView";
+import Block from "components/contact/Block";
+import Form from "components/contact/Form";
+import MapView from "components/maps/MapView";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const ContactPage: React.FC<PageProps> = () => {

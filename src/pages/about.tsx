@@ -1,24 +1,17 @@
 import React from "react";
 import { PageProps } from "gatsby";
-import Img, { FluidObject } from "gatsby-image";
+import Img from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import {
-  Card,
-  CardContent,
-  Container,
-  Grid,
-  Hidden,
-  Typography,
-} from "@material-ui/core";
+import Layout from "components/Layout";
+import SEO from "components/SEO";
+import { Container, Grid, Typography } from "@material-ui/core";
 import { useTranslation } from "gatsby-plugin-react-i18next";
-import { Banner } from "../components/Banner";
-import { Service } from "../components/Service";
-import AboutBanner from "../components/about/AboutBanner";
-import TeamSection from "../components/about/TeamSection";
-import ServicesSection from "../components/about/ServicesSection";
+import { Banner } from "components/Banner";
+import { Service } from "components/Service";
+import AboutBanner from "components/about/AboutBanner";
+import TeamSection from "components/about/TeamSection";
+import ServicesSection from "components/about/ServicesSection";
 
 const AboutPage: React.FC<PageProps> = () => {
   const images = useStaticQuery(graphql`

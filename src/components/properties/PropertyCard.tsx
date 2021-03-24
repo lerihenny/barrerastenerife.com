@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "@material-ui/core";
 import PropertyDescription from "./PropertyDescription";
 import PropertyFooter from "./PropertyFooter";
-import { Property } from "../../models/Property";
+import { Property } from "models/Property";
 import { Link } from "gatsby-plugin-react-i18next";
 
 interface Props {

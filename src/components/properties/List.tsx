@@ -5,7 +5,7 @@ import {
   Container,
   Typography,
 } from "@material-ui/core";
-import { Property } from "../../models/Property";
+import { Property } from "models/Property";
 import PropertyCard from "./PropertyCard";
 import { QueryStatus } from "react-query";
 
