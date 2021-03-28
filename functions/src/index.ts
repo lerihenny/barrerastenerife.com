@@ -47,7 +47,11 @@ const fetchProperties = async (params: any) => {
   const urlParams = new URLSearchParams();
 
   for (const [key, value] of Object.entries<string>(params)) {
-    urlParams.append(key, value);
+    if (Array.isArray(value)) {
+      value.map(item => urlParams.append(key, item));
+    } else {
+      urlParams.append(key, value);
+    }
   }
 
   const url = `${functions.config().witei.url}?${urlParams.toString()}`;

@@ -3,65 +3,11 @@ import { Container, Grid, Typography } from "@material-ui/core";
 import { graphql, useStaticQuery } from "gatsby";
 import { Link } from "gatsby-plugin-react-i18next";
 import Img from "gatsby-image";
+import { promotions } from "../../constants";
 
 export const PromotionContainer = () => {
-  const promotions = [
-    {
-      id: "IB-AG330",
-      type: "amarilla",
-      name: "Amarilla Golf",
-    },
-    {
-      id: "IB-VAG01",
-      type: "greensouth",
-      name: "Green South Villas",
-    },
-    {
-      id: "CIB-VIQ",
-      type: "tejita",
-      name: "La Tejita",
-    },
-    // {
-    //   id: "IB-EM290",
-    //   type: "medano",
-    //   name: "El Médano",
-    // },
-    // {
-    //   id: "CIB-ER240",
-    //   type: "roque",
-    //   name: "El Roque",
-    // },
-    // {
-    //   id: 'IB-AR810',
-    //   type: "jardines",
-    //   name: "Los Jardines de Abama",
-    // },
-    // {
-    //   id: 1,
-    //   type: "abama",
-    //   name: "Las Terrazas en Abama Resort",
-    // },
-    // {
-    //   id: 3,
-    //   type: "atalayas",
-    //   name: "Las Atalayas de Abama",
-    // },
-    // {
-    //   id: 7,
-    //   type: "tenis",
-    //   name: "Villas del Tenis",
-    // },
-  ];
-
   const images = useStaticQuery(graphql`
     query {
-      abama: file(relativePath: { eq: "promotions/abama.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       amarilla: file(relativePath: { eq: "promotions/amarilla.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
@@ -69,21 +15,7 @@ export const PromotionContainer = () => {
           }
         }
       }
-      atalayas: file(relativePath: { eq: "promotions/atalayas.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      greensouth: file(relativePath: { eq: "promotions/green.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      jardines: file(relativePath: { eq: "promotions/jardines.jpg" }) {
+      sanblas: file(relativePath: { eq: "promotions/amarilla.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -97,21 +29,56 @@ export const PromotionContainer = () => {
           }
         }
       }
-      tenis: file(relativePath: { eq: "promotions/tenis.jpg" }) {
+      medano: file(relativePath: { eq: "promotions/medano.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      medano: file(relativePath: { eq: "promotions/tenis.jpg" }) {
+      abrigos: file(relativePath: { eq: "promotions/amarilla.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      roque: file(relativePath: { eq: "promotions/tenis.jpg" }) {
+      adeje: file(relativePath: { eq: "promotions/adeje.webp" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      abama: file(relativePath: { eq: "promotions/abama.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      sanjuan: file(relativePath: { eq: "promotions/sanjuan.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      isora: file(relativePath: { eq: "promotions/isora.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      saneugenio: file(relativePath: { eq: "promotions/amarilla.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      puerto: file(relativePath: { eq: "promotions/amarilla.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -125,8 +92,8 @@ export const PromotionContainer = () => {
     <Container>
       <Grid container alignItems="center" justify="center">
         {promotions.map(promotion => (
-          <Grid key={promotion.id} item xs={12} sm={6} md={4}>
-            <Link to={`/property/list/?id=${promotion.id}`}>
+          <Grid key={promotion.type} item xs={12} sm={6} md={4}>
+            <Link to={`/promotion/list/?tag=${promotion.type}`}>
               <div className="promotion-container">
                 <div className="promotion-overlay" />
                 <Img

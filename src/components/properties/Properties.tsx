@@ -42,10 +42,6 @@ export const Properties: FC<Props> = ({
     page,
   });
 
-  if (!search && tags.length > 0) {
-    setFilter({});
-  }
-
   const {
     status,
     data,
@@ -53,7 +49,7 @@ export const Properties: FC<Props> = ({
     status: QueryStatus;
     data: any;
   } = useQuery(["properties", [page, filter]], () =>
-    getPropertyList({ page, ...filter })
+    getPropertyList({ page, tags: tags.length > 0 ? tags : [], ...filter })
   );
 
   const handleNext = () => {
@@ -77,7 +73,9 @@ export const Properties: FC<Props> = ({
           setPage={setPage}
         />
       )}
+
       <List properties={data?.data?.results} status={status} title={title} />
+
       {pagination && (
         <Grid container spacing={2}>
           <Grid item xs={12} className="text-center">

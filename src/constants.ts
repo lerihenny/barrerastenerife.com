@@ -850,3 +850,50 @@ export const tags = [
   // { value: "wooden structure", name: "" },
   // { value: "wooden windows", name: "" },
 ];
+
+export const promotions = [
+  {
+    type: "amarilla",
+    name: "Amarilla Golf",
+  },
+  // {
+  //   type: "sanblas",
+  //   name: "San Blas",
+  // },
+  {
+    type: "tejita",
+    name: "La Tejita",
+  },
+  {
+    type: "medano",
+    name: "El Médano",
+  },
+  // {
+  //   type: "abrigos",
+  //   name: "Los Abrigos",
+  // },
+  {
+    type: "adeje",
+    name: "Adeje",
+  },
+  {
+    type: "abama",
+    name: "Abama",
+  },
+  {
+    type: "sanjuan",
+    name: "Playa San Juan",
+  },
+  {
+    type: "isora",
+    name: "Guía de Isora",
+  },
+  // {
+  //   type: "saneugenio",
+  //   name: "San Eugenio Alto",
+  // },
+  // {
+  //   type: "puerto",
+  //   name: "Puerto de la Cruz",
+  // },
+];
