@@ -10,6 +10,7 @@ import { ServicesSection } from "components/ServicesSection";
 import { PropertiesSection } from "components/PropertiesSection";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import Slider from "react-slick";
+import Partnerships from "components/Partnerships";
 
 const IndexPage: React.FC<PageProps> = () => {
   const { t } = useTranslation();
@@ -53,6 +54,9 @@ const IndexPage: React.FC<PageProps> = () => {
       </Banner>
 
       <PropertiesSection />
+
+      {/* <Partnerships /> */}
+
       <Banner size="medium" image={images.background2.childImageSharp.fluid}>
         <Container>
           <Slider
