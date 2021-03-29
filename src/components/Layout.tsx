@@ -17,6 +17,7 @@ import Footer from "./Footer";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 interface Props {
   children: any;
@@ -48,12 +49,14 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <CustomThemeProvider>
       <QueryClientProvider client={queryClient}>
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <Container maxWidth={false} className="main-container">
-          {children}
-          <WhatsAppButton />
-        </Container>
-        <Footer />
+        <ParallaxProvider>
+          <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+          <Container maxWidth={false} className="main-container">
+            {children}
+            <WhatsAppButton />
+          </Container>
+          <Footer />
+        </ParallaxProvider>
       </QueryClientProvider>
     </CustomThemeProvider>
   );

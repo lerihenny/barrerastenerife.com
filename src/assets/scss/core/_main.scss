@@ -158,18 +158,18 @@ body {
 
     .main-slider {
       // height: calc(100vh - 94px);
-      // max-height: 650px;
-      height: 650px;
+      // max-height: 450px;
+      height: 450px !important;
       position: relative;
 
       @media (max-width: 960px) {
-        height: calc(100vh - 94px);
+        height: 80vh !important;
       }
     }
 
     .image-gallery-slide .image-gallery-image {
       width: 100% !important;
-      height: 650px !important;
+      height: 450px !important;
       object-fit: cover !important;
       object-position: center !important;
     }
@@ -264,10 +264,10 @@ body {
 
     .main-slider-property-data > h2 {
       font-family: "Monsieur La Doulaise", cursive !important;
-      font-size: 4.5em;
+      font-size: 4.8em;
       bottom: 2em;
       right: 2em;
-      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
       // background: $secondary-color-gradient-text;
       // background-clip: text;
       // -webkit-background-clip: text;
@@ -751,28 +751,35 @@ body {
   }
 
   &.banner-small {
-    height: 100px;
+    height: 100px !important;
   }
   &.banner-medium {
-    height: 200px;
+    height: 200px !important;
   }
   &.banner-large {
-    height: 400px;
+    height: 400px !important;
   }
 
   @media (max-width: 960px) {
     position: relative;
-    padding-top: 2em;
-    padding-bottom: 2em;
+
+    &.mobile-padding {
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
 
     &.banner-small {
-      height: fit-content;
+      height: fit-content !important;
     }
     &.banner-medium {
-      height: fit-content;
+      height: fit-content !important;
     }
     &.banner-large {
-      height: fit-content;
+      height: fit-content !important;
+    }
+
+    .parallax-outer > .parallax-inner > div {
+      background-image: none !important;
     }
   }
 }
@@ -888,6 +895,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  height: 500px !important;
 
   .about-overlay {
     z-index: 1;

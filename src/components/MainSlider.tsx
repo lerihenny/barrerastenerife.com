@@ -5,42 +5,14 @@ import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
 import * as constants from "../constants";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import ImageGallery from "react-image-gallery";
+import { ParallaxBanner } from "react-scroll-parallax";
 
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
-      image1: file(relativePath: { eq: "properties/property5.jpg" }) {
+      image: file(relativePath: { eq: "bg/9.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1366) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      image2: file(relativePath: { eq: "properties/property3.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1366) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      image3: file(relativePath: { eq: "properties/property4.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1366) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      image4: file(relativePath: { eq: "bg/8.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1366) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      image5: file(relativePath: { eq: "bg/9.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1366) {
+          fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -114,42 +86,17 @@ const MainSlider: React.FC = () => {
   };
 
   return (
-    <section className="main-slider">
-      <ImageGallery
-        items={[
-          {
-            original: data.image5.childImageSharp.fluid.src,
-            srcSet: data.image5.childImageSharp.fluid.srcSet,
-            sizes: data.image5.childImageSharp.fluid.sizes,
-          },
-          // {
-          //   original: data.image2.childImageSharp.fluid.src,
-          //   srcSet: data.image2.childImageSharp.fluid.srcSet,
-          //   sizes: data.image2.childImageSharp.fluid.sizes,
-          // },
-          // {
-          //   original: data.image3.childImageSharp.fluid.src,
-          //   srcSet: data.image3.childImageSharp.fluid.srcSet,
-          //   sizes: data.image3.childImageSharp.fluid.sizes,
-          // },
-        ]}
-        slideInterval={7000}
-        autoPlay={true}
-        lazyLoad={true}
-        showNav={false}
-        showFullscreenButton={false}
-        showPlayButton={false}
-        showThumbnails={false}
-        disableKeyDown={true}
-        disableSwipe={true}
-      />
+    <ParallaxBanner
+      className="main-slider"
+      layers={[{ image: data.image.childImageSharp.fluid.src, amount: 0.3 }]}
+    >
       <Container className="main-slider-container">
         <Hidden xsDown>
           <SearchForm />
         </Hidden>
         <PropertyData />
       </Container>
-    </section>
+    </ParallaxBanner>
   );
 };
 

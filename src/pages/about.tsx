@@ -58,6 +58,13 @@ const AboutPage: React.FC<PageProps> = () => {
           }
         }
       }
+      banner: file(relativePath: { eq: "properties/property3.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1366) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
@@ -76,7 +83,7 @@ const AboutPage: React.FC<PageProps> = () => {
         <Typography gutterBottom>{t("about.p2")}</Typography>
       </Container>
 
-      <Banner image={images.service.childImageSharp.fluid}>
+      <Banner image={images.banner.childImageSharp.fluid}>
         <Container>
           <Grid container spacing={2} justify="center" alignItems="stretch">
             <Service
