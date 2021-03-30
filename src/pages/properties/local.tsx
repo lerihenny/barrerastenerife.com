@@ -12,7 +12,11 @@ const BuyProperties: React.FC<PageProps> = () => {
   return (
     <Layout>
       <SEO title={title} />
-      <Properties kind="shop" disableKind title={t("header.link.local")} />
+      <Properties
+        search={false}
+        title={t("header.link.local")}
+        tags={["commercial"]}
+      />
     </Layout>
   );
 };

@@ -29,7 +29,7 @@ export const Banner: FC<Props> = ({
         {image ? (
           <ParallaxBanner
             className={`banner-container banner-${size}`}
-            layers={[{ image: image.src, amount: 0.8 }]}
+            layers={[{ image: image.src, amount: 0.4 }]}
           >
             <div
               className={`mobile-padding banner-container banner-${size} ${

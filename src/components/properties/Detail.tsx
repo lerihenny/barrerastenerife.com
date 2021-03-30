@@ -56,11 +56,15 @@ const Detail = ({ property }: { property: Property | undefined }) => {
             <Card className="mb-5">
               <CardContent>
                 <Typography variant="h3">
-                  {formatPrice(
+                  {`${
+                    property.tags.includes("promocion" || "promotion")
+                      ? t("properties.from")
+                      : ""
+                  } ${formatPrice(
                     property.selling
                       ? property.selling_cost
                       : property.renting_cost
-                  )}
+                  )}`}
                 </Typography>
                 <Typography color="textSecondary" className="flex-row mt-3">
                   <RoomIcon className="mr-3" />

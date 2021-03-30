@@ -61,6 +61,9 @@
   "partnerships": "Aliados",
 
   "testimonials": {
+    "title": "Customer Testimonials",
+    "subtitle": "What our customers say about us.",
+
     "t1": "Muy buena atención y profesionalidad por parte de Marina. Nos ha guiado y nos ha ayudado en todo el proceso de compraventa de la vivienda. Ahora somos propietarios y aún estamos en contacto. Recomendados 100%.",
     "t2": "Muchas gracias a las chicas Irina y a Marina en ayudar a resolver mi problema en pocos dias. Son profesionales de verdad, saben trabajar y cuidan los detalles. Me quede impresionada por su atencion. Les recomiendo altamente. Agradezco tambien a Giambatista, a su compañero que juntos los tres hacen un gran trabajo.",
     "t3": "Muy buena atención por parte de Inmobiliaria Barreras. Gian, es un excelente profesional, siempre dispuesto a ayudarte en todo momento y con un trato cercano y efectivo. Gracias a él alquilé mi piso rápidamente. Sin duda, volveré a repetir en el futuro."
@@ -89,7 +92,8 @@
     "area": "Пространство",
     "bedrooms": "Спальные комнаты",
     "bathrooms": "Ванные комнаты",
-    "tags": "Дополнительные фильтры"
+    "tags": "Дополнительные фильтры",
+    "from": "From"
   },
 
   "about": {
