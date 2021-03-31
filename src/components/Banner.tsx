@@ -7,7 +7,7 @@ type Props = {
   color?: boolean;
   image?: FluidObject;
   children?: any;
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | "xlarge";
 };
 
 export const Banner: FC<Props> = ({

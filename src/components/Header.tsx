@@ -80,12 +80,20 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
           }
         }
       }
+      it: file(relativePath: { eq: "flags/it.jpg" }) {
+        childImageSharp {
+          fixed(height: 20) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `);
 
   const linkList = [
     { to: "/properties/buy", text: t("header.link.buy") },
     { to: "/properties/rent", text: t("header.link.rent") },
+    { to: "/about#services", text: t("folders.services.title") },
     { to: "/about", text: t("header.link.about") },
     { to: "/contact", text: t("header.link.contact") },
   ];

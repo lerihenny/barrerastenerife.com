@@ -723,15 +723,15 @@ body {
   &.banner-large {
     height: 400px;
   }
+  &.banner-xlarge {
+    height: 500px;
+  }
 
   @media (max-width: 960px) {
-    &.banner-small {
-      height: fit-content;
-    }
-    &.banner-medium {
-      height: fit-content;
-    }
-    &.banner-large {
+    &.banner-small,
+    &.banner-medium,
+    &.banner-large,
+    &.banner-xlarge {
       height: fit-content;
     }
   }
@@ -759,6 +759,9 @@ body {
   &.banner-large {
     height: 400px !important;
   }
+  &.banner-xlarge {
+    height: 500px !important;
+  }
 
   @media (max-width: 960px) {
     position: relative;
@@ -775,6 +778,9 @@ body {
       height: fit-content !important;
     }
     &.banner-large {
+      height: fit-content !important;
+    }
+    &.banner-xlarge {
       height: fit-content !important;
     }
 
@@ -952,6 +958,7 @@ body {
   .testimonial-box {
     margin: 0 1em;
     padding: 3em 2em;
+    min-width: 20%;
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
     color: #0c0c0c;

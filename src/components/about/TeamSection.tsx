@@ -15,7 +15,7 @@ const TeamSection = () => {
 
   const images = useStaticQuery(graphql`
     query {
-      gian: file(relativePath: { eq: "team/gian.jpeg" }) {
+      gian: file(relativePath: { eq: "team/gian.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid
@@ -29,7 +29,7 @@ const TeamSection = () => {
           }
         }
       }
-      maryna: file(relativePath: { eq: "team/maryna.jpeg" }) {
+      maryna: file(relativePath: { eq: "team/maryna.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid

@@ -58,14 +58,14 @@
     "more": "Ver Más"
   },
 
-  "partnerships": "Aliados",
+  "partnerships": "Colaboramos con",
 
   "testimonials": {
     "title": "Testimonios de clientes",
     "subtitle": "Lo que nuestros clientes dicen de nosotros.",
 
     "t1": "Muy buena atención y profesionalidad por parte de Marina. Nos ha guiado y nos ha ayudado en todo el proceso de compraventa de la vivienda. Ahora somos propietarios y aún estamos en contacto. Recomendados 100%.",
-    "t2": "Muchas gracias a las chicas Irina y a Marina en ayudar a resolver mi problema en pocos dias. Son profesionales de verdad, saben trabajar y cuidan los detalles. Me quede impresionada por su atencion. Les recomiendo altamente. Agradezco tambien a Giambatista, a su compañero que juntos los tres hacen un gran trabajo.",
+    "t2": "Utilicé sus servicios para la compra de una propiedad (vivienda principal) en Tenerife y no podría estar mas feliz con lo fluído que fué todo el proceso. Irina fué muy amigable, comprensiva y lo más importante nunca invasiva! La comunicación es fantástica en Español e Inglés. Con su ayuda y consejos, lo que era un proceso muy estresante se convirtió en fácil y llevadero. Recomendaría altamente esta agencia a cualquiera que esté buscando comprar/vender una propiedad en Tenerife.",
     "t3": "Muy buena atención por parte de Inmobiliaria Barreras. Gian, es un excelente profesional, siempre dispuesto a ayudarte en todo momento y con un trato cercano y efectivo. Gracias a él alquilé mi piso rápidamente. Sin duda, volveré a repetir en el futuro."
   },
 
@@ -185,7 +185,7 @@
   "constants": {
     "fields": {
       "type": "Tipo",
-      "contract": "Contrato",
+      "contract": "Operación",
       "zone": "Zona",
       "sort_by": "Ordenar por",
       "bedrooms": "Habitaciones",

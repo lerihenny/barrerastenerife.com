@@ -19,7 +19,7 @@ const Testimonials = () => {
   `);
 
   return (
-    <Banner size="large" image={images.background.childImageSharp.fluid}>
+    <Banner size="xlarge" image={images.background.childImageSharp.fluid}>
       <Container>
         <div className="testimonial-container">
           <div className="testimonial-description">
@@ -51,7 +51,7 @@ const Testimonials = () => {
               variant="body1"
               className="testimonial-name text-center"
             >
-              Natalia Ujf
+              Zerin Rustem-Allen
             </Typography>
             <Typography
               variant="body2"

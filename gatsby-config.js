@@ -69,7 +69,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         path: `${__dirname}/src/locales`,
-        languages: [`es`, `en`, `ru`],
+        languages: [`es`, `en`, `ru`, `it`],
         defaultLanguage: `es`,
 
         // you can pass any i18next options
