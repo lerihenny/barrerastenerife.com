@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
       <Grid container spacing={5}>
         <Grid item xs={12} sm={3}>
           <Link to="/">
-            <Img fixed={data.placeholderImage.childImageSharp.fixed} />
+            <Img fixed={data.logo.childImageSharp.fixed} />
           </Link>
           <div className="mt-5">
             <p>Av. Los Abrigos, 32.</p>

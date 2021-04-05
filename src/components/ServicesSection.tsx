@@ -30,13 +30,13 @@ export const ServicesSection = () => {
           description={t("services.buy.description")}
         />
         <Service
-          to="/properties/buy"
+          to="/contact"
           image={images.sell.publicURL}
           title={t("services.sell.title")}
           description={t("services.sell.description")}
         />
         <Service
-          to="/properties/rent"
+          to="/contact"
           image={images.rent.publicURL}
           title={t("services.rent.title")}
           description={t("services.rent.description")}

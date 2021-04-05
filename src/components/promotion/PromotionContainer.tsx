@@ -43,7 +43,7 @@ export const PromotionContainer = () => {
           }
         }
       }
-      adeje: file(relativePath: { eq: "promotions/adeje.webp" }) {
+      adeje: file(relativePath: { eq: "promotions/adeje.png" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
