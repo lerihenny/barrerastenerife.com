@@ -980,3 +980,27 @@ body {
     }
   }
 }
+.dropdown {
+  .dropdown-list {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    top: 40px;
+    left: 0;
+    background: $primary-color-gradient-background-2;
+    width: max-content;
+  }
+
+  &:hover {
+    .dropdown-list {
+      display: flex;
+    }
+  }
+}
+
+.service-page {
+  padding-bottom: 2em;
+  p {
+    margin-bottom: 0.5em;
+  }
+}

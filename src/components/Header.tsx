@@ -8,12 +8,14 @@ import {
   IconButton,
   List,
   ListItem,
+  Menu,
+  MenuItem,
   Slide,
   SwipeableDrawer,
   Toolbar,
   useScrollTrigger,
 } from "@material-ui/core";
-import Menu from "@material-ui/icons/Menu";
+import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 
 interface Props {
@@ -93,7 +95,23 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
   const linkList = [
     { to: "/properties/buy", text: t("header.link.buy") },
     { to: "/properties/rent", text: t("header.link.rent") },
-    { to: "/about#services", text: t("folders.services.title") },
+    {
+      to: "/about#services",
+      text: t("folders.services.title"),
+      sub: [
+        { to: "/services/manage", text: t("header.link.services.manage") },
+        {
+          to: "/services/assistance",
+          text: t("header.link.services.assistance"),
+        },
+        { to: "/services/caser", text: t("header.link.services.caser") },
+        { to: "/services/tyco", text: t("header.link.services.tyco") },
+        {
+          to: "/services/iberdrola",
+          text: t("header.link.services.iberdrola"),
+        },
+      ],
+    },
     { to: "/about", text: t("header.link.about") },
     { to: "/contact", text: t("header.link.contact") },
   ];
@@ -179,10 +197,20 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
                     key={`${link.text
                       .toLowerCase()
                       .replace(" ", "-")}-${index}`}
+                    className={link.sub ? "dropdown" : ""}
                   >
                     <Link to={link.to} activeClassName="active">
                       {link.text}
                     </Link>
+                    {link.sub && (
+                      <List className="dropdown-list">
+                        {link.sub.map(sub => (
+                          <Link to={sub.to} activeClassName="active">
+                            <ListItem button>{sub.text}</ListItem>
+                          </Link>
+                        ))}
+                      </List>
+                    )}
                   </ListItem>
                 ))}
               </List>
@@ -194,7 +222,7 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
                 onClick={toggleDrawer(true)}
                 classes={{ root: "color-white" }}
               >
-                <Menu />
+                <MenuIcon />
               </IconButton>
               <SwipeableDrawer
                 open={isDrawerOpen}
