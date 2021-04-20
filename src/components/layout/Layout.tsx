@@ -9,7 +9,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import { Container } from "@material-ui/core";
-import CustomThemeProvider from "./theme/CustomThemeProvider";
+import CustomThemeProvider from "../theme/CustomThemeProvider";
 import "assets/scss/custom-theme.scss";
 
 import Header from "./Header";
@@ -33,7 +33,7 @@ const WhatsAppButton = () => {
   );
 };
 
-const Layout: React.FC<Props> = ({ children }) => {
+export const Layout: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -61,5 +61,3 @@ const Layout: React.FC<Props> = ({ children }) => {
     </CustomThemeProvider>
   );
 };
-
-export default Layout;

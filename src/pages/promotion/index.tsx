@@ -1,6 +1,6 @@
 import React from "react";
 import { PageProps } from "gatsby";
-import Layout from "components/Layout";
+import Layout from "components/layout";
 import SEO from "components/SEO";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { PromotionContainer } from "components/promotion/PromotionContainer";

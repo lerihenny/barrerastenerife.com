@@ -4,7 +4,7 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import LatestProperties from "./LatestProperties";
+import LatestProperties from "components/LatestProperties";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const Footer: React.FC = () => {

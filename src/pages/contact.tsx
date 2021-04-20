@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, PageProps, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import Layout from "components/Layout";
+import Layout from "components/layout";
 import SEO from "components/SEO";
 import { Grid } from "@material-ui/core";
 import RoomIcon from "@material-ui/icons/Room";

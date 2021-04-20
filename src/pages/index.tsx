@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, PageProps, useStaticQuery } from "gatsby";
 import { Container, Typography } from "@material-ui/core";
 
-import Layout from "components/Layout";
+import Layout from "components/layout";
 import SEO from "components/SEO";
 import MainSlider from "components/MainSlider";
 

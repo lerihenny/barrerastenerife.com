@@ -3,7 +3,7 @@ import { PageProps } from "gatsby";
 import Img from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 
-import Layout from "components/Layout";
+import Layout from "components/layout";
 import SEO from "components/SEO";
 import { Container, Grid, Typography } from "@material-ui/core";
 import { useTranslation } from "gatsby-plugin-react-i18next";

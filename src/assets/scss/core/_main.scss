@@ -386,7 +386,8 @@ body {
 }
 .side-menu {
   background: $primary-color-gradient-background-2;
-  height: 100%;
+  flex: 1;
+  height: fit-content;
 
   &--list {
     display: flex;
@@ -1003,4 +1004,12 @@ body {
   p {
     margin-bottom: 0.5em;
   }
+}
+
+.navbar-services-dropdown {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  color: white !important;
+  border-bottom: 1px solid $color-light-gray-3 !important;
 }
