@@ -23,7 +23,7 @@ const LatestProperties = () => {
       )}
       {status === "success" &&
         data?.data?.results.slice(0, 4).map((property: Property) => (
-          <Grid key={`latest-properties-${property.id}`} item xs={3}>
+          <Grid key={`latest-properties-${property.id}`} item xs={6} md={3}>
             <Link to={`/property/?id=${property.identifier}`}>
               <img
                 src={property?.pictures?.[0]}

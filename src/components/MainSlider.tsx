@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Button, Container, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
@@ -10,7 +10,7 @@ import { ParallaxBanner } from "react-scroll-parallax";
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "bg/9.jpg" }) {
+      image: file(relativePath: { eq: "properties/property5.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid
@@ -23,7 +23,7 @@ const MainSlider: React.FC = () => {
   const SearchForm = () => {
     const { t, navigate } = useI18next();
 
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
       types: 0,
       contract: 0,
       zones: 0,
