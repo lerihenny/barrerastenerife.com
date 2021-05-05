@@ -7,38 +7,42 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const partners = [
   {
-    image: "logo",
-    name: "Barreras Tenerife",
-    url: "https://barrerastenerife.com",
+    image: "tyco",
+    name: "TYCO/ADT",
+    url: "https://adt.com.es/",
   },
   {
-    image: "logo",
-    name: "Barreras Tenerife",
-    url: "https://barrerastenerife.com",
+    image: "caser",
+    name: "CASER",
+    url: "https://www.caser.es/",
   },
   {
-    image: "logo",
-    name: "Barreras Tenerife",
-    url: "https://barrerastenerife.com",
-  },
-  {
-    image: "logo",
-    name: "Barreras Tenerife",
-    url: "https://barrerastenerife.com",
-  },
-  {
-    image: "logo",
-    name: "Barreras Tenerife",
-    url: "https://barrerastenerife.com",
+    image: "iberdrola",
+    name: "IBERDROLA",
+    url: "https://www.iberdrola.es/",
   },
 ];
 
 const Partnerships = () => {
   const images = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { eq: "logo/logo-navbar-2.png" }) {
+      tyco: file(relativePath: { eq: "services/tyco.jpeg" }) {
         childImageSharp {
-          fixed(height: 70) {
+          fixed(height: 150) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      caser: file(relativePath: { eq: "services/caser.jpg" }) {
+        childImageSharp {
+          fixed(height: 150) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      iberdrola: file(relativePath: { eq: "services/iberdrola.jpg" }) {
+        childImageSharp {
+          fixed(height: 150) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -57,9 +61,9 @@ const Partnerships = () => {
         <Slider
           infinite={true}
           speed={500}
-          slidesToShow={4}
+          slidesToShow={3}
           slidesToScroll={1}
-          autoplay={true}
+          autoplay={false}
           arrows={false}
           autoplaySpeed={5000}
         >

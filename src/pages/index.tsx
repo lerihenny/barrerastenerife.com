@@ -49,7 +49,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
       <PropertiesSection />
 
-      {/* <Partnerships /> */}
+      <Partnerships />
 
       <Testimonials />
     </Layout>
