@@ -1,73 +1,30 @@
-import React from "react";
-import { PageProps } from "gatsby";
-import Img from "gatsby-image";
-import { graphql, useStaticQuery } from "gatsby";
-
-import Layout from "components/layout";
-import SEO from "components/SEO";
 import { Container, Grid, Typography } from "@material-ui/core";
-import { useTranslation } from "gatsby-plugin-react-i18next";
-import { Banner } from "components/Banner";
-import { Service } from "components/Service";
+
 import AboutBanner from "components/about/AboutBanner";
-import TeamSection from "components/about/TeamSection";
+import { Banner } from "components/Banner";
+import Img from "gatsby-image";
+import Layout from "components/layout";
+import { PageProps } from "gatsby";
+import React from "react";
+import SEO from "components/SEO";
+import { Service } from "components/Service";
 import ServicesSection from "components/about/ServicesSection";
+import TeamSection from "components/about/TeamSection";
+import { graphql } from "gatsby";
+import { useTranslation } from "hooks/useTranslation";
 
-const AboutPage: React.FC<PageProps> = () => {
-  const images = useStaticQuery(graphql`
-    query {
-      founder: file(relativePath: { eq: "team/founder.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      time: file(relativePath: { eq: "time.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      languages: file(relativePath: { eq: "languages.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      reviews: file(relativePath: { eq: "reviews.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      mission: file(relativePath: { eq: "mission.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      service: file(relativePath: { eq: "team.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      banner: file(relativePath: { eq: "properties/property3.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1366) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+//TODO: Get image type
+type AboutPageProps = {
+  founder: any;
+  time: any;
+  languages: any;
+  reviews: any;
+  mission: any;
+  service: any;
+  banner: any;
+};
 
+const AboutPage: React.FC<PageProps<AboutPageProps>> = ({ data }) => {
   const { t } = useTranslation();
 
   return (
@@ -83,20 +40,20 @@ const AboutPage: React.FC<PageProps> = () => {
         <Typography gutterBottom>{t("about.p2")}</Typography>
       </Container>
 
-      <Banner image={images.banner.childImageSharp.fluid}>
+      <Banner image={data.banner.childImageSharp.fluid}>
         <Container>
           <Grid container spacing={2} justify="center" alignItems="stretch">
             <Service
               circle
               to="/about#"
-              image={images.time.childImageSharp.fluid}
+              image={data.time.childImageSharp.fluid}
               title={t("about.time.p1")}
               description={[t("about.time.p2"), t("about.time.p3")]}
             />
             <Service
               circle
               to="/about#"
-              image={images.languages.childImageSharp.fluid}
+              image={data.languages.childImageSharp.fluid}
               title={t("about.comunication.p1")}
               description={[
                 t("about.comunication.p2"),
@@ -106,7 +63,7 @@ const AboutPage: React.FC<PageProps> = () => {
             <Service
               circle
               to="/about#"
-              image={images.reviews.childImageSharp.fluid}
+              image={data.reviews.childImageSharp.fluid}
               title={t("about.rating.p1")}
               description={[t("about.rating.p2"), t("about.rating.p3")]}
             />
@@ -120,7 +77,7 @@ const AboutPage: React.FC<PageProps> = () => {
         <Grid container justify="space-around" className="about-section">
           <Grid item xs={12} sm={6}>
             <Img
-              fluid={images.founder.childImageSharp.fluid}
+              fluid={data.founder.childImageSharp.fluid}
               alt=""
               className="img-responsive about-image"
             />
@@ -158,7 +115,7 @@ const AboutPage: React.FC<PageProps> = () => {
 
           <Grid item xs={12} sm={6}>
             <Img
-              fluid={images.mission.childImageSharp.fluid}
+              fluid={data.mission.childImageSharp.fluid}
               alt=""
               className="img-responsive about-image"
             />
@@ -168,7 +125,7 @@ const AboutPage: React.FC<PageProps> = () => {
         <Grid container justify="space-around" className="about-section">
           <Grid item xs={12} sm={6}>
             <Img
-              fluid={images.service.childImageSharp.fluid}
+              fluid={data.service.childImageSharp.fluid}
               alt=""
               className="img-responsive about-image"
             />
@@ -195,3 +152,65 @@ const AboutPage: React.FC<PageProps> = () => {
 };
 
 export default AboutPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          data
+          language
+        }
+      }
+    }
+    founder: file(relativePath: { eq: "team/founder.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    time: file(relativePath: { eq: "time.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    languages: file(relativePath: { eq: "languages.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    reviews: file(relativePath: { eq: "reviews.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    mission: file(relativePath: { eq: "mission.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    service: file(relativePath: { eq: "team.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    banner: file(relativePath: { eq: "properties/property3.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1366) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

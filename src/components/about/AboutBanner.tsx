@@ -1,8 +1,9 @@
-import React from "react";
 import { Container, Typography } from "@material-ui/core";
-import { useStaticQuery, graphql } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import { graphql, useStaticQuery } from "gatsby";
+
 import { ParallaxBanner } from "react-scroll-parallax";
+import React from "react";
+import { useTranslation } from "hooks/useTranslation";
 
 const AboutBanner = () => {
   const { t } = useTranslation();
@@ -22,7 +23,12 @@ const AboutBanner = () => {
   return (
     <ParallaxBanner
       className="about-container"
-      layers={[{ image: image.banner.childImageSharp.fluid.src, amount: 0.5 }]}
+      layers={[
+        {
+          image: image.banner.childImageSharp.fluid.src,
+          speed: -20,
+        },
+      ]}
     >
       <div className="about-overlay" />
       <div className="about-text">

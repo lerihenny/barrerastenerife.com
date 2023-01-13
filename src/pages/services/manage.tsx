@@ -1,26 +1,19 @@
-import React from "react";
-import { graphql, PageProps, useStaticQuery } from "gatsby";
-import Layout from "components/layout";
-import SEO from "components/SEO";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 import { Container, Grid, Typography } from "@material-ui/core";
-import Img from "gatsby-image";
+import { PageProps, graphql } from "gatsby";
 
-const Manage: React.FC<PageProps> = () => {
+import Img from "gatsby-image";
+import Layout from "components/layout";
+import React from "react";
+import SEO from "components/SEO";
+import { useTranslation } from "hooks/useTranslation";
+
+type ManagePageProps = {
+  service: any; // TODO: Get image type
+};
+
+const Manage: React.FC<PageProps<ManagePageProps>> = ({ data }) => {
   const { t } = useTranslation();
   const title = t("header.link.services.manage");
-
-  const image = useStaticQuery(graphql`
-    query {
-      service: file(relativePath: { eq: "services/manage.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
 
   return (
     <Layout>
@@ -80,7 +73,7 @@ const Manage: React.FC<PageProps> = () => {
             </ol>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Img fluid={image.service.childImageSharp.fluid} />
+            <Img fluid={data.service.childImageSharp.fluid} />
           </Grid>
         </Grid>
       </Container>
@@ -89,3 +82,23 @@ const Manage: React.FC<PageProps> = () => {
 };
 
 export default Manage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          data
+          language
+        }
+      }
+    }
+    service: file(relativePath: { eq: "services/manage.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

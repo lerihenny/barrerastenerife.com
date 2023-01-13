@@ -1,8 +1,9 @@
-import React from "react";
 import Layout from "components/layout";
-import SEO from "components/SEO";
 import { Properties } from "components/properties/Properties";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from "react";
+import SEO from "components/SEO";
+import { graphql } from "gatsby";
+import { useTranslation } from "hooks/useTranslation";
 
 type Props = {
   location: {
@@ -33,3 +34,16 @@ const SearchProperties: React.FC<Props> = ({ location }) => {
 };
 
 export default SearchProperties;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          data
+          language
+        }
+      }
+    }
+  }
+`;

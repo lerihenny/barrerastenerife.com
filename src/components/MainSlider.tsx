@@ -1,11 +1,14 @@
+import * as constants from "../constants";
+
+import { Button, Container, Hidden } from "@material-ui/core";
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Button, Container, Hidden } from "@material-ui/core";
+
+import { ParallaxBanner } from "react-scroll-parallax";
 import SearchIcon from "@material-ui/icons/Search";
 import Select from "./Select";
-import * as constants from "../constants";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import { ParallaxBanner } from "react-scroll-parallax";
+import { useTranslation } from "hooks/useTranslation";
 
 const MainSlider: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -21,7 +24,8 @@ const MainSlider: React.FC = () => {
   `);
 
   const SearchForm = () => {
-    const { t, navigate } = useI18next();
+    const { navigate } = useI18next();
+    const { t } = useTranslation();
 
     const [state, setState] = useState({
       types: 0,
@@ -88,9 +92,10 @@ const MainSlider: React.FC = () => {
   return (
     <ParallaxBanner
       className="main-slider"
-      layers={[{ image: data.image.childImageSharp.fluid.src, amount: 0.3 }]}
+      layers={[{ image: data.image.childImageSharp.fluid.src, speed: -20 }]}
     >
       <Container className="main-slider-container">
+        {/* @ts-ignore TODO: Fix react children type error */}
         <Hidden xsDown>
           <SearchForm />
         </Hidden>
