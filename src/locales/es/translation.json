@@ -19,6 +19,12 @@
         "caser": "Seguro Caser",
         "tyco": "Alarma TYCO",
         "iberdrola": "Energética Iberdrola"
+      },
+
+      "info": {
+        "title": "Info",
+        "buyers": "Compradores",
+        "sellers": "Vendedores"
       }
     }
   },
@@ -136,6 +142,7 @@
     "sell": "Propiedades en venta",
     "rent": "Propiedades en alquiler",
     "related": "Propiedades relacionadas",
+    "luxury": "Propiedades de lujo",
 
     "info": "Información básica",
     "description": "Descripción",

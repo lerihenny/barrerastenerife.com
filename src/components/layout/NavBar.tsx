@@ -1,6 +1,5 @@
-import { Hidden, List, ListItem } from "@material-ui/core";
+import { Hidden, List, ListItem} from "@material-ui/core";
 import React, { FC } from "react";
-
 import { Link } from "gatsby-plugin-react-i18next";
 
 type Props = {
@@ -13,6 +12,7 @@ type Props = {
     }[];
   }[];
 };
+
 
 const NavBar: FC<Props> = ({ linkList }) => {
   return (

@@ -71,25 +71,45 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
   `);
 
   const linkList = [
-    { to: "/properties/buy", text: t("header.link.buy") },
-    { to: "/properties/rent", text: t("header.link.rent") },
+    { to: "/", text: t("home") },
+    { 
+      to: "/properties/buy", 
+      text: t("header.link.buy"),
+      sub: [
+        { to: "/buy/luxury", text: t("properties.luxury") },
+        { to: "/buy/newpromotion", text: t("header.link.promotion") },
+        { to: "/properties/buy", text: t("properties.title") }
+      ],
+    },
+    { 
+      to: "/properties/rent", 
+      text: t("header.link.rent"),
+      sub: [
+        { to: "/rent/luxury", text: t("properties.luxury") },
+        { to: "/properties/rent", text: t("properties.title") }
+      ]
+    },
     {
       to: "/about#services",
       text: t("folders.services.title"),
       sub: [
         { to: "/services/manage", text: t("header.link.services.manage") },
-        {
-          to: "/services/assistance",
-          text: t("header.link.services.assistance"),
-        },
+        { to: "/services/assistance", text: t("header.link.services.assistance"),},
         { to: "/services/caser", text: t("header.link.services.caser") },
         { to: "/services/tyco", text: t("header.link.services.tyco") },
-        {
-          to: "/services/iberdrola",
-          text: t("header.link.services.iberdrola"),
-        },
+        { to: "/services/iberdrola", text: t("header.link.services.iberdrola"),},
       ],
     },
+
+    { 
+      to: "#", 
+      text: t("header.link.info.title"),
+      sub: [
+        { to: "/info/buyers", text: t("header.link.info.buyers") },
+        { to: "/info/sellers", text: t("header.link.info.sellers") }
+      ]
+    },
+
     { to: "/about", text: t("header.link.about") },
     { to: "/contact", text: t("header.link.contact") },
   ];
@@ -100,8 +120,8 @@ const Header: React.FC<Props> = ({ siteTitle = "", ...rest }) => {
     <HideOnScroll {...rest}>
       <AppBar position="fixed">
         <ContactNavBar params={params} images={images} />
-
-        <Container className="mt-3 mb-3">
+        
+        <Container className="mt-3 mb-3"  maxWidth="xl">
           <Toolbar disableGutters>
             <Link to="/" className="logo-link" aria-label="go to home">
               {logo && <GatsbyImage image={logo} alt={siteTitle} />}
