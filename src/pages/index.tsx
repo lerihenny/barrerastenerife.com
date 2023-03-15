@@ -10,6 +10,7 @@ import React from "react";
 import SEO from "components/SEO";
 import { ServicesSection } from "components/ServicesSection";
 import Testimonials from "components/testimonials/Testimonials";
+import ExpertRepresentation from "components/ExpertRepresentation";
 import { useTranslation } from "hooks/useTranslation";
 
 type IndexPageProps = {
@@ -23,17 +24,19 @@ const IndexPage: React.FC<PageProps<IndexPageProps>> = ({ data }) => {
     <Layout>
       <SEO title={t("home")} />
       <MainSlider />
-      <Banner size="medium" color={false}>
-        <Container>
+      <Banner size="small" color={false} background='grey-background'>
+        <Container >
           <Typography
-            variant="h5"
-            className="text-uppercase source-font"
+            variant="h4"
+            className="text-uppercase super-title"
             align="center"
           >
             {t("about.welcome")}
           </Typography>
         </Container>
       </Banner>
+
+      <ExpertRepresentation/>
 
       <Banner image={data.background1}>
         <ServicesSection />

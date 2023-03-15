@@ -2,8 +2,22 @@ html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body {
-  font-size: 1rem;
+@font-face {
+  font-family: 'gt-super-regular';
+  src: url('assets/fonts/GT-Super/GT-Super-Display-Regular.woff2') format('truetype');
+}
+@font-face {
+  font-family: 'gt-super-bold';
+  src: url('assets/fonts/GT-Super/GT-Super-Display-Bold.woff2') format('truetype');
+}
+@font-face {
+  font-family: 'gt-super-super-italic';
+  src: url('assets/fonts/GT-Super/GT-Super-Display-Super-Italic.woff2') format('truetype');
+}
+body, p {
+  font-size: 0.9rem;
+  font-family: 'gt-super-regular', sans-serif;
+  text-align: justify;
 }
 body,
 h1,
@@ -13,7 +27,8 @@ h4,
 h5,
 h6,
 p {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  //font-family: 'gt-super-regular', sans-serif;
+  //font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   // font-family: "Source Sans Pro", sans-serif !important;
   font-weight: 300;
   line-height: 1.5em;
@@ -40,12 +55,24 @@ a {
   //   color: $color-primary-4;
   // }
 }
+
 p {
   font-size: 1rem;
 }
 .source-font {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
+
+.title-font-family {
+  font-family: 'gt-super-bold', sans-serif !important;
+  color: #1db1b8 !important;
+}
+
+.super-title {
+  font-family: 'gt-super-super-italic', sans-serif !important;
+  color: #1db1b8 !important;
+}
+
 body {
   // background-color: $color-light-gray-1;
   background-color: $color-white !important;
@@ -53,10 +80,10 @@ body {
   text-align: left;
 
   header {
-    background: $primary-color;
+    background: $header-color !important;
 
     .contact-bar {
-      background-color: $color-white;
+      background-color: $contact-bar-color;
       color: $color-black;
 
       li {
@@ -148,7 +175,7 @@ body {
 
   .main-container {
     position: relative;
-    margin-top: 135px;
+    //margin-top: 135px;
     padding-left: 0;
     padding-right: 0;
     min-height: calc(100vh - 92px - 52px);
@@ -160,7 +187,7 @@ body {
     .main-slider {
       // height: calc(100vh - 94px);
       // max-height: 450px;
-      height: 450px !important;
+      height: 750px !important;
       position: relative;
 
       @media (max-width: 960px) {
@@ -1012,4 +1039,55 @@ body {
   align-items: center !important;
   color: white !important;
   border-bottom: 1px solid $color-light-gray-3 !important;
+}
+
+//-----------------------LAMV----
+
+.center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.w-70 {
+  width: 70% !important;
+}
+
+.btn-barrera { 
+  background-color: #1db1b8 !important;
+  color: white !important;
+  width: 100%;
+  font-family: 'gt-super-bold' !important;
+  text-transform: capitalize !important;
+  border-radius: 0px !important;
+}
+
+.btn-barrera:hover { 
+  background-color: white !important;
+  color: #1db1b8 !important;
+  border: 1px solid;
+  border-color: #1db1b8;
+  width: 100%;
+}
+
+.divider {
+  position: relative;
+  width: 25%;
+  //display: inline-block;
+  z-index: 3;
+  border-top: 2px solid;
+  margin-top: 0px;
+  top: 5px;
+  height: 10px;
+  transition: all .75s ease-in-out;
+  color: #f1d437;
+}
+
+.circle-img {
+  border-radius: 100% !important;
+  border: 4px solid #edd530;
+}
+
+.grey-background {
+  background-color: #8080801f;
 }

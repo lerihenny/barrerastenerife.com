@@ -9,6 +9,7 @@ type Props = {
   color?: boolean;
   image?: ImageDataLike;
   children?: any;
+  background?: any;
   size?: "small" | "medium" | "large" | "xlarge";
 };
 
@@ -17,15 +18,14 @@ export const Banner: FC<Props> = ({
   image,
   children,
   size = "large",
+  background,
 }) => {
   const bannerImage = image && getImage(image);
 
   return (
     <Grid
       container
-      className={`banner-root banner-${size} ${
-        color ? "banner-primary-color" : ""
-      }`}
+      className={`banner-root banner-${size} ${color ? "banner-primary-color" : ""} ${background ? background : ""}`}
       justifyContent="center"
       alignItems="center"
     >
