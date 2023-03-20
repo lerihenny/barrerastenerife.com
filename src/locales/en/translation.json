@@ -362,5 +362,12 @@
       "swimming_pool": "Swimimng pool",
       "terrace": "Terrace"
     }
+  },
+
+  "expertRepresentation": {
+    "title": "REPRESENTACIÒN DE EXPERTOS",
+    "p1": "Lorem ipsum dolor sit amet. At consequatur corrupti ut repudiandae fugit ut voluptatem porro ut illo dolor. In pariatur dolores sed vero excepturi aut culpa repellendus aut alias dolor ut recusandae rerum in atque consequatur. Eos consequatur fugiat sed inventore animi quo quaerat dolores ea veritatis quidem. Sed repudiandae maiores qui ducimus porro aut expedita voluptatem aut molestiae dolorem aut doloremque iure id commodi laboriosam. Id voluptas quae rem culpa dolores qui quam odit non temporibus modi ex neque praesentium rem aliquam aliquid!",
+    "p2": "Lorem ipsum dolor sit amet. At consequatur corrupti ut repudiandae fugit ut voluptatem porro ut illo dolor. In pariatur dolores sed vero excepturi aut culpa repellendus aut alias dolor ut recusandae rerum in atque consequatur. Eos consequatur fugiat sed inventore animi quo quaerat dolores ea veritatis quidem. Sed repudiandae maiores qui ducimus porro aut expedita voluptatem aut molestiae dolorem aut doloremque iure id commodi laboriosam. Id voluptas quae rem culpa dolores qui quam odit non temporibus modi ex neque praesentium rem aliquam aliquid!"
   }
+
 }
